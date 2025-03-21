@@ -13297,7 +13297,7 @@ Dependency-Locking</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=9d1486c0289b04f5"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=99fea7423213bd55"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="uv-Project-API---Grundlagen">uv Project API - Grundlagen<a class="anchor-link" href="#uv-Project-API---Grundlagen">¶</a></h1><ul>
@@ -13311,19 +13311,8 @@ Dependency-Locking</li>
 <div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span><span class="s2">"numpy&gt;=1.20.0"</span><span class="w"> </span><span class="s2">"pandas&gt;=1.3.0,&lt;2.0.0"</span>
 </pre></div>
 </li>
-<li><p><strong>Ohne Entwicklungsabhängigkeiten</strong>:</p>
-<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--no-dev<span class="w"> </span>my-program
-</pre></div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=50452122b7be0091"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Editable-Installationen-und-Workspaces">Editable Installationen und Workspaces<a class="anchor-link" href="#Editable-Installationen-und-Workspaces">¶</a></h1><ul>
-<li><strong>Editable Installation einer Abhängigkeit</strong>:<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--editable<span class="w"> </span>./my-local-package/
+<li><p><strong>Entwicklungsabhängigkeiten</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>pytest<span class="w"> </span>black
 </pre></div>
 </li>
 </ul>
@@ -13339,23 +13328,6 @@ Dependency-Locking</li>
 </li>
 <li>Package mit ausführbarem Skript<pre><code>uv init --package --app my-package
 </code></pre>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6e79bb07ea15abf2"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>Workspace-Konfiguration</strong> (pyproject.toml):<div class="highlight"><pre><span></span><span class="k">[project]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my-app-bundle"</span>
-<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"my-libraries"</span><span class="p">]</span>
-<span class="k">[tool.uv.sources]</span>
-<span class="n">my-libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">workspace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
-<span class="k">[tool.uv.workspace]</span>
-<span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"packages/*"</span><span class="p">]</span>
-</pre></div>
 </li>
 </ul>
 </div>
@@ -13444,6 +13416,34 @@ uv<span class="w"> </span>run<span class="w"> </span>--dev<span class="w"> </spa
 </li>
 <li><p><strong>Lock-Datei aktualisieren</strong>:</p>
 <div class="highlight"><pre><span></span>uv<span class="w"> </span>lock<span class="w"> </span>--refresh
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=50452122b7be0091"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Editable-Installationen-und-Workspaces">Editable Installationen und Workspaces<a class="anchor-link" href="#Editable-Installationen-und-Workspaces">¶</a></h1><ul>
+<li><strong>Editable Installation einer Abhängigkeit</strong>:<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--editable<span class="w"> </span>./my-local-package/
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6e79bb07ea15abf2"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>Workspace-Konfiguration</strong> (pyproject.toml):<div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my-app-bundle"</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"my-libraries"</span><span class="p">]</span>
+<span class="k">[tool.uv.sources]</span>
+<span class="n">my-libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">workspace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="k">[tool.uv.workspace]</span>
+<span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"packages/*"</span><span class="p">]</span>
 </pre></div>
 </li>
 </ul>

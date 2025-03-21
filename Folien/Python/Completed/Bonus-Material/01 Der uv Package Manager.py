@@ -112,18 +112,9 @@
 #   uv add "numpy>=1.20.0" "pandas>=1.3.0,<2.0.0"
 #   ```
 #
-# - **Ohne Entwicklungsabhängigkeiten**:
+# - **Entwicklungsabhängigkeiten**:
 #   ```bash
-#   uv add --no-dev my-program
-#   ```
-
-# %% [markdown]
-#
-# # Editable Installationen und Workspaces
-#
-# - **Editable Installation einer Abhängigkeit**:
-#   ```bash
-#   uv add --editable ./my-local-package/
+#   uv add --dev pytest black
 #   ```
 
 # %% [markdown]
@@ -138,19 +129,6 @@
 #   ```
 #   uv init --package --app my-package
 #   ````
-
-# %% [markdown]
-#
-# - **Workspace-Konfiguration** (pyproject.toml):
-#   ```toml
-#   [project]
-#   name = "my-app-bundle"
-#   dependencies = ["my-libraries"]
-#   [tool.uv.sources]
-#   my-libraries = { workspace = true }
-#   [tool.uv.workspace]
-#   members = ["packages/*"]
-#   ```
 
 # %% [markdown]
 #
@@ -237,6 +215,28 @@
 # - **Lock-Datei aktualisieren**:
 #   ```bash
 #   uv lock --refresh
+#   ```
+
+# %% [markdown]
+#
+# # Editable Installationen und Workspaces
+#
+# - **Editable Installation einer Abhängigkeit**:
+#   ```bash
+#   uv add --editable ./my-local-package/
+#   ```
+
+# %% [markdown]
+#
+# - **Workspace-Konfiguration** (pyproject.toml):
+#   ```toml
+#   [project]
+#   name = "my-app-bundle"
+#   dependencies = ["my-libraries"]
+#   [tool.uv.sources]
+#   my-libraries = { workspace = true }
+#   [tool.uv.workspace]
+#   members = ["packages/*"]
 #   ```
 
 # %% [markdown]
