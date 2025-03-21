@@ -86,6 +86,19 @@
 
 # %% [markdown]
 #
+# ## Installation von Python Versionen
+#
+# - Neueste Python version:
+#   ```bash
+#   uv python install
+#   ```
+# - Spezifische Version:
+#   ```bash
+#   uv python install 3.12
+#   ```
+
+# %% [markdown]
+#
 # # uv Project API - Grundlagen
 #
 # - Die moderne API für Python-Projekte mit pyproject.toml
@@ -99,9 +112,9 @@
 #   uv add "numpy>=1.20.0" "pandas>=1.3.0,<2.0.0"
 #   ```
 #
-# - **Entwicklungsabhängigkeiten hinzufügen**:
+# - **Ohne Entwicklungsabhängigkeiten**:
 #   ```bash
-#   uv add --dev pytest black
+#   uv add --no-dev my-program
 #   ```
 
 # %% [markdown]
@@ -112,6 +125,19 @@
 #   ```bash
 #   uv add --editable ./my-local-package/
 #   ```
+
+# %% [markdown]
+#
+# ## Neues Projekt mit uv erstellen
+#
+# - Einfaches Modul
+#   ```bash
+#   uv init my-project
+#   ```
+# - Package mit ausführbarem Skript
+#   ```
+#   uv init --package --app my-package
+#   ````
 
 # %% [markdown]
 #
@@ -156,47 +182,13 @@
 #
 # - **Installierte Tools ausführen**:
 #   ```bash
-#   uv run pytest
-#   uv run black .
-#   ```
-#
-# - **In dev-Umgebung mit optionalen Abhängigkeiten**:
-#   ```bash
 #   uv run --dev pytest
+#   uv run --dev black .
 #   ```
 #
 # - **Mit zusätzlichen Argumenten**:
 #   ```bash
 #   uv run pytest -xvs tests/
-#   ```
-
-# %% [markdown]
-#
-# # Neues Projekt mit uv erstellen
-#
-# - Projekt-Verzeichnis erstellen:
-#   ```bash
-#   mkdir mein-projekt && cd mein-projekt
-#   ```
-#
-# - Virtuelle Umgebung erstellen:
-#   ```bash
-#   uv venv
-#   ```
-#
-# - pyproject.toml erstellen:
-#   ```bash
-#   cat > pyproject.toml << EOF
-#   [build-system]
-#   requires = ["hatchling"]
-#   build-backend = "hatchling.build"
-#
-#   [project]
-#   name = "mein-paket"
-#   version = "0.1.0"
-#   description = "Ein Beispielprojekt"
-#   requires-python = ">=3.8"
-#   EOF
 #   ```
 
 # %% [markdown]
