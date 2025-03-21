@@ -101,20 +101,18 @@
 #
 # # uv Project API - Grundlagen
 #
-# - Die moderne API für Python-Projekte mit pyproject.toml
-# - **Abhängigkeiten hinzufügen**:
+# - Moderne API für Python-Projekte mit `pyproject.toml`
+# - Abhängigkeiten hinzufügen:
 #   ```bash
 #   uv add numpy pandas
 #   ```
-#
-# - **Mit Versionsbeschränkungen**:
+# - Entwicklungsabhängigkeiten hinzufügen:
 #   ```bash
-#   uv add "numpy>=1.20.0" "pandas>=1.3.0,<2.0.0"
+#   uv add --dev pytest black mypy
 #   ```
-#
-# - **Entwicklungsabhängigkeiten**:
+# - Ausführen der Tests
 #   ```bash
-#   uv add --dev pytest black
+#   uv run pytest
 #   ```
 
 # %% [markdown]
@@ -129,6 +127,26 @@
 #   ```
 #   uv init --package --app my-package
 #   ````
+
+# %% [markdown]
+#
+# # Projektabhängigkeiten mit Project API
+#
+# - **Hauptabhängigkeiten hinzufügen**:
+#   ```bash
+#   uv add numpy pandas matplotlib
+#   ```
+#
+# - **Entwicklungsabhängigkeiten hinzufügen**:
+#   ```bash
+#   uv add --dev pytest black mypy
+#   ```
+#
+# - **Mit Versionsbeschränkungen**:
+#   ```bash
+#   uv add "numpy>=1.20.0" "pandas>=1.3.0,<2.0.0"
+#   ```
+
 
 # %% [markdown]
 #
@@ -167,54 +185,6 @@
 # - **Mit zusätzlichen Argumenten**:
 #   ```bash
 #   uv run pytest -xvs tests/
-#   ```
-
-# %% [markdown]
-#
-# # Projektabhängigkeiten mit Project API
-#
-# - **Hauptabhängigkeiten hinzufügen**:
-#   ```bash
-#   uv add numpy pandas matplotlib
-#   ```
-#
-# - **Entwicklungsabhängigkeiten hinzufügen**:
-#   ```bash
-#   uv add --dev pytest black mypy
-#   ```
-#
-# - **Dependencies für eigenes Projekt installieren**:
-#   ```bash
-#   uv add --editable .
-#   ```
-#
-# - **Alle Abhängigkeiten synchronisieren**:
-#   ```bash
-#   uv sync --all
-#   ```
-
-# %% [markdown]
-#
-# # Dependency-Locking mit uv
-#
-# - **Lock-Datei erzeugen**:
-#   ```bash
-#   uv lock
-#   ```
-#
-# - **Lock-Datei mit Entwicklungsabhängigkeiten**:
-#   ```bash
-#   uv lock --all
-#   ```
-#
-# - **Abhängigkeiten aus Lock-Datei installieren**:
-#   ```bash
-#   uv sync --locked
-#   ```
-#
-# - **Lock-Datei aktualisieren**:
-#   ```bash
-#   uv lock --refresh
 #   ```
 
 # %% [markdown]
