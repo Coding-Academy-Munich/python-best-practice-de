@@ -130,3 +130,84 @@ library.find_book("Design Patterns")
 
 # %%
 print(library)
+
+
+# %%
+@dataclass
+class MemberCatalog:
+    members: list = field(default_factory=list)
+
+    def add_member(self, name: str, address: str, email: str):
+        member = Member(name, address, email)
+        self.members.append(member)
+
+    def find_member(self, name: str) -> Member | None:
+        for member in self.members:
+            if member.name == name:
+                return member
+        return None
+
+
+# %%
+class BookFactory:
+    def create_book(self, title: str, isbn: str):
+        return Book(title, isbn)
+
+    def from_json(self, path_to_json_file):
+        ...
+        # self.create_book(...)
+        ...
+
+    def from_database(self, db_connection):
+        ...
+
+
+# %%
+@dataclass
+class BookCatalog:
+    books: list[Book] = field(default_factory=list)
+    book_factory: BookFactory = BookFactory()
+
+    def add_book(self, title: str, isbn: str):
+        book = self.book_factory.create_book(title, isbn)
+        self.books.append(book)
+
+    def find_book(self, title: str) -> Book | None:
+        for book in self.books:
+            if book.title == title:
+                return book
+        return None
+
+
+# %%
+@dataclass
+class LibrarySystem:
+    members = MemberCatalog()
+    books = BookCatalog()
+
+    def add_member(self, name: str, address: str, email: str):
+        self.members.add_member(name, address, email)
+
+    def add_book(self, title: str, isbn: str):
+        self.books.add_book(title, isbn)
+
+    def find_member(self, name: str) -> Member | None:
+        return self.members.find_member(name)
+
+    def find_book(self, title: str) -> Book | None:
+        return self.books.find_book(title)
+
+
+# %%
+library = LibrarySystem()
+library.add_member("Max Mustermann", "Musterstraße 1", "max@example.com")
+library.add_book("Design Patterns", "978-0-20163-361-0")
+
+# %%
+library.find_member("Max Mustermann")
+
+# %%
+library.find_book("Design Patterns")
+
+# %%
+print(library)

@@ -13086,7 +13086,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=365ffd25c9ce777c"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=789098976be89770"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="Python Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRw
@@ -13136,7 +13136,7 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 " style="display:block;margin:auto;width:10%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>Bibliothekssystem: Einführung</b>
+<b>Der uv Package Manager</b>
 </div>
 <br>
 <div style="text-align:center;">Dr. Matthias Hölzl</div>
@@ -13144,250 +13144,404 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=387265e1b38b2123"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=96c60331bed1eb12"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Bibliotheks-Verwaltungssystem:-Einf%C3%BChrung">Bibliotheks-Verwaltungssystem: Einführung<a class="anchor-link" href="#Bibliotheks-Verwaltungssystem:-Einf%C3%BChrung">¶</a></h1><ul>
-<li>Bibliotheks-Verwaltungssystem</li>
-<li>Nutzer<ul>
-<li>Bibliothekare</li>
-<li>Bibliotheksbenutzer</li>
-<li>Administratoren</li>
+<h1 id="Der-uv-Package-Manager">Der uv Package Manager<a class="anchor-link" href="#Der-uv-Package-Manager">¶</a></h1><ul>
+<li>Ein moderner, schneller Package-Manager für Python</li>
+<li>Entwickelt von Astral, dem Team hinter Ruff</li>
+<li>Geschrieben in Rust für maximale Performanz</li>
+<li>Zwei APIs: die moderne Project API und die kompatible pip API</li>
+<li>Open-Source auf GitHub verfügbar</li>
 </ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0b94ef8ba74542b9"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Warum-uv?">Warum uv?<a class="anchor-link" href="#Warum-uv?">¶</a></h1><ul>
+<li><strong>Geschwindigkeit</strong>: Deutlich schneller als bestehende Alternativen</li>
+<li><strong>Moderne API</strong>: Intuitive Befehle für Projektmanagement</li>
+<li><strong>Kompatibilität</strong>: Unterstützt pyproject.toml und requirements.txt</li>
+<li><strong>Workspace-Unterstützung</strong>: Ideal für Monorepos</li>
+<li><strong>Determinismus</strong>: Reproduzierbare Builds durch konsequentes
+Dependency-Locking</li>
+<li><strong>Vereinfachung</strong>: Ersetzt mehrere Tools durch eine einzige Lösung</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8ec4e9d124a7104f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="uv-vs.-andere-Package-Manager">uv vs. andere Package Manager<a class="anchor-link" href="#uv-vs.-andere-Package-Manager">¶</a></h1><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>uv</th>
+<th>pip</th>
+<th>poetry</th>
+<th>pipenv</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geschwindigkeit</td>
+<td>★★★★★</td>
+<td>★★</td>
+<td>★★★</td>
+<td>★★</td>
+</tr>
+<tr>
+<td>Virtuelle Umgebungen</td>
+<td>✅</td>
+<td>❌ (braucht venv)</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Dependency Resolution</td>
+<td>✅</td>
+<td>✅ (langsam)</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Abhängigkeits-Locking</td>
+<td>✅</td>
+<td>❌ (braucht pip-tools)</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Workspace Support</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>pyproject.toml</td>
+<td>✅</td>
+<td>✅ (begrenzt)</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>requirements.txt</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=3139ce7f8b4921ca"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Installation-von-uv">Installation von uv<a class="anchor-link" href="#Installation-von-uv">¶</a></h1><ul>
+<li><p><strong>Linux/macOS</strong>:</p>
+<div class="highlight"><pre><span></span>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</pre></div>
 </li>
-<li>Anforderungen<ul>
-<li>Leicht zu erweitern und zu warten</li>
-<li>...</li>
-</ul>
+<li><p><strong>Windows</strong> (PowerShell):</p>
+<div class="highlight"><pre><span></span><span class="nb">irm </span><span class="n">https</span><span class="p">://</span><span class="n">astral</span><span class="p">.</span><span class="n">sh</span><span class="p">/</span><span class="n">uv</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span> <span class="p">|</span> <span class="nb">iex</span>
+</pre></div>
+</li>
+<li><p><strong>Mit pip</strong> (alle Betriebssysteme):</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>uv
+</pre></div>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3fbac7bb64255fe9"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=02504054e30452e6"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Virtuelle-Umgebungen-mit-uv">Virtuelle Umgebungen mit uv<a class="anchor-link" href="#Virtuelle-Umgebungen-mit-uv">¶</a></h1><ul>
+<li><p>Erzeugen einer neuen virtuellen Umgebung:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>venv
+</pre></div>
+</li>
+<li><p>Mit spezifischem Python-Interpreter:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="o">=</span>python3.11
+</pre></div>
+</li>
+<li><p>Aktivieren (je nach Shell unterschiedlich):</p>
+<div class="highlight"><pre><span></span><span class="c1"># Bash/Zsh</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="c1"># Windows PowerShell</span>
+.venv<span class="se">\S</span>cripts<span class="se">\A</span>ctivate.ps1
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=59b6dadb941142ed"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="uv-Project-API---Grundlagen">uv Project API - Grundlagen<a class="anchor-link" href="#uv-Project-API---Grundlagen">¶</a></h1><ul>
+<li><p>Die moderne API für Python-Projekte mit pyproject.toml</p>
+</li>
+<li><p><strong>Abhängigkeiten hinzufügen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>numpy<span class="w"> </span>pandas
+</pre></div>
+</li>
+<li><p><strong>Mit Versionsbeschränkungen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span><span class="s2">"numpy&gt;=1.20.0"</span><span class="w"> </span><span class="s2">"pandas&gt;=1.3.0,&lt;2.0.0"</span>
+</pre></div>
+</li>
+<li><p><strong>Entwicklungsabhängigkeiten hinzufügen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>pytest<span class="w"> </span>black
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=50452122b7be0091"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Editable-Installationen-und-Workspaces">Editable Installationen und Workspaces<a class="anchor-link" href="#Editable-Installationen-und-Workspaces">¶</a></h1><ul>
+<li><strong>Editable Installation einer Abhängigkeit</strong>:<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--editable<span class="w"> </span>./my-local-package/
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6e79bb07ea15abf2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Anforderungen</li>
-<li>Domänenmodell</li>
+<li><strong>Workspace-Konfiguration</strong> (pyproject.toml):<div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my-app-bundle"</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"my-libraries"</span><span class="p">]</span>
+<span class="k">[tool.uv.sources]</span>
+<span class="n">my-libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">workspace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="k">[tool.uv.workspace]</span>
+<span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"packages/*"</span><span class="p">]</span>
+</pre></div>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=22e2ea55e9037644"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=590dd390ef923a25"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Anforderungen">Anforderungen<a class="anchor-link" href="#Anforderungen">¶</a></h2><ul>
-<li>Verwalten von Mitgliedern<ul>
-<li>Aufnehmen, Löschen, Suchen, Anzeigen und Ändern von Mitgliedern</li>
-</ul>
+<h1 id="Abh%C3%A4ngigkeiten-verwalten-mit-Project-API">Abhängigkeiten verwalten mit Project API<a class="anchor-link" href="#Abh%C3%A4ngigkeiten-verwalten-mit-Project-API">¶</a></h1><ul>
+<li><p><strong>Abhängigkeiten synchronisieren</strong> (installieren/aktualisieren):</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>sync
+</pre></div>
 </li>
-<li>Verwalten von Büchern<ul>
-<li>Aufnehmen, Löschen, Suchen, Anzeigen und Ändern von Büchern</li>
-</ul>
+<li><p><strong>Abhängigkeiten locken</strong> (automatisch mit <code>uv run</code>):</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>lock
+</pre></div>
 </li>
-<li>Ausleihen und Rückgabe von Büchern</li>
-<li>Erinnerungen und Gebühren</li>
+<li><p><strong>Installation ohne Lockfile upzudaten (Fehler falls inkompatibel)</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>sync<span class="w"> </span>--locked
+</pre></div>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f8a63103e5510c6d"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=24010b7bc32bab0d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Workshop:-Bibliotheks-Verwaltungssystem-(Teil-1)">Workshop: Bibliotheks-Verwaltungssystem (Teil 1)<a class="anchor-link" href="#Workshop:-Bibliotheks-Verwaltungssystem-(Teil-1)">¶</a></h2><ul>
-<li>Entwickeln Sie ein erstes Domänenmodell für das Bibliotheks-Verwaltungssystem<ul>
-<li>Sie können z.B. ein Klassendiagramm verwenden oder einfach nur eine Liste
-von Klassen und Attributen</li>
-</ul>
+<h1 id="Befehle-ausf%C3%BChren-mit-uv-run">Befehle ausführen mit uv run<a class="anchor-link" href="#Befehle-ausf%C3%BChren-mit-uv-run">¶</a></h1><ul>
+<li><p><strong>Python-Script ausführen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>script.py
+</pre></div>
 </li>
-<li>Welche Klassen in Ihrem Domänenmodell haben Assoziationen zu<ul>
-<li>Mitgliedern?</li>
-<li>Büchern?</li>
-</ul>
+<li><p><strong>Installierte Tools ausführen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>pytest
+uv<span class="w"> </span>run<span class="w"> </span>black<span class="w"> </span>.
+</pre></div>
+</li>
+<li><p><strong>In dev-Umgebung mit optionalen Abhängigkeiten</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>--dev<span class="w"> </span>pytest
+</pre></div>
+</li>
+<li><p><strong>Mit zusätzlichen Argumenten</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-xvs<span class="w"> </span>tests/
+</pre></div>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9353398c32f57c3d"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f38d2328e4f25f27"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Verwenden Sie das Creator Pattern um zu entscheiden, welche Klasse die
-Verantwortung für das Erstellen von Mitgliedern und welche die Verantwortung
-für das Erstellen von Büchern hat</li>
-<li>Verwenden Sie das Information Expert Pattern um zu entscheiden, welche Klasse
-die Verantwortung für das Suchen von Mitgliedern und welche die Verantwortung
-für das Suchen von Büchern hat</li>
-<li>Implementieren Sie diesen Teil des Domänenmodells in Python</li>
-<li>Versuchen Sie dabei das Prinzip der niedrigen Repräsentationslücke anzuwenden</li>
+<h1 id="Neues-Projekt-mit-uv-erstellen">Neues Projekt mit uv erstellen<a class="anchor-link" href="#Neues-Projekt-mit-uv-erstellen">¶</a></h1><ul>
+<li><p>Projekt-Verzeichnis erstellen:</p>
+<div class="highlight"><pre><span></span>mkdir<span class="w"> </span>mein-projekt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>mein-projekt
+</pre></div>
+</li>
+<li><p>Virtuelle Umgebung erstellen:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>venv
+</pre></div>
+</li>
+<li><p>pyproject.toml erstellen:</p>
+<div class="highlight"><pre><span></span>cat<span class="w"> </span>&gt;<span class="w"> </span>pyproject.toml<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">[build-system]</span>
+<span class="s">requires = ["hatchling"]</span>
+<span class="s">build-backend = "hatchling.build"</span>
+
+<span class="s">[project]</span>
+<span class="s">name = "mein-paket"</span>
+<span class="s">version = "0.1.0"</span>
+<span class="s">description = "Ein Beispielprojekt"</span>
+<span class="s">requires-python = "&gt;=3.8"</span>
+<span class="s">EOF</span>
+</pre></div>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=f4c35f14c8bcec81">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=eb8f03458ddb0c10"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Projektabh%C3%A4ngigkeiten-mit-Project-API">Projektabhängigkeiten mit Project API<a class="anchor-link" href="#Projektabh%C3%A4ngigkeiten-mit-Project-API">¶</a></h1><ul>
+<li><p><strong>Hauptabhängigkeiten hinzufügen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>numpy<span class="w"> </span>pandas<span class="w"> </span>matplotlib
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=ee71c44c2113f5a7">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Entwicklungsabhängigkeiten hinzufügen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>pytest<span class="w"> </span>black<span class="w"> </span>mypy
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=dfd59cda5b94e9fe">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Dependencies für eigenes Projekt installieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--editable<span class="w"> </span>.
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=655e42d17307cf22">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Alle Abhängigkeiten synchronisieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>sync<span class="w"> </span>--all
 </pre></div>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=5fddafbb40e093d7">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=8feeafa42f820718"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Dependency-Locking-mit-uv">Dependency-Locking mit uv<a class="anchor-link" href="#Dependency-Locking-mit-uv">¶</a></h1><ul>
+<li><p><strong>Lock-Datei erzeugen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>lock
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=f11753a73720af2d">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Lock-Datei mit Entwicklungsabhängigkeiten</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>lock<span class="w"> </span>--all
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=f46250e8c654f869">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Abhängigkeiten aus Lock-Datei installieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>sync<span class="w"> </span>--locked
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=ffd38ac0abf3210a">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Lock-Datei aktualisieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>lock<span class="w"> </span>--refresh
 </pre></div>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=d6b525704688268e">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1c37c60ee0364fe1"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Die-pip-API---f%C3%BCr-besondere-F%C3%A4lle">Die pip API - für besondere Fälle<a class="anchor-link" href="#Die-pip-API---f%C3%BCr-besondere-F%C3%A4lle">¶</a></h1><ul>
+<li><p>Kompatible API für bestehende Projekte ohne pyproject.toml</p>
+</li>
+<li><p><strong>Paket installieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>numpy
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=4348d9e228ed5108">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Pakete aus einer requirements.txt installieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=57f7c3c61aecf838">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Paketinformationen anzeigen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>numpy
 </pre></div>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=a704fe11e1480e02">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=dc089f2523ccf0d9"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Projekt-entwickeln-und-publizieren">Projekt entwickeln und publizieren<a class="anchor-link" href="#Projekt-entwickeln-und-publizieren">¶</a></h1><ul>
+<li><p><strong>Tests ausführen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>pytest
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=b1c41108a14b2f7d">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Code formatieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>black<span class="w"> </span>.
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=d08336fa898ec66f">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Build-Abhängigkeiten installieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>build<span class="w"> </span>twine
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=7aeb764420ae9548">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Paket bauen und publizieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>build
+uv<span class="w"> </span>run<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
 </pre></div>
+</li>
+</ul>
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0dcae3c4afff2950"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Fazit:-Vorteile-von-uv">Fazit: Vorteile von uv<a class="anchor-link" href="#Fazit:-Vorteile-von-uv">¶</a></h1><ul>
+<li><strong>Geschwindigkeit</strong>: Drastisch schnellere Installation und Abhängigkeitsauflösung</li>
+<li><strong>Moderne API</strong>: Intuitive Project API für effizientes Projektmanagement</li>
+<li><strong>Workspaces</strong>: Unterstützung für Monorepos mit mehreren Paketen</li>
+<li><strong>Dual-API</strong>: Modern (Project API) und kompatibel (pip API)</li>
+<li><strong>Determinismus</strong>: Zuverlässiges Dependency-Locking für reproduzierbare Builds</li>
+<li><strong>Entwicklerfreundlich</strong>: <code>uv run</code> für einfache Befehlsausführung</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5569642fe61ebb75"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Wann-sollten-Sie-uv-verwenden?">Wann sollten Sie uv verwenden?<a class="anchor-link" href="#Wann-sollten-Sie-uv-verwenden?">¶</a></h1><ul>
+<li>Bei neuen Projekten mit pyproject.toml</li>
+<li>In Monorepos mit mehreren Python-Paketen</li>
+<li>Für schnellere CI/CD-Pipelines</li>
+<li>Wenn Sie von pip auf ein moderneres Tool umsteigen möchten</li>
+<li>Bei großen Projekten mit vielen Abhängigkeiten</li>
+<li>Wenn Sie Wert auf reproduzierbare Builds legen</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=a2b51912c36b06b2"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Ressourcen">Ressourcen<a class="anchor-link" href="#Ressourcen">¶</a></h1><ul>
+<li><a href="https://docs.astral.sh/uv/">Offizielle uv-Dokumentation</a></li>
+<li><a href="https://github.com/astral-sh/uv">GitHub Repository</a></li>
+<li><a href="https://astral.sh/blog/uv">uv vs. andere Package Manager-Benchmarks</a></li>
+<li><a href="https://packaging.python.org">Python Packaging User Guide</a></li>
+<li><a href="https://peps.python.org/pep-0621">PEP 621 – Metadaten in pyproject.toml</a></li>
+<li><a href="https://www.janestreet.com/tech-talks/uv-an-extremely-fast-python-package-manager/">uv Tech Talk (Jane Street)</a></li>
+</ul>
 </div>
 </div>
 </div>

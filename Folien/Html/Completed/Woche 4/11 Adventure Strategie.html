@@ -13343,7 +13343,7 @@ einbinden</li>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Player(name='Alice', pawn=Pawn(name='Alice', location=Location(name='Room 1', description='A small room', connections={'north': Location(name='Room 2', description='A large room', connections={'south': ...})})), select_action=&lt;function random_action_strategy at 0x7f9d125eb4c0&gt;)
+<pre>Player(name='Alice', pawn=Pawn(name='Alice', location=Location(name='Room 1', description='A small room', connections={'north': Location(name='Room 2', description='A large room', connections={'south': ...})})), select_action=&lt;function random_action_strategy at 0x7f1139ca3420&gt;)
 </pre>
 </div>
 </div>
@@ -13366,8 +13366,8 @@ einbinden</li>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Alice at Room 1 performs: move north to Room 2
-Player(name='Alice', pawn=Pawn(name='Alice', location=Location(name='Room 2', description='A large room', connections={'south': Location(name='Room 1', description='A small room', connections={'north': ...})})), select_action=&lt;function random_action_strategy at 0x7f9d125eb4c0&gt;)
+<pre>Alice at Room 1 performs: wait one turn
+Player(name='Alice', pawn=Pawn(name='Alice', location=Location(name='Room 1', description='A small room', connections={'north': Location(name='Room 2', description='A large room', connections={'south': ...})})), select_action=&lt;function random_action_strategy at 0x7f1139ca3420&gt;)
 </pre>
 </div>
 </div>
@@ -13390,16 +13390,16 @@ Player(name='Alice', pawn=Pawn(name='Alice', location=Location(name='Room 2', de
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Alice at Room 2 performs: wait one turn
-Alice at Room 2 performs: move south to Room 1
-Alice at Room 1 performs: move north to Room 2
+<pre>Alice at Room 1 performs: move north to Room 2
 Alice at Room 2 performs: wait one turn
 Alice at Room 2 performs: wait one turn
 Alice at Room 2 performs: move south to Room 1
 Alice at Room 1 performs: wait one turn
-Alice at Room 1 performs: wait one turn
 Alice at Room 1 performs: move north to Room 2
 Alice at Room 2 performs: wait one turn
+Alice at Room 2 performs: move south to Room 1
+Alice at Room 1 performs: wait one turn
+Alice at Room 1 performs: move north to Room 2
 </pre>
 </div>
 </div>
