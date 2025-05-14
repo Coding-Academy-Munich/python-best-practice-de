@@ -13086,7 +13086,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=3ade1f5bd92568f5"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=2b350856a5369e6d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="Python Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRw
@@ -13136,7 +13136,7 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 " style="display:block;margin:auto;width:10%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>Dataclasses</b>
+<b>Einführung: Installation von Paketen</b>
 </div>
 <br>
 <div style="text-align:center;">Dr. Matthias Hölzl</div>
@@ -13144,1849 +13144,329 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8ebf0a1bc8d32191"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=fe8c14fe8ebaf5eb"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pakete-in-Python">Pakete in Python<a class="anchor-link" href="#Pakete-in-Python">¶</a></h1><p>Verschiedene Bedeutungen von "Paket" oder "Package" in Python:</p>
 <ul>
-<li>Definition von Klassen ist in Python recht einfach</li>
-<li>Benötigt aber relativ viel Boilerplate-Code, um eine Klasse mit gutem Verhalten
-zu definieren</li>
-<li>Attribute sind in <code>__init__()</code> versteckt</li>
+<li>Sammlung von Python Dateien wie im Kapitel über Module und Packages
+beschrieben (<em>Import-Paket</em>)</li>
+<li>Distribution einer installierbaren Version einer Bibliothek ("wheel"),
+die dann importiert werden kann (<em>Distributions-Paket</em> oder <em>installierbares
+Paket</em>)</li>
 </ul>
+<p>In diesem Abschnitt beschäftigen wir uns mit installierbaren Paketen.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=452d460cbdbcb8e4">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=bee83015e3b7c1ac">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=4295784315214500">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;__main__.Point at 0x7fe9c4138e50&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=823548503f1aca39">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">==</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=475516e22a323b66">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Point(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span>
-
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Point</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">NotImplemented</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=a9af8bf52952963b">
-<div class="input">
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=6e706282212167eb">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>Point(1, 2)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=e34a2fc6ec362d73">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">==</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=2dea5f6d0b399936"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8fd64e9f8fee7e39"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Dataclasses">Dataclasses<a class="anchor-link" href="#Dataclasses">¶</a></h2><ul>
-<li>Attribute besser sichtbar</li>
-<li><code>__repr__()</code> und <code>__eq__()</code> sind vordefiniert</li>
-<li>Weitere Möglichkeiten: Siehe
-<a href="https://docs.python.org/3/library/dataclasses.html">Dokumentation</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=3f5203df18900b5a">
-<div class="input">
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=3451e58b35db8f01">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">DataPoint</span><span class="p">:</span>
-    <span class="n">x</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">y</span><span class="p">:</span> <span class="nb">float</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=76cd43a020804d44">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">dp1</span> <span class="o">=</span> <span class="n">DataPoint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">dp1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[11]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>DataPoint(x=2, y=3)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2f8a1afcec0f7c8d">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">dp2</span> <span class="o">=</span> <span class="n">DataPoint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=26c120199888dbdb">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">dp1</span> <span class="o">==</span> <span class="n">dp2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=101fe059687c11dd">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">dp1</span> <span class="ow">is</span> <span class="n">dp2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[14]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5c2ada63eadfc7cc"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Dataclasses sind vollwertige Klassen</li>
-<li>Sie können Methoden enthalten</li>
-<li>Attribute können Default-Werte haben</li>
-<li>Sie können vererbt werden</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=c94e9cd5a1716b7e">
-<div class="input">
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">field</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=2714d072b6330ebd">
-<div class="input">
-<div class="prompt input_prompt">In [16]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Point3D</span><span class="p">:</span>
-    <span class="n">x</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
-    <span class="n">y</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
-    <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Python &gt;= 3.10</span>
-
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dz</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="n">dz</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=160a8cf57f60ac35">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p3d</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-<span class="n">p3d</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[17]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>Point3D(x=1.0, y=2.0, z=0.0)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=136810fb40a38751">
-<div class="input">
-<div class="prompt input_prompt">In [18]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p3d</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">dy</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dz</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
-<span class="n">p3d</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[18]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>Point3D(x=1.0, y=3.0, z=5.0)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f69dcfd8817edc88"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Dataclasses erzwingen, dass Default-Werte unveränderlich sind<ul>
-<li>zumindest für einige Typen ...</li>
+<h2 id="Lebenszyklus-eines-Pakets">Lebenszyklus eines Pakets<a class="anchor-link" href="#Lebenszyklus-eines-Pakets">¶</a></h2><ul>
+<li>Quellcode (typischerweise in einem Git-Repository)<ul>
+<li>Python-Dateien</li>
+<li>Metadaten-Dateien: <code>pyproject.toml</code></li>
+<li>Bei älteren Paketen: <code>setup.py</code>, <code>setup.cfg</code></li>
 </ul>
 </li>
-<li>Statt ein veränderliches Objekt als Default-Wert zu übergeben, kann eine
-Funktion verwendet werden, die ein neues Objekt zurückgibt</li>
-<li>Diese Art von Funktion wird "Factory-Funktion" genannt</li>
+<li>Distribution<ul>
+<li>sdist: Quellcode-Archiv zum selber kompilieren</li>
+<li>wheel: installierbares, "Binär"-Archiv</li>
+</ul>
+</li>
+<li>Installation<ul>
+<li>Von Quellcode, lokaler Distribution oder von PyPI</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=f823aff44b82c0d7">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coord</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]):</span>  <span class="c1"># noqa</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coord</span> <span class="o">=</span> <span class="n">coord</span>
-
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Point(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="si">}</span><span class="s2">)"</span>
-
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dx</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dy</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=d163986977448f96">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="n">p1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[20]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>Point([0, 0])</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=9aed961c57b1d6ca">
-<div class="input">
-<div class="prompt input_prompt">In [21]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="n">p2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[21]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>Point([0, 0])</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=95e95952432f6520">
-<div class="input">
-<div class="prompt input_prompt">In [22]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">p1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[22]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>Point([1, 2])</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0c0cd14bd7efab9f">
-<div class="input">
-<div class="prompt input_prompt">In [23]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[23]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>Point([1, 2])</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=873d1bd38e141783">
-<div class="input">
-<div class="prompt input_prompt">In [24]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">list_factory</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">[]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=d5b7e6045d2a0f73">
-<div class="input">
-<div class="prompt input_prompt">In [25]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">list_factory</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[25]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=f38be2b4b14af11f">
-<div class="input">
-<div class="prompt input_prompt">In [26]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">list_factory</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[26]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;function __main__.list_factory()&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2ef245dda56aa727">
-<div class="input">
-<div class="prompt input_prompt">In [27]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">list_factory</span><span class="p">()</span> <span class="ow">is</span> <span class="n">list_factory</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[27]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=193d8e0c5a07b532"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=7957cbe46a0c1e76"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Für Listen brauchen wir keine Factory-Funktion definieren</li>
-<li>Der Listen-Konstruktor <code>list()</code> leistet das gleiche</li>
+<h2 id="Wheels">Wheels<a class="anchor-link" href="#Wheels">¶</a></h2><ul>
+<li>Wheels sind das Standardformat für installierbare Pakete</li>
+<li>Archive im ZIP-Format</li>
+<li>Enthalten alle Dateien, die für die Installation benötigt werden</li>
+<li>Haben Metadaten wie Versionsnummer und Abhängigkeiten</li>
+<li>Können mit <code>pip</code> installiert werden</li>
+<li>Erstellung mit Tools wie <code>setuptools</code>, <code>hatchling</code>, <code>poetry</code> oder <code>flit</code></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=1088b591162bdba4">
-<div class="input">
-<div class="prompt input_prompt">In [28]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[28]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=5fc1ece4ccb2f255">
-<div class="input">
-<div class="prompt input_prompt">In [29]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">list</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[29]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>list</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=cfd9042198b0443e">
-<div class="input">
-<div class="prompt input_prompt">In [30]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">()</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[30]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=f4c35f14c8bcec81">
-<div class="input">
-<div class="prompt input_prompt">In [31]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=332e561f33f3bc74">
-<div class="input">
-<div class="prompt input_prompt">In [32]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">DefaultDemo</span><span class="p">:</span>
-    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=18630d28cea060bc">
-<div class="input">
-<div class="prompt input_prompt">In [33]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">d1</span> <span class="o">=</span> <span class="n">DefaultDemo</span><span class="p">()</span>
-<span class="n">d2</span> <span class="o">=</span> <span class="n">DefaultDemo</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=371a6f6c3074bb33">
-<div class="input">
-<div class="prompt input_prompt">In [34]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">d1</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DefaultDemo(items=[1234])
-DefaultDemo(items=[])
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b78bc5d6e82e24a9"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=89ecb0918631f306"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Bei Python Versionen 3.10 und früher funktioniert der Test auf unveränderliche
-Defaults nur für einige Typen aus der Standardbibliothek, nicht für
-benutzerdefinierte Typen:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=20516e1708db0e97">
-<div class="input">
-<div class="prompt input_prompt">In [35]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># @dataclass</span>
-<span class="c1"># class BadDefault:</span>
-<span class="c1">#     point: Point3D = Point3D(0.0, 0.0)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=fb6b9d5947a4e8e4">
-<div class="input">
-<div class="prompt input_prompt">In [36]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># bd1 = BadDefault()</span>
-<span class="c1"># bd2 = BadDefault()</span>
-<span class="c1"># bd1, bd2</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=dbd8cdcf45721ce3">
-<div class="input">
-<div class="prompt input_prompt">In [37]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># bd1.point.move(1.0, 2.0)</span>
-<span class="c1"># bd1, bd2</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2ed38440f3458dff"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Workshop:-Einkaufsliste">Workshop: Einkaufsliste<a class="anchor-link" href="#Workshop:-Einkaufsliste">¶</a></h1><p>In dieser Aufgabe wollen wir eine Einkaufsliste definieren, die geplante
-Einkäufe verwalten kann. Eine Einkaufsliste soll aus Einträgen bestehen, die
-ein Produkt und die davon benötigte Menge enthalten.</p>
-<p>Es sollen sowohl die Einkaufsliste selber als auch die Einträge durch
-benutzerdefinierte Datentypen repräsentiert werden.</p>
-<p>Falls Sie die Lösung als Python-Projekt statt als Notebook implementieren wollen,
-ist in <code>examples/ShoppingListStarterKit</code> in Projektgerüst, das Sie als
-Startpunkt hernehmen können. In <code>examples/ShoppingList</code> ist ein Lösungsvorschlag.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=92baf440b5d53b8d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Definieren Sie zunächst eine Klasse <code>ShoppingListItem</code>, die folgende Attribute hat:</p>
-<ul>
-<li><code>product: str</code></li>
-<li><code>price: float</code></li>
-<li><code>amount: int</code>
-Verwenden Sie den <code>@dataclass</code> Decorator um die Klasse zu definieren. Verwenden Sie
-einen Default-Wert von 1 für <code>amount</code>.</li>
+<h2 id="PyPI">PyPI<a class="anchor-link" href="#PyPI">¶</a></h2><ul>
+<li>Python Package Index</li>
+<li>Zentrale Datenbank für Python-Pakete</li>
+<li>Enthält Metadaten für viele Pakete und Links zu den Wheels</li>
+<li><code>pip</code> kann Pakete von PyPI herunterladen und installieren</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=882c2af02cf5fceb">
-<div class="input">
-<div class="prompt input_prompt">In [38]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=71e31de2a1ae61a1">
-<div class="input">
-<div class="prompt input_prompt">In [39]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">ShoppingListItem</span><span class="p">:</span>
-    <span class="n">product</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0bef9d38fef484f0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0a95652888ae4f8b"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Erzeugen sie ein <code>ShoppingListItem</code>, das 2 Pakete Kaffee zu je Eur 6.99 repräsentiert:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=4396ec260891abee">
-<div class="input">
-<div class="prompt input_prompt">In [40]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Kaffee"</span><span class="p">,</span> <span class="mf">6.99</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[40]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>ShoppingListItem(product='Kaffee', price=6.99, amount=2)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ccb1b78e732d75e2"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Erweitern Sie die Klasse <code>ShoppingListItem</code> um eine Methode <code>total_price()</code>,
-die den Gesamtpreis des Eintrags berechnet.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=d80d419b1414d4ca">
-<div class="input">
-<div class="prompt input_prompt">In [41]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">ShoppingListItem</span><span class="p">:</span>
-    <span class="n">product</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
-
-    <span class="k">def</span> <span class="nf">total_price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">amount</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6b333c22f53b8fc1"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Definieren Sie eine Variable <code>mein_kaffee</code>, die ein <code>ShoppingListItem</code>
-repräsentiert, das 2 Pakete Kaffee zu je Eur 6.99 repräsentiert:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=e531bbd1721c5238">
-<div class="input">
-<div class="prompt input_prompt">In [42]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_kaffee</span> <span class="o">=</span> <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Kaffee"</span><span class="p">,</span> <span class="mf">6.99</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ab8cf6b7e90f7352"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Berechnen Sie den Gesamtpreis von <code>mein_kaffee</code>:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=adf9c2073b23e3b3">
-<div class="input">
-<div class="prompt input_prompt">In [43]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_kaffee</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[43]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>13.98</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=599e04803faff7a6"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Definieren Sie eine Klasse <code>ShoppingList</code>, die eine Liste von
-<code>ShoppingListItem</code>-Instanzen beinhaltet:</p>
-<ul>
-<li>Verwenden Sie den <code>@dataclass</code> Decorator</li>
-<li>Die Klasse hat ein Attribut <code>items</code> vom Typ <code>list</code>
-(oder <code>list[ShoppingListItem]</code>, falls
-Sie Python 3.9 oder neuer verwenden), das mit einer leeren Liste
-Initialisiert wird.</li>
-<li>Die Methode <code>add_item(self, item: ShoppingListItem)</code> fügt ein
-<code>ShoppingListItem</code> zur Einkaufsliste hinzu.</li>
-<li>Die Methode <code>total_price(self)</code> berechnet den Gesamtpreis der
-Einkaufsliste.</li>
+<h2 id="Versionsnummern">Versionsnummern<a class="anchor-link" href="#Versionsnummern">¶</a></h2><ul>
+<li>Beschreiben die Version eines Pakets</li>
+<li><a href="https://packaging.python.org/en/latest/specifications/version-specifiers/">Offizielle Spezifikation</a></li>
+<li>Besteht oft aus drei Zahlen, getrennt durch Punkte: <code>MAJOR.MINOR.PATCH</code><ul>
+<li><code>MAJOR</code>: Große Änderungen, die nicht abwärtskompatibel sind</li>
+<li><code>MINOR</code>: Neue Features, die abwärtskompatibel sind</li>
+<li><code>PATCH</code>: Bugfixes, die abwärtskompatibel sind</li>
+</ul>
+</li>
+<li>Beispiel: <code>1.0.3</code></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=b30f952dc3a7106a">
-<div class="input">
-<div class="prompt input_prompt">In [44]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">field</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=8cc8734763092e7c">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
-    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ShoppingListItem</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">ShoppingListItem</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">total_price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a703d67fb5ce38fd"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=59796f5561393062"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Definieren Sie Variable <code>meine_einkaufsliste</code>, die eine Einkaufsliste mit
-folgenden ShoppingListItems repräsentiert:</p>
-<ul>
-<li>2 Pakete Tee à 1.99</li>
-<li>1 Paket Kaffee à 6.99</li>
+<h2 id="Versions-Spezifikationen">Versions-Spezifikationen<a class="anchor-link" href="#Versions-Spezifikationen">¶</a></h2><ul>
+<li>Pakete können von anderen Paketen abhängen</li>
+<li>Abhängigkeiten werden durch Namen und eine <a href="https://packaging.python.org/en/latest/specifications/version-specifiers/#id4">Versions-Spezifikation</a>
+angegeben</li>
+<li>Wird keine Versions-Spezifikation angegeben, so ist jede Version erlaubt</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=a02913cf30cf57b3">
-<div class="input">
-<div class="prompt input_prompt">In [46]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Tee"</span><span class="p">,</span> <span class="mf">1.99</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Kaffee"</span><span class="p">,</span> <span class="mf">6.99</span><span class="p">)]</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=4a12a1861e66189e"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=fda0b7edde4bb359"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Berechnen Sie den Gesamtpreis von <code>meine_einkaufsliste</code>:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2e17f9f5b5a0e228">
-<div class="input">
-<div class="prompt input_prompt">In [47]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[47]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>10.97</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=86ca4a57bc4cc90d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Was ist die Ausgabe von <code>print(meine_einkaufsliste)</code>?</li>
-<li>Was ist die Ausgabe von <code>print(repr(meine_einkaufsliste))</code>?</li>
+<h3 id="Beispiele">Beispiele<a class="anchor-link" href="#Beispiele">¶</a></h3><ul>
+<li><code>&gt;= 2.25.1</code>: Mindestens Version 2.25.1</li>
+<li><code>== 1.0.3</code>: Genau Version 1.0.3</li>
+<li><code>&gt;= 1.0.3, &lt; 2.0.0</code>: Mindestens Version 1.0.3, aber kleiner als 2.0.0</li>
+<li><code>~= 1.0.3</code>: Mindestens Version 1.0.3, aber kleiner als 1.1.0</li>
+<li><code>&gt;= 1.0.3, == 1.0.*</code>: Äquivalent zu <code>~= 1.0.3</code></li>
+<li><code>~= 1.1</code>: Mindestens Version 1.1, aber kleiner als 2.0.0</li>
+<li><code>&gt;= 1.1, == 1.*</code>: Äquivalent zu <code>~= 1.1</code></li>
+<li><code>~= 1.0.3, != 1.0.4, != 1.0.5</code>: Mindestens Version 1.0.3, kleiner als 1.1.0,
+aber nicht 1.0.4 oder 1.0.5</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=546baae06cf31776">
-<div class="input">
-<div class="prompt input_prompt">In [48]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ShoppingList(items=[ShoppingListItem(product='Tee', price=1.99, amount=2), ShoppingListItem(product='Kaffee', price=6.99, amount=1)])
-ShoppingList(items=[ShoppingListItem(product='Tee', price=1.99, amount=2), ShoppingListItem(product='Kaffee', price=6.99, amount=1)])
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e6de7c31394ab864"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3fca6354cc5aae7f"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Erweitern Sie die Klasse <code>ShoppingList</code> um eine
-<a href="https://docs.python.org/3/reference/datamodel.html#object.__str__"><code>__str__()</code>-Methode</a>,
-so dass:</p>
-<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-<p>folgende Ausgabe erzeugt:</p>
-<pre><code>Einkaufsliste
-  2 x Tee à 1.99 = 3.98
-  1 x Kaffee à 6.99 = 6.99
-Gesamt: 10.97
+<h2 id="Requirements-Dateien">Requirements-Dateien<a class="anchor-link" href="#Requirements-Dateien">¶</a></h2><ul>
+<li>Dateien, die mehrere Pakete und Versions-Spezifikationen enthalten</li>
+<li>Format:<ul>
+<li>Eine Zeile pro Paket</li>
+<li>Paket-Name, gefolgt von Versions-Spezifikationen</li>
+</ul>
+</li>
+<li>Mit <code>pip</code> können alle Pakete in einer Requirements-Datei installiert werden<ul>
+<li>Dabei versucht <code>pip</code> Abhängigkeiten so aufzulösen, dass sie für alle
+Pakete erfüllt werden</li>
+<li>Das kann fehlschlagen, wenn Pakete inkompatible Abhängigkeiten haben</li>
+<li>Oft kann man durch Abschwächen der Versions-Spezifikationen das Problem
+lösen</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2375509e8f6ef339"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Beispiel">Beispiel<a class="anchor-link" href="#Beispiel">¶</a></h3><ul>
+<li><p><code>requirements.txt</code>:</p>
+<pre><code>requests&gt;=2.25.1
+fastapi~=0.63.2
 </code></pre>
-<p><em>Hinweis:</em> Sie müssen die Definition von <code>meine_einkaufsliste</code> möglicherweise erneut
-auswerten, nachdem Sie die Klasse <code>ShoppingList</code> erweitert haben, um die Auswirkungen
-Ihrer Änderungen zu sehen.</p>
+</li>
+<li><p>Installiert <code>requests</code> und <code>fastapi</code> in den angegebenen Versionen</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=7d304143cc82549f">
-<div class="input">
-<div class="prompt input_prompt">In [49]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">TITLE_STRING</span> <span class="o">=</span> <span class="s2">"Einkaufsliste"</span>  <span class="c1"># noqa</span>
-<span class="n">TOTAL_STRING</span> <span class="o">=</span> <span class="s2">"Gesamt"</span>  <span class="c1"># noqa</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2f2ace5e208e4596">
-<div class="input">
-<div class="prompt input_prompt">In [50]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
-    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ShoppingListItem</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TITLE_STRING</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">product</span><span class="si">}</span><span class="s2"> à </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">price</span><span class="si">}</span><span class="s2">"</span>
-                <span class="sa">f</span><span class="s2">" = </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-            <span class="p">)</span>
-        <span class="n">result</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TOTAL_STRING</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">ShoppingListItem</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">total_price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ff1b0439935ff647"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=54b17d812cf1c03f"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Evaluieren Sie die Definition von <code>meine_einkaufsliste</code> erneut und
-Drucken Sie die Einkaufsliste aus. Entspricht die Ausgabe Ihren Erwartungen?</p>
-<p>Wie sieht die Ausgabe von <code>repr(meine_einkaufsliste)</code> aus?</p>
+<h2 id="Installation-von-Paketen">Installation von Paketen<a class="anchor-link" href="#Installation-von-Paketen">¶</a></h2><ul>
+<li><code>pip install &lt;package&gt;</code>: Installiert ein Paket</li>
+<li><code>pip install &lt;package&gt;&lt;version-spec&gt;</code>: Installiert ein Paket, das die angegebene
+Versions-Spezifikation erfüllt</li>
+<li><code>pip install &lt;p1&gt; &lt;p2&gt; ...</code>: Installiert mehrere Pakete (potenziell mit
+unterschiedlichen Versions-Spezifikationen)</li>
+<li><code>pip install -r &lt;requirements-file&gt;</code>: Installiert alle Pakete, die in der
+angegebenen Datei aufgelistet sind</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=25725ac751de0322">
-<div class="input">
-<div class="prompt input_prompt">In [51]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Tee"</span><span class="p">,</span> <span class="mf">1.99</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Kaffee"</span><span class="p">,</span> <span class="mf">6.99</span><span class="p">)]</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=54256a0e4df51a90">
-<div class="input">
-<div class="prompt input_prompt">In [52]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Einkaufsliste
-  2 x Tee à 1.99 = 3.98
-  1 x Kaffee à 6.99 = 6.99
-Gesamt: 10.97
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=9a8219b2ebbb5ac1">
-<div class="input">
-<div class="prompt input_prompt">In [53]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ShoppingList(items=[ShoppingListItem(product='Tee', price=1.99, amount=2), ShoppingListItem(product='Kaffee', price=6.99, amount=1)])
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=24091af15cbb1ca5"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c5d02a2b1b82a809"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Erweitern Sie die Klasse <code>ShoppingList</code> um folgende Methoden:</p>
+<h2 id="Auflisten-der-installierten-Pakete">Auflisten der installierten Pakete<a class="anchor-link" href="#Auflisten-der-installierten-Pakete">¶</a></h2><ul>
+<li><code>pip list</code>: Gibt alle installierten Pakete mit Versionsnummern aus</li>
+<li><code>pip freeze</code>: Gibt alle installierten Pakete mit Versionsnummern aus, so dass
+sie in einer Requirements-Datei verwendet werden können</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c5d3115c798ff48f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Virtuelle-Umgebungen">Virtuelle Umgebungen<a class="anchor-link" href="#Virtuelle-Umgebungen">¶</a></h2><ul>
+<li>Python-Pakete werden normalerweise systemweit installiert</li>
+<li>Das kann zu Problemen führen, wenn verschiedene Versionen von Paketen
+benötigt werden</li>
+<li>Virtuelle Umgebungen ermöglichen die Installation von Paketen in einem
+abgeschlossenen Bereich</li>
+<li><code>pip</code> kann virtuelle Umgebungen erstellen und Pakete darin installieren</li>
+<li>Die Pakete in jedem virtuellen Environment können unabhängig von anderen
+virtuellen Umgebungen verwaltet werden</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=528348e4fb76062f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Erstellen-eines-virtuellen-Environments">Erstellen eines virtuellen Environments<a class="anchor-link" href="#Erstellen-eines-virtuellen-Environments">¶</a></h3><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>&lt;path&gt;
+</pre></div>
 <ul>
-<li><a href="https://docs.python.org/3/reference/datamodel.html#object.__len__"><code>__len__()</code></a>:
-Gibt die Anzahl der Einträge in der Einkaufsliste zurück.</li>
-<li><a href="https://docs.python.org/3/reference/datamodel.html#object.__getitem__"><code>__getitem__()</code></a>
-Ermöglicht den Zugriff auf Einträge über ihren numerischen Index.</li>
+<li>Erstellt ein virtuelles Environment im angegebenen Verzeichnis</li>
+<li>Dieses Verzeichnis<ul>
+<li>enthält alle für das virtuelle Environment benötigten Dateien</li>
+<li>soll nicht ins Versionskontrollsystem aufgenommen werden</li>
+<li>kann nicht verschoben oder an eine andere Stelle kopiert werden</li>
+<li>darf keine Projektdateien enthalten</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=fc8418ca65de32c1"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6ccb0d3b0fe4960a"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Bemerkungen">Bemerkungen<a class="anchor-link" href="#Bemerkungen">¶</a></h3><ul>
-<li>Denken Sie daran, dass Sie <code>meine_einkaufsliste</code> neu auswerten müssen.</li>
-<li>Sie können von <code>typing.Sized</code> erben, um statische Typchecks für die
-<code>__len__()</code> Methode zu erleichtern. Das ist aber für das korrekte Laufzeitverhalten
-des Programms nicht notwendig.</li>
-<li>Nachdem <code>ShoppingList</code> sowohl <code>__len__()</code> als auch <code>__getitem__()</code> definiert,
-können Sie auch von <code>typing.Sequence</code> erben.</li>
+<h3 id="Aktivieren-eines-virtuellen-Environments">Aktivieren eines virtuellen Environments<a class="anchor-link" href="#Aktivieren-eines-virtuellen-Environments">¶</a></h3><ul>
+<li>Linux/OS X: <code>source &lt;path&gt;/bin/activate</code></li>
+<li>Windows (CMD): <code>&lt;path&gt;\Scripts\activate.bat</code></li>
+<li>Windows (PowerShell): <code>&lt;path&gt;\Scripts\Activate.ps1</code></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=9662a5f7962077ea">
-<div class="input">
-<div class="prompt input_prompt">In [54]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
-    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ShoppingListItem</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TITLE_STRING</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">product</span><span class="si">}</span><span class="s2"> à </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">price</span><span class="si">}</span><span class="s2">"</span>
-                <span class="sa">f</span><span class="s2">" = </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-            <span class="p">)</span>
-        <span class="n">result</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TOTAL_STRING</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">ShoppingListItem</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">total_price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5266885e0b15bd09"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a11d69f335b4ac96"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Stellen Sie fest, wie lange <code>meine_einkaufsliste</code> ist und
-was ihr erstes und zweites Element sind:</p>
+<h3 id="Deaktivieren-eines-virtuellen-Environments">Deaktivieren eines virtuellen Environments<a class="anchor-link" href="#Deaktivieren-eines-virtuellen-Environments">¶</a></h3><ul>
+<li><code>deactivate</code></li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=af969f1277121725">
-<div class="input">
-<div class="prompt input_prompt">In [55]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Tee"</span><span class="p">,</span> <span class="mf">1.99</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Kaffee"</span><span class="p">,</span> <span class="mf">6.99</span><span class="p">)]</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=4960dbce785a2544">
-<div class="input">
-<div class="prompt input_prompt">In [56]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Einkaufsliste
-  2 x Tee à 1.99 = 3.98
-  1 x Kaffee à 6.99 = 6.99
-Gesamt: 10.97
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=ead959df187d38cf">
-<div class="input">
-<div class="prompt input_prompt">In [57]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[57]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2d265ecfe0dd8c19">
-<div class="input">
-<div class="prompt input_prompt">In [58]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[58]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>ShoppingListItem(product='Tee', price=1.99, amount=2)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=3d5b263dcf67d624">
-<div class="input">
-<div class="prompt input_prompt">In [59]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[59]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>ShoppingListItem(product='Kaffee', price=6.99, amount=1)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f16487003fc30ffc"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5908369ce778cbd5"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Was ist der Effekt des folgenden Ausdrucks?</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=ace4af269fec4cfd">
-<div class="input">
-<div class="prompt input_prompt">In [60]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">meine_einkaufsliste</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import requests; print(requests.__version__)"</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>./venv/bin/activate<span class="w"> </span><span class="c1"># Linux</span>
+./venv/Scripts/activate.bat<span class="w"> </span><span class="c1"># Windows CMD</span>
+./venv/Scripts/Activate.ps1<span class="w"> </span><span class="c1"># Windows PowerShell</span>
+pip<span class="w"> </span>install<span class="w"> </span>requests~<span class="o">=</span><span class="m">2</span>.28.1
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import requests; print(requests.__version__)"</span>
+pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+deactivate
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ShoppingListItem(product='Tee', price=1.99, amount=2)
-ShoppingListItem(product='Kaffee', price=6.99, amount=1)
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1d79196a1f20ee8c"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a981b4bad5db54bf"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Erweitern Sie die Definition der Klasse <code>ShoppingList</code>, so dass der Indexing
-Operator <code>[]</code> auch mit einem String aufgerufen werden kann, und eine Liste mit allen
-Shopping-List-Items zurückgibt, deren <code>product</code> mit dem String übereinstimmt, oder
-eine leere Liste, falls kein solches Item existiert.</p>
-<p>Verifizieren Sie, dass ihre neue Implementierung des Indexing Operators für Integer
-und String Argumente funktioniert.</p>
-<p>Wie bewerten Sie das neue Verhalten der Klasse? Ist es eine gute Idee, den Indexing
-Operator so zu überladen? Gibt es eine bessere Alternative?</p>
-<p><em>Hinweis:</em> Sie können die <code>isinstance()</code> Funktion verwenden um zu überprüfen,
-ob ein Objekt ein String ist.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=be709866fc8fbae9">
-<div class="input">
-<div class="prompt input_prompt">In [61]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
-    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ShoppingListItem</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TITLE_STRING</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">product</span><span class="si">}</span><span class="s2"> à </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">price</span><span class="si">}</span><span class="s2">"</span>
-                <span class="sa">f</span><span class="s2">" = </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-            <span class="p">)</span>
-        <span class="n">result</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TOTAL_STRING</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_by_product_name</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">find_by_product_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">product</span> <span class="o">==</span> <span class="n">product</span><span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">ShoppingListItem</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">total_price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<h2 id="Beispiel-f%C3%BCr-Versionskonflikt">Beispiel für Versionskonflikt<a class="anchor-link" href="#Beispiel-f%C3%BCr-Versionskonflikt">¶</a></h2><p>In einem neuen virtuellen Environment schlägt folgende Installation fehl:</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.31.0<span class="w"> </span><span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.21.0
+</pre></div>
+<p>Auflösung durch flexiblere Versions-Spezifikationen:</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>requests~<span class="o">=</span><span class="m">2</span>.31.0<span class="w"> </span>urllib3~<span class="o">=</span><span class="m">1</span>.26.0
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=87781d0239f6b189">
-<div class="input">
-<div class="prompt input_prompt">In [62]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">(</span>
-    <span class="p">[</span>
-        <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Tee"</span><span class="p">,</span> <span class="mf">1.99</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-        <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Kaffee"</span><span class="p">,</span> <span class="mf">6.99</span><span class="p">),</span>
-        <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Tee"</span><span class="p">,</span> <span class="mf">2.99</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=dd461691f118bb4a">
-<div class="input">
-<div class="prompt input_prompt">In [63]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Einkaufsliste
-  2 x Tee à 1.99 = 3.98
-  1 x Kaffee à 6.99 = 6.99
-  1 x Tee à 2.99 = 2.99
-Gesamt: 13.96
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=23999262498b8fb9">
-<div class="input">
-<div class="prompt input_prompt">In [64]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[64]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=cf881d123cd393f7">
-<div class="input">
-<div class="prompt input_prompt">In [65]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[65]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>ShoppingListItem(product='Tee', price=1.99, amount=2)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=ebdd7e378e442ae7">
-<div class="input">
-<div class="prompt input_prompt">In [66]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[66]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>ShoppingListItem(product='Kaffee', price=6.99, amount=1)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=0e3b1147d27f2d76">
-<div class="input">
-<div class="prompt input_prompt">In [67]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="p">[</span><span class="s2">"Tee"</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[67]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[ShoppingListItem(product='Tee', price=1.99, amount=2),
- ShoppingListItem(product='Tee', price=2.99, amount=1)]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=e2ffdefa680e3ea0">
-<div class="input">
-<div class="prompt input_prompt">In [68]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="p">[</span><span class="s2">"Kaffee"</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[68]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[ShoppingListItem(product='Kaffee', price=6.99, amount=1)]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=a51f1dbdeb378797">
-<div class="input">
-<div class="prompt input_prompt">In [69]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="p">[</span><span class="s2">"Butter"</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[69]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d4f378e881362698"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=10e4cdc327daa0ca"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Fügen Sie 2 Stück Butter (à 1.59) und 1 Laib Brot (7.49) zur Einkaufsliste
-<code>meine_einkaufsliste</code> hinzu.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=bf9f7c18456c8fac">
-<div class="input">
-<div class="prompt input_prompt">In [70]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Butter"</span><span class="p">,</span> <span class="mf">1.59</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">meine_einkaufsliste</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Brot"</span><span class="p">,</span> <span class="mf">7.49</span><span class="p">))</span>
-<span class="n">meine_einkaufsliste</span>
+<h3 id="Beispiel-f%C3%BCr-anderes-Installationsproblem">Beispiel für anderes Installationsproblem<a class="anchor-link" href="#Beispiel-f%C3%BCr-anderes-Installationsproblem">¶</a></h3><p>Installation von <code>numpy</code> in Version <code>1.20.0</code> in einem neuen Environment schlägt
+unter manchen Windows-Versionen fehl:</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">numpy</span><span class="o">==</span><span class="m">1</span>.20.0
+</pre></div>
+<p>Auch hier lässt sich durch eine flexiblere Versions-Spezifikation das Problem
+lösen:</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy~<span class="o">=</span><span class="m">1</span>.20
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import numpy; print(numpy.__version__)"</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[70]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>ShoppingList(items=[ShoppingListItem(product='Tee', price=1.99, amount=2), ShoppingListItem(product='Kaffee', price=6.99, amount=1), ShoppingListItem(product='Tee', price=2.99, amount=1), ShoppingListItem(product='Butter', price=1.59, amount=2), ShoppingListItem(product='Brot', price=7.49, amount=1)])</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3611f4bac0801117"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=88232415ecf8e00d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Drucken Sie die Einkaufsliste nochmal aus.</p>
+<h2 id="Workshop:-Installation-von-Paketen-in-virtuellen-Umgebungen">Workshop: Installation von Paketen in virtuellen Umgebungen<a class="anchor-link" href="#Workshop:-Installation-von-Paketen-in-virtuellen-Umgebungen">¶</a></h2><ul>
+<li>Erstellen Sie ein virtuelles Environment in einem Verzeichnis <code>venv-workshop</code></li>
+<li>Aktivieren Sie das virtuelle Environment</li>
+<li>Installieren Sie das <code>requests</code> Paket in der Version <code>~= 2.0</code></li>
+<li>Installieren Sie das Paket <code>Pillow</code> in der Version <code>~= 10.0.0</code></li>
+<li>Bestimmen Sie die installierten Versionen von <code>requests</code> und <code>Pillow</code></li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=ab62dbae089c47e6">
-<div class="input">
-<div class="prompt input_prompt">In [71]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Einkaufsliste
-  2 x Tee à 1.99 = 3.98
-  1 x Kaffee à 6.99 = 6.99
-  1 x Tee à 2.99 = 2.99
-  2 x Butter à 1.59 = 3.18
-  1 x Brot à 7.49 = 7.49
-Gesamt: 24.63
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3b230734a8335fae"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9bc6f45bf3d0b37a"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Was passiert, wenn Sie <code>Butter</code> und <code>Brot</code> nochmals zur Einkaufsliste
-<code>meine_einkaufsliste</code> hinzufügen?</p>
+<ul>
+<li>Erstellen Sie eine Datei <code>requirements.txt</code> mit den installierten Paketen</li>
+<li>Führen Sie das folgende Skript im virtuellen Environment aus:</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=9830cd3e40ddb039">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=3599f53428af3cd5">
 <div class="input">
-<div class="prompt input_prompt">In [72]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Butter"</span><span class="p">,</span> <span class="mf">1.59</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">meine_einkaufsliste</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Brot"</span><span class="p">,</span> <span class="mf">7.49</span><span class="p">))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">PIL.ImageShow</span> <span class="kn">import</span> <span class="n">show</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://www.python.org/static/img/python-logo.png"</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"python-logo.png"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"python-logo.png"</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=8c72b1c5cdaebb3a">
-<div class="input">
-<div class="prompt input_prompt">In [73]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Einkaufsliste
-  2 x Tee à 1.99 = 3.98
-  1 x Kaffee à 6.99 = 6.99
-  1 x Tee à 2.99 = 2.99
-  2 x Butter à 1.59 = 3.18
-  1 x Brot à 7.49 = 7.49
-  2 x Butter à 1.59 = 3.18
-  1 x Brot à 7.49 = 7.49
-Gesamt: 35.3
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1d8ed3e563fce8c0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f59b95ec6b9b4042"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Diskussion:</em> Wie könnte das Verhalten der Klasse verbessert werden?</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=15bea72191aa3b77">
-<div class="input">
-<div class="prompt input_prompt">In [74]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
-    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ShoppingListItem</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TITLE_STRING</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">product</span><span class="si">}</span><span class="s2"> à </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">price</span><span class="si">}</span><span class="s2">"</span>
-                <span class="sa">f</span><span class="s2">" = </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-            <span class="p">)</span>
-        <span class="n">result</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TOTAL_STRING</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_by_product_name</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">find_by_product_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">product</span> <span class="o">==</span> <span class="n">product</span><span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">ShoppingListItem</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">existing_product</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
-            <span class="k">if</span> <span class="p">(</span>
-                <span class="n">existing_product</span><span class="o">.</span><span class="n">product</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">product</span>
-                <span class="ow">and</span> <span class="n">existing_product</span><span class="o">.</span><span class="n">price</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">price</span>
-            <span class="p">):</span>
-                <span class="n">existing_product</span><span class="o">.</span><span class="n">amount</span> <span class="o">+=</span> <span class="n">item</span><span class="o">.</span><span class="n">amount</span>
-                <span class="k">return</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">total_price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=6af956dd73ad8abe">
-<div class="input">
-<div class="prompt input_prompt">In [75]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">(</span>
-    <span class="p">[</span>
-        <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Tee"</span><span class="p">,</span> <span class="mf">1.99</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-        <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Kaffee"</span><span class="p">,</span> <span class="mf">6.99</span><span class="p">),</span>
-        <span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Tea"</span><span class="p">,</span> <span class="mf">2.99</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=20aa6fdd0b3d6471">
-<div class="input">
-<div class="prompt input_prompt">In [76]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Tee"</span><span class="p">,</span> <span class="mf">1.99</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">meine_einkaufsliste</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Brot"</span><span class="p">,</span> <span class="mf">7.49</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=1ea49e08878cf9c1">
-<div class="input">
-<div class="prompt input_prompt">In [77]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Einkaufsliste
-  4 x Tee à 1.99 = 7.96
-  1 x Kaffee à 6.99 = 6.99
-  1 x Tea à 2.99 = 2.99
-  1 x Brot à 7.49 = 7.49
-Gesamt: 25.43
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=4e2b25606df9d8a5">
-<div class="input">
-<div class="prompt input_prompt">In [78]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">meine_einkaufsliste</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Tee"</span><span class="p">,</span> <span class="mf">2.99</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">meine_einkaufsliste</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">ShoppingListItem</span><span class="p">(</span><span class="s2">"Brot"</span><span class="p">,</span> <span class="mf">7.49</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=f7b6a862f6e60531">
-<div class="input">
-<div class="prompt input_prompt">In [79]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Einkaufsliste
-  4 x Tee à 1.99 = 7.96
-  1 x Kaffee à 6.99 = 6.99
-  1 x Tea à 2.99 = 2.99
-  2 x Brot à 7.49 = 14.98
-  1 x Tee à 2.99 = 2.99
-Gesamt: 35.91
-</pre>
-</div>
-</div>
+<ul>
+<li>Deaktivieren Sie das virtuelle Environment</li>
+<li>Löschen Sie das Verzeichnis <code>venv-workshop</code></li>
+<li>Erstellen Sie ein neues virtuelles Environment in einem Verzeichnis <code>venv2</code></li>
+<li>Installieren Sie die Pakete aus der Datei <code>requirements.txt</code> in das neue
+virtuelle Environment</li>
+<li>Führen Sie das Skript im neuen virtuellen Environment erneut aus</li>
+</ul>
 </div>
 </div>
 </div>

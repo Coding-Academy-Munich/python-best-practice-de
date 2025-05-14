@@ -1,6 +1,31 @@
 [build-system]
-requires = [
-    "setuptools>=59",
-    "wheel"
-]
+requires = ["setuptools>=80.4.0", "wheel"]
 build-backend = "setuptools.build_meta"
+[project]
+name = "grasp_adventure"
+version = "0.0.1"
+description = "A simple adventure game demonstrating GRASP (and other) patterns"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+classifiers = ["Programming Language :: Python :: 3", "Operating System :: OS Independent"]
+dependencies = []
+
+[[project.authors]]
+name = "Dr. Matthias Hölzl"
+email = "tc@xantira.com"
+
+[project.urls]
+Homepage = "https://github.com/hoelzl/GraspAdventure/"
+"Bug Tracker" = "https://github.com/hoelzl/GraspAdventure/issues"
+
+[project.scripts]
+grasp-adventure = "grasp_adventure.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]

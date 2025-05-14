@@ -102,6 +102,10 @@
 # # uv Project API - Grundlagen
 #
 # - Moderne API für Python-Projekte mit `pyproject.toml`
+# - Projekt initialisieren:
+#   ```bash
+#   uv init
+#   ```
 # - Abhängigkeiten hinzufügen:
 #   ```bash
 #   uv add numpy pandas

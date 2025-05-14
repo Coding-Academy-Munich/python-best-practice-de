@@ -13086,7 +13086,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=3ade1f5bd92568f5"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=789098976be89770"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="Python Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRw
@@ -13136,7 +13136,7 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 " style="display:block;margin:auto;width:10%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>Dataclasses</b>
+<b>Der uv Package Manager</b>
 </div>
 <br>
 <div style="text-align:center;">Dr. Matthias Hölzl</div>
@@ -13144,1055 +13144,369 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8ebf0a1bc8d32191"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=96c60331bed1eb12"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Definition von Klassen ist in Python recht einfach</li>
-<li>Benötigt aber relativ viel Boilerplate-Code, um eine Klasse mit gutem Verhalten
-zu definieren</li>
-<li>Attribute sind in <code>__init__()</code> versteckt</li>
+<h1 id="Der-uv-Package-Manager">Der uv Package Manager<a class="anchor-link" href="#Der-uv-Package-Manager">¶</a></h1><ul>
+<li>Ein moderner, schneller Package-Manager für Python</li>
+<li>Entwickelt von Astral, dem Team hinter Ruff</li>
+<li>Geschrieben in Rust für maximale Performanz</li>
+<li>Zwei APIs: die moderne Project API und die kompatible pip API</li>
+<li>Open-Source auf GitHub verfügbar</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=452d460cbdbcb8e4">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=bee83015e3b7c1ac">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=4295784315214500">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=823548503f1aca39">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=475516e22a323b66">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Point(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span>
-
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Point</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">NotImplemented</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=a9af8bf52952963b">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=6e706282212167eb">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=e34a2fc6ec362d73">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">==</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=2dea5f6d0b399936"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0b94ef8ba74542b9"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Dataclasses">Dataclasses<a class="anchor-link" href="#Dataclasses">¶</a></h2><ul>
-<li>Attribute besser sichtbar</li>
-<li><code>__repr__()</code> und <code>__eq__()</code> sind vordefiniert</li>
-<li>Weitere Möglichkeiten: Siehe
-<a href="https://docs.python.org/3/library/dataclasses.html">Dokumentation</a></li>
+<h1 id="Warum-uv?">Warum uv?<a class="anchor-link" href="#Warum-uv?">¶</a></h1><ul>
+<li><strong>Geschwindigkeit</strong>: Deutlich schneller als bestehende Alternativen</li>
+<li><strong>Moderne API</strong>: Intuitive Befehle für Projektmanagement</li>
+<li><strong>Kompatibilität</strong>: Unterstützt pyproject.toml und requirements.txt</li>
+<li><strong>Workspace-Unterstützung</strong>: Ideal für Monorepos</li>
+<li><strong>Determinismus</strong>: Reproduzierbare Builds durch konsequentes
+Dependency-Locking</li>
+<li><strong>Vereinfachung</strong>: Ersetzt mehrere Tools durch eine einzige Lösung</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=3f5203df18900b5a">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=3451e58b35db8f01">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=76cd43a020804d44">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2f8a1afcec0f7c8d">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=26c120199888dbdb">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=101fe059687c11dd">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5c2ada63eadfc7cc"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8ec4e9d124a7104f"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Dataclasses sind vollwertige Klassen</li>
-<li>Sie können Methoden enthalten</li>
-<li>Attribute können Default-Werte haben</li>
-<li>Sie können vererbt werden</li>
-</ul>
+<h1 id="uv-vs.-andere-Package-Manager">uv vs. andere Package Manager<a class="anchor-link" href="#uv-vs.-andere-Package-Manager">¶</a></h1><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>uv</th>
+<th>pip</th>
+<th>poetry</th>
+<th>pipenv</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geschwindigkeit</td>
+<td>★★★★★</td>
+<td>★★</td>
+<td>★★★</td>
+<td>★★</td>
+</tr>
+<tr>
+<td>Virtuelle Umgebungen</td>
+<td>✅</td>
+<td>❌ (braucht venv)</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Dependency Resolution</td>
+<td>✅</td>
+<td>✅ (langsam)</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Abhängigkeits-Locking</td>
+<td>✅</td>
+<td>❌ (braucht pip-tools)</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Workspace Support</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>pyproject.toml</td>
+<td>✅</td>
+<td>✅ (begrenzt)</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>requirements.txt</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=c94e9cd5a1716b7e">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">field</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_start" id="cell-id=3bef8c59247d416e">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Point3D</span><span class="p">:</span>
-    <span class="n">x</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">y</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">z</span><span class="p">:</span> <span class="nb">float</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=160a8cf57f60ac35">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=136810fb40a38751">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f69dcfd8817edc88"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=3139ce7f8b4921ca"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Dataclasses erzwingen, dass Default-Werte unveränderlich sind<ul>
-<li>zumindest für einige Typen ...</li>
-</ul>
+<h1 id="Installation-von-uv">Installation von uv<a class="anchor-link" href="#Installation-von-uv">¶</a></h1><ul>
+<li><p><strong>Linux/macOS</strong>:</p>
+<div class="highlight"><pre><span></span>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</pre></div>
 </li>
-<li>Statt ein veränderliches Objekt als Default-Wert zu übergeben, kann eine
-Funktion verwendet werden, die ein neues Objekt zurückgibt</li>
-<li>Diese Art von Funktion wird "Factory-Funktion" genannt</li>
+<li><p><strong>Windows</strong> (PowerShell):</p>
+<div class="highlight"><pre><span></span><span class="nb">irm </span><span class="n">https</span><span class="p">://</span><span class="n">astral</span><span class="p">.</span><span class="n">sh</span><span class="p">/</span><span class="n">uv</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span> <span class="p">|</span> <span class="nb">iex</span>
+</pre></div>
+</li>
+<li><p><strong>Mit pip</strong> (alle Betriebssysteme):</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>uv
+</pre></div>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=f823aff44b82c0d7">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coord</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]):</span>  <span class="c1"># noqa</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coord</span> <span class="o">=</span> <span class="n">coord</span>
-
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Point(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="si">}</span><span class="s2">)"</span>
-
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dx</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dy</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=d163986977448f96">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="n">p1</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=9aed961c57b1d6ca">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="n">p2</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=95e95952432f6520">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">p1</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0c0cd14bd7efab9f">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p2</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=873d1bd38e141783">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=d5b7e6045d2a0f73">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=f38be2b4b14af11f">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2ef245dda56aa727">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=193d8e0c5a07b532"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=02504054e30452e6"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Für Listen brauchen wir keine Factory-Funktion definieren</li>
-<li>Der Listen-Konstruktor <code>list()</code> leistet das gleiche</li>
+<h1 id="Virtuelle-Umgebungen-mit-uv">Virtuelle Umgebungen mit uv<a class="anchor-link" href="#Virtuelle-Umgebungen-mit-uv">¶</a></h1><ul>
+<li><p>Erzeugen einer neuen virtuellen Umgebung:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>venv
+</pre></div>
+</li>
+<li><p>Mit spezifischem Python-Interpreter:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="o">=</span>python3.11
+</pre></div>
+</li>
+<li><p>Aktivieren (je nach Shell unterschiedlich):</p>
+<div class="highlight"><pre><span></span><span class="c1"># Bash/Zsh</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="c1"># Windows PowerShell</span>
+.venv<span class="se">\S</span>cripts<span class="se">\A</span>ctivate.ps1
+</pre></div>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=1088b591162bdba4">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=5fc1ece4ccb2f255">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=cfd9042198b0443e">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=f4c35f14c8bcec81">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_start" id="cell-id=1e38d6b7f6af238e">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># @dataclass</span>
-<span class="c1"># class DefaultDemo:</span>
-<span class="c1">#     items: list = field(default=[])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=18630d28cea060bc">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=371a6f6c3074bb33">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b78bc5d6e82e24a9"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=fe887221e26d383e"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Bei Python Versionen 3.10 und früher funktioniert der Test auf unveränderliche
-Defaults nur für einige Typen aus der Standardbibliothek, nicht für
-benutzerdefinierte Typen:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=20516e1708db0e97">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<h2 id="Installation-von-Python-Versionen">Installation von Python Versionen<a class="anchor-link" href="#Installation-von-Python-Versionen">¶</a></h2><ul>
+<li>Neueste Python version:<div class="highlight"><pre><span></span>uv<span class="w"> </span>python<span class="w"> </span>install
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=fb6b9d5947a4e8e4">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li>Spezifische Version:<div class="highlight"><pre><span></span>uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.12
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=dbd8cdcf45721ce3">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2ed38440f3458dff"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Workshop:-Einkaufsliste">Workshop: Einkaufsliste<a class="anchor-link" href="#Workshop:-Einkaufsliste">¶</a></h1><p>In dieser Aufgabe wollen wir eine Einkaufsliste definieren, die geplante
-Einkäufe verwalten kann. Eine Einkaufsliste soll aus Einträgen bestehen, die
-ein Produkt und die davon benötigte Menge enthalten.</p>
-<p>Es sollen sowohl die Einkaufsliste selber als auch die Einträge durch
-benutzerdefinierte Datentypen repräsentiert werden.</p>
-<p>Falls Sie die Lösung als Python-Projekt statt als Notebook implementieren wollen,
-ist in <code>examples/ShoppingListStarterKit</code> in Projektgerüst, das Sie als
-Startpunkt hernehmen können. In <code>examples/ShoppingList</code> ist ein Lösungsvorschlag.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=92baf440b5d53b8d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Definieren Sie zunächst eine Klasse <code>ShoppingListItem</code>, die folgende Attribute hat:</p>
-<ul>
-<li><code>product: str</code></li>
-<li><code>price: float</code></li>
-<li><code>amount: int</code>
-Verwenden Sie den <code>@dataclass</code> Decorator um die Klasse zu definieren. Verwenden Sie
-einen Default-Wert von 1 für <code>amount</code>.</li>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=882c2af02cf5fceb">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=71e31de2a1ae61a1">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0bef9d38fef484f0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=f6485592c3b5d6bc"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Erzeugen sie ein <code>ShoppingListItem</code>, das 2 Pakete Kaffee zu je Eur 6.99 repräsentiert:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=4396ec260891abee">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<h1 id="uv-Project-API---Grundlagen">uv Project API - Grundlagen<a class="anchor-link" href="#uv-Project-API---Grundlagen">¶</a></h1><ul>
+<li>Moderne API für Python-Projekte mit <code>pyproject.toml</code></li>
+<li>Projekt initialisieren:<div class="highlight"><pre><span></span>uv<span class="w"> </span>init
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ccb1b78e732d75e2"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Erweitern Sie die Klasse <code>ShoppingListItem</code> um eine Methode <code>total_price()</code>,
-die den Gesamtpreis des Eintrags berechnet.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=d80d419b1414d4ca">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li>Abhängigkeiten hinzufügen:<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>numpy<span class="w"> </span>pandas
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6b333c22f53b8fc1"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Definieren Sie eine Variable <code>mein_kaffee</code>, die ein <code>ShoppingListItem</code>
-repräsentiert, das 2 Pakete Kaffee zu je Eur 6.99 repräsentiert:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=e531bbd1721c5238">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li>Entwicklungsabhängigkeiten hinzufügen:<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>pytest<span class="w"> </span>black<span class="w"> </span>mypy
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ab8cf6b7e90f7352"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Berechnen Sie den Gesamtpreis von <code>mein_kaffee</code>:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=adf9c2073b23e3b3">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li>Ausführen der Tests<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>pytest
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=599e04803faff7a6"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Definieren Sie eine Klasse <code>ShoppingList</code>, die eine Liste von
-<code>ShoppingListItem</code>-Instanzen beinhaltet:</p>
-<ul>
-<li>Verwenden Sie den <code>@dataclass</code> Decorator</li>
-<li>Die Klasse hat ein Attribut <code>items</code> vom Typ <code>list</code>
-(oder <code>list[ShoppingListItem]</code>, falls
-Sie Python 3.9 oder neuer verwenden), das mit einer leeren Liste
-Initialisiert wird.</li>
-<li>Die Methode <code>add_item(self, item: ShoppingListItem)</code> fügt ein
-<code>ShoppingListItem</code> zur Einkaufsliste hinzu.</li>
-<li>Die Methode <code>total_price(self)</code> berechnet den Gesamtpreis der
-Einkaufsliste.</li>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=b30f952dc3a7106a">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=8cc8734763092e7c">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a703d67fb5ce38fd"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=7c1e0b10ab7f0a35"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Definieren Sie Variable <code>meine_einkaufsliste</code>, die eine Einkaufsliste mit
-folgenden ShoppingListItems repräsentiert:</p>
-<ul>
-<li>2 Pakete Tee à 1.99</li>
-<li>1 Paket Kaffee à 6.99</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=a02913cf30cf57b3">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<h2 id="Neues-Projekt-mit-uv-erstellen">Neues Projekt mit uv erstellen<a class="anchor-link" href="#Neues-Projekt-mit-uv-erstellen">¶</a></h2><ul>
+<li>Einfaches Modul<div class="highlight"><pre><span></span>uv<span class="w"> </span>init<span class="w"> </span>my-project
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=4a12a1861e66189e"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Berechnen Sie den Gesamtpreis von <code>meine_einkaufsliste</code>:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2e17f9f5b5a0e228">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=86ca4a57bc4cc90d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Was ist die Ausgabe von <code>print(meine_einkaufsliste)</code>?</li>
-<li>Was ist die Ausgabe von <code>print(repr(meine_einkaufsliste))</code>?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=546baae06cf31776">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e6de7c31394ab864"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Erweitern Sie die Klasse <code>ShoppingList</code> um eine
-<a href="https://docs.python.org/3/reference/datamodel.html#object.__str__"><code>__str__()</code>-Methode</a>,
-so dass:</p>
-<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_einkaufsliste</span><span class="p">)</span>
-</pre></div>
-<p>folgende Ausgabe erzeugt:</p>
-<pre><code>Einkaufsliste
-  2 x Tee à 1.99 = 3.98
-  1 x Kaffee à 6.99 = 6.99
-Gesamt: 10.97
+</li>
+<li>Package mit ausführbarem Skript<pre><code>uv init --package --app my-package
 </code></pre>
-<p><em>Hinweis:</em> Sie müssen die Definition von <code>meine_einkaufsliste</code> möglicherweise erneut
-auswerten, nachdem Sie die Klasse <code>ShoppingList</code> erweitert haben, um die Auswirkungen
-Ihrer Änderungen zu sehen.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=7d304143cc82549f">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2f2ace5e208e4596">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ff1b0439935ff647"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=87706619bd7df414"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Evaluieren Sie die Definition von <code>meine_einkaufsliste</code> erneut und
-Drucken Sie die Einkaufsliste aus. Entspricht die Ausgabe Ihren Erwartungen?</p>
-<p>Wie sieht die Ausgabe von <code>repr(meine_einkaufsliste)</code> aus?</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=25725ac751de0322">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<h1 id="Projektabh%C3%A4ngigkeiten-mit-Project-API">Projektabhängigkeiten mit Project API<a class="anchor-link" href="#Projektabh%C3%A4ngigkeiten-mit-Project-API">¶</a></h1><ul>
+<li><p><strong>Hauptabhängigkeiten hinzufügen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>numpy<span class="w"> </span>pandas<span class="w"> </span>matplotlib
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=54256a0e4df51a90">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Entwicklungsabhängigkeiten hinzufügen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>pytest<span class="w"> </span>black<span class="w"> </span>mypy
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=9a8219b2ebbb5ac1">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Mit Versionsbeschränkungen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span><span class="s2">"numpy&gt;=1.20.0"</span><span class="w"> </span><span class="s2">"pandas&gt;=1.3.0,&lt;2.0.0"</span>
 </pre></div>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=24091af15cbb1ca5"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=590dd390ef923a25"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Erweitern Sie die Klasse <code>ShoppingList</code> um folgende Methoden:</p>
+<h1 id="Abh%C3%A4ngigkeiten-verwalten-mit-Project-API">Abhängigkeiten verwalten mit Project API<a class="anchor-link" href="#Abh%C3%A4ngigkeiten-verwalten-mit-Project-API">¶</a></h1><ul>
+<li><p><strong>Abhängigkeiten synchronisieren</strong> (installieren/aktualisieren):</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>sync
+</pre></div>
+</li>
+<li><p><strong>Abhängigkeiten locken</strong> (automatisch mit <code>uv run</code>):</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>lock
+</pre></div>
+</li>
+<li><p><strong>Installation ohne Lockfile upzudaten (Fehler falls inkompatibel)</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>sync<span class="w"> </span>--locked
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=b603d4643940b871"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Befehle-ausf%C3%BChren-mit-uv-run">Befehle ausführen mit uv run<a class="anchor-link" href="#Befehle-ausf%C3%BChren-mit-uv-run">¶</a></h1><ul>
+<li><p><strong>Python-Script ausführen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>script.py
+</pre></div>
+</li>
+<li><p><strong>Installierte Tools ausführen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>--dev<span class="w"> </span>pytest
+uv<span class="w"> </span>run<span class="w"> </span>--dev<span class="w"> </span>black<span class="w"> </span>.
+</pre></div>
+</li>
+<li><p><strong>Mit zusätzlichen Argumenten</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-xvs<span class="w"> </span>tests/
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=50452122b7be0091"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Editable-Installationen-und-Workspaces">Editable Installationen und Workspaces<a class="anchor-link" href="#Editable-Installationen-und-Workspaces">¶</a></h1><ul>
+<li><strong>Editable Installation einer Abhängigkeit</strong>:<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--editable<span class="w"> </span>./my-local-package/
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6e79bb07ea15abf2"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><a href="https://docs.python.org/3/reference/datamodel.html#object.__len__"><code>__len__()</code></a>:
-Gibt die Anzahl der Einträge in der Einkaufsliste zurück.</li>
-<li><a href="https://docs.python.org/3/reference/datamodel.html#object.__getitem__"><code>__getitem__()</code></a>
-Ermöglicht den Zugriff auf Einträge über ihren numerischen Index.</li>
+<li><strong>Workspace-Konfiguration</strong> (pyproject.toml):<div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my-app-bundle"</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"my-libraries"</span><span class="p">]</span>
+<span class="k">[tool.uv.sources]</span>
+<span class="n">my-libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">workspace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="k">[tool.uv.workspace]</span>
+<span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"packages/*"</span><span class="p">]</span>
+</pre></div>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=fc8418ca65de32c1"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1c37c60ee0364fe1"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Bemerkungen">Bemerkungen<a class="anchor-link" href="#Bemerkungen">¶</a></h3><ul>
-<li>Denken Sie daran, dass Sie <code>meine_einkaufsliste</code> neu auswerten müssen.</li>
-<li>Sie können von <code>typing.Sized</code> erben, um statische Typchecks für die
-<code>__len__()</code> Methode zu erleichtern. Das ist aber für das korrekte Laufzeitverhalten
-des Programms nicht notwendig.</li>
-<li>Nachdem <code>ShoppingList</code> sowohl <code>__len__()</code> als auch <code>__getitem__()</code> definiert,
-können Sie auch von <code>typing.Sequence</code> erben.</li>
+<h1 id="Die-pip-API---f%C3%BCr-besondere-F%C3%A4lle">Die pip API - für besondere Fälle<a class="anchor-link" href="#Die-pip-API---f%C3%BCr-besondere-F%C3%A4lle">¶</a></h1><ul>
+<li><p>Kompatible API für bestehende Projekte ohne pyproject.toml</p>
+</li>
+<li><p><strong>Paket installieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>numpy
+</pre></div>
+</li>
+<li><p><strong>Pakete aus einer requirements.txt installieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</li>
+<li><p><strong>Paketinformationen anzeigen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>numpy
+</pre></div>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=9662a5f7962077ea">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5266885e0b15bd09"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=dc089f2523ccf0d9"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Stellen Sie fest, wie lange <code>meine_einkaufsliste</code> ist und
-was ihr erstes und zweites Element sind:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=af969f1277121725">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<h1 id="Projekt-entwickeln-und-publizieren">Projekt entwickeln und publizieren<a class="anchor-link" href="#Projekt-entwickeln-und-publizieren">¶</a></h1><ul>
+<li><p><strong>Tests ausführen</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>pytest
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=ead959df187d38cf">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Code formatieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>black<span class="w"> </span>.
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2d265ecfe0dd8c19">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Build-Abhängigkeiten installieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>build<span class="w"> </span>twine
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=3d5b263dcf67d624">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+</li>
+<li><p><strong>Paket bauen und publizieren</strong>:</p>
+<div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>build
+uv<span class="w"> </span>run<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
 </pre></div>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f16487003fc30ffc"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0dcae3c4afff2950"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Was ist der Effekt des folgenden Ausdrucks?</p>
+<h1 id="Fazit:-Vorteile-von-uv">Fazit: Vorteile von uv<a class="anchor-link" href="#Fazit:-Vorteile-von-uv">¶</a></h1><ul>
+<li><strong>Geschwindigkeit</strong>: Drastisch schnellere Installation und Abhängigkeitsauflösung</li>
+<li><strong>Moderne API</strong>: Intuitive Project API für effizientes Projektmanagement</li>
+<li><strong>Workspaces</strong>: Unterstützung für Monorepos mit mehreren Paketen</li>
+<li><strong>Dual-API</strong>: Modern (Project API) und kompatibel (pip API)</li>
+<li><strong>Determinismus</strong>: Zuverlässiges Dependency-Locking für reproduzierbare Builds</li>
+<li><strong>Entwicklerfreundlich</strong>: <code>uv run</code> für einfache Befehlsausführung</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=ace4af269fec4cfd">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">meine_einkaufsliste</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1d79196a1f20ee8c"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5569642fe61ebb75"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Erweitern Sie die Definition der Klasse <code>ShoppingList</code>, so dass der Indexing
-Operator <code>[]</code> auch mit einem String aufgerufen werden kann, und eine Liste mit allen
-Shopping-List-Items zurückgibt, deren <code>product</code> mit dem String übereinstimmt, oder
-eine leere Liste, falls kein solches Item existiert.</p>
-<p>Verifizieren Sie, dass ihre neue Implementierung des Indexing Operators für Integer
-und String Argumente funktioniert.</p>
-<p>Wie bewerten Sie das neue Verhalten der Klasse? Ist es eine gute Idee, den Indexing
-Operator so zu überladen? Gibt es eine bessere Alternative?</p>
-<p><em>Hinweis:</em> Sie können die <code>isinstance()</code> Funktion verwenden um zu überprüfen,
-ob ein Objekt ein String ist.</p>
+<h1 id="Wann-sollten-Sie-uv-verwenden?">Wann sollten Sie uv verwenden?<a class="anchor-link" href="#Wann-sollten-Sie-uv-verwenden?">¶</a></h1><ul>
+<li>Bei neuen Projekten mit pyproject.toml</li>
+<li>In Monorepos mit mehreren Python-Paketen</li>
+<li>Für schnellere CI/CD-Pipelines</li>
+<li>Wenn Sie von pip auf ein moderneres Tool umsteigen möchten</li>
+<li>Bei großen Projekten mit vielen Abhängigkeiten</li>
+<li>Wenn Sie Wert auf reproduzierbare Builds legen</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=be709866fc8fbae9">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=87781d0239f6b189">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d4f378e881362698"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=a2b51912c36b06b2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Fügen Sie 2 Stück Butter (à 1.59) und 1 Laib Brot (7.49) zur Einkaufsliste
-<code>meine_einkaufsliste</code> hinzu.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=bf9f7c18456c8fac">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3611f4bac0801117"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Drucken Sie die Einkaufsliste nochmal aus.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=ab62dbae089c47e6">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3b230734a8335fae"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Was passiert, wenn Sie <code>Butter</code> und <code>Brot</code> nochmals zur Einkaufsliste
-<code>meine_einkaufsliste</code> hinzufügen?</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=9830cd3e40ddb039">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=8c72b1c5cdaebb3a">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1d8ed3e563fce8c0"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Diskussion:</em> Wie könnte das Verhalten der Klasse verbessert werden?</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=15bea72191aa3b77">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
+<h1 id="Ressourcen">Ressourcen<a class="anchor-link" href="#Ressourcen">¶</a></h1><ul>
+<li><a href="https://docs.astral.sh/uv/">Offizielle uv-Dokumentation</a></li>
+<li><a href="https://github.com/astral-sh/uv">GitHub Repository</a></li>
+<li><a href="https://astral.sh/blog/uv">uv vs. andere Package Manager-Benchmarks</a></li>
+<li><a href="https://packaging.python.org">Python Packaging User Guide</a></li>
+<li><a href="https://peps.python.org/pep-0621">PEP 621 – Metadaten in pyproject.toml</a></li>
+<li><a href="https://www.janestreet.com/tech-talks/uv-an-extremely-fast-python-package-manager/">uv Tech Talk (Jane Street)</a></li>
+</ul>
 </div>
 </div>
 </div>
