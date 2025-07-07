@@ -13159,12 +13159,90 @@ Paket</em>)</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8fd64e9f8fee7e39"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ace1b798e667872d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lebenszyklus-eines-Pakets">Lebenszyklus eines Pakets<a class="anchor-link" href="#Lebenszyklus-eines-Pakets">¶</a></h2><ul>
+<h2 id="PyPI">PyPI<a class="anchor-link" href="#PyPI">¶</a></h2><ul>
+<li><a href="https://pypi.org/">Python Package Index</a></li>
+<li>Zentrale Datenbank für Python-Pakete</li>
+<li>Ermöglicht das Finden und Installieren von Paketen</li>
+<li>Eigene Pakete können dort veröffentlicht werden</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0321ccad58571474"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installation-von-Paketen-mit-pip">Installation von Paketen mit <code>pip</code><a class="anchor-link" href="#Installation-von-Paketen-mit-pip">¶</a></h2><ul>
+<li><code>pip</code> ist das Standard-Tool zum Installieren von Paketen</li>
+<li><code>pip</code> kann<ul>
+<li>Pakete von PyPI herunterladen und installieren</li>
+<li>Pakete aus lokalen Verzeichnissen oder von Git-Repositories installieren</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=37fff771f7df8528"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Installation eines Pakets:</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>&lt;package&gt;
+</pre></div>
+<p>Entfernen eines Pakets:</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>uninstall<span class="w"> </span>&lt;package&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=597d575a37661b18"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Einschub:-Die--c-Option-von-python">Einschub: Die <code>-c</code> Option von <code>python</code><a class="anchor-link" href="#Einschub:-Die--c-Option-von-python">¶</a></h3><ul>
+<li>Mit <code>python -c "&lt;code&gt;"</code> kann Python-Code direkt in der Kommandozeile
+ausgeführt werden</li>
+<li>Nützlich für kurze Skripte oder Einzeiler</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a2a3e76ff65a11d8">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=4d2e457252c2dd88">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b02a91116ea7deb8"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Beispiel:-Installation-des-Pakets-pyfiglet">Beispiel: Installation des Pakets <code>pyfiglet</code><a class="anchor-link" href="#Beispiel:-Installation-des-Pakets-pyfiglet">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5a26df00a1567373"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lebenszyklus-eines-Dist-Pakets">Lebenszyklus eines Dist-Pakets<a class="anchor-link" href="#Lebenszyklus-eines-Dist-Pakets">¶</a></h2><ul>
 <li>Quellcode (typischerweise in einem Git-Repository)<ul>
-<li>Python-Dateien</li>
+<li>Python-Dateien (Module, Import-Packages)</li>
 <li>Metadaten-Dateien: <code>pyproject.toml</code></li>
 <li>Bei älteren Paketen: <code>setup.py</code>, <code>setup.cfg</code></li>
 </ul>
@@ -13182,7 +13260,7 @@ Paket</em>)</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=7957cbe46a0c1e76"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=accb42cb6a7d7ad3"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Wheels">Wheels<a class="anchor-link" href="#Wheels">¶</a></h2><ul>
@@ -13191,19 +13269,7 @@ Paket</em>)</li>
 <li>Enthalten alle Dateien, die für die Installation benötigt werden</li>
 <li>Haben Metadaten wie Versionsnummer und Abhängigkeiten</li>
 <li>Können mit <code>pip</code> installiert werden</li>
-<li>Erstellung mit Tools wie <code>setuptools</code>, <code>hatchling</code>, <code>poetry</code> oder <code>flit</code></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=89ecb0918631f306"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="PyPI">PyPI<a class="anchor-link" href="#PyPI">¶</a></h2><ul>
-<li>Python Package Index</li>
-<li>Zentrale Datenbank für Python-Pakete</li>
-<li>Enthält Metadaten für viele Pakete und Links zu den Wheels</li>
-<li><code>pip</code> kann Pakete von PyPI herunterladen und installieren</li>
+<li>Erstellung mit Tools wie <code>setuptools</code>, <code>hatchling</code>, <code>poetry</code>, <code>flit</code> oder <code>uv</code></li>
 </ul>
 </div>
 </div>
@@ -13371,30 +13437,14 @@ virtuellen Umgebungen verwaltet werden</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5908369ce778cbd5"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import requests; print(requests.__version__)"</span>
-python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
-<span class="nb">source</span><span class="w"> </span>./venv/bin/activate<span class="w"> </span><span class="c1"># Linux</span>
-./venv/Scripts/activate.bat<span class="w"> </span><span class="c1"># Windows CMD</span>
-./venv/Scripts/Activate.ps1<span class="w"> </span><span class="c1"># Windows PowerShell</span>
-pip<span class="w"> </span>install<span class="w"> </span>requests~<span class="o">=</span><span class="m">2</span>.28.1
-python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import requests; print(requests.__version__)"</span>
-pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
-deactivate
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a981b4bad5db54bf"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b942bdec7f8fa33a"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Beispiel-f%C3%BCr-Versionskonflikt">Beispiel für Versionskonflikt<a class="anchor-link" href="#Beispiel-f%C3%BCr-Versionskonflikt">¶</a></h2><p>In einem neuen virtuellen Environment schlägt folgende Installation fehl:</p>
 <div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.31.0<span class="w"> </span><span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.21.0
 </pre></div>
 <p>Auflösung durch flexiblere Versions-Spezifikationen:</p>
-<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>requests~<span class="o">=</span><span class="m">2</span>.31.0<span class="w"> </span>urllib3~<span class="o">=</span><span class="m">1</span>.26.0
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>requests~<span class="o">=</span><span class="m">2</span>.31.0<span class="w"> </span>urllib3~<span class="o">=</span><span class="m">1</span>.21.0
 </pre></div>
 </div>
 </div>
@@ -13414,7 +13464,7 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=88232415ecf8e00d"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ab1e9eda4f40a858"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Workshop:-Installation-von-Paketen-in-virtuellen-Umgebungen">Workshop: Installation von Paketen in virtuellen Umgebungen<a class="anchor-link" href="#Workshop:-Installation-von-Paketen-in-virtuellen-Umgebungen">¶</a></h2><ul>
@@ -13422,7 +13472,17 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import
 <li>Aktivieren Sie das virtuelle Environment</li>
 <li>Installieren Sie das <code>requests</code> Paket in der Version <code>~= 2.0</code></li>
 <li>Installieren Sie das Paket <code>Pillow</code> in der Version <code>~= 10.0.0</code></li>
-<li>Bestimmen Sie die installierten Versionen von <code>requests</code> und <code>Pillow</code></li>
+<li>Bestimmen Sie die installierten Versionen von <code>requests</code> und <code>Pillow</code><ul>
+<li>Die Pakete können mit den folgenden Anweisungen importiert werden:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">PIL</span>
+</pre></div>
+<ul>
+<li>Jedes der importierten Module hat eine <code>__version__</code>-Variable, die die
+installierte Version enthält</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -13453,6 +13513,13 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import
 <span class="n">show</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=60cbc43921e74bd1"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(Das Skript ist in der Datei <code>download_and_show_python_logo.py</code> zu finden.)</p>
 </div>
 </div>
 </div>

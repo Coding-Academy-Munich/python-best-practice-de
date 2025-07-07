@@ -23,10 +23,69 @@
 
 # %% [markdown]
 #
-# ## Lebenszyklus eines Pakets
+# ## PyPI
+#
+# - [Python Package Index](https://pypi.org/)
+# - Zentrale Datenbank für Python-Pakete
+# - Ermöglicht das Finden und Installieren von Paketen
+# - Eigene Pakete können dort veröffentlicht werden
+
+# %% [markdown]
+#
+# ## Installation von Paketen mit `pip`
+#
+# - `pip` ist das Standard-Tool zum Installieren von Paketen
+# - `pip` kann
+#   - Pakete von PyPI herunterladen und installieren
+#   - Pakete aus lokalen Verzeichnissen oder von Git-Repositories installieren
+
+# %% [markdown]
+#
+# Installation eines Pakets:
+#
+# ```shell
+# pip install <package>
+# ```
+#
+# Entfernen eines Pakets:
+#
+# ```shell
+# pip uninstall <package>
+# ```
+
+# %% [markdown]
+#
+# ### Einschub: Die `-c` Option von `python`
+#
+# - Mit `python -c "<code>"` kann Python-Code direkt in der Kommandozeile
+#   ausgeführt werden
+# - Nützlich für kurze Skripte oder Einzeiler
+
+# %%
+# !python -c "print('Hello World!')"
+
+# %%
+# !python -c "import sys; print(sys.version)"
+
+
+# %% [markdown]
+#
+# ### Beispiel: Installation des Pakets `pyfiglet`
+
+# %% [markdown]
+# ```shell
+# pip install pyfiglet
+# pyfiglet "Hello World!"
+# python -c "import pyfiglet; print(pyfiglet.__version__)"
+# pip uninstall pyfiglet
+# ```
+
+# %% [markdown]
+#
+# ## Lebenszyklus eines Dist-Pakets
 #
 # - Quellcode (typischerweise in einem Git-Repository)
-#   - Python-Dateien
+#   - Python-Dateien (Module, Import-Packages)
 #   - Metadaten-Dateien: `pyproject.toml`
 #   - Bei älteren Paketen: `setup.py`, `setup.cfg`
 # - Distribution
@@ -44,16 +103,7 @@
 # - Enthalten alle Dateien, die für die Installation benötigt werden
 # - Haben Metadaten wie Versionsnummer und Abhängigkeiten
 # - Können mit `pip` installiert werden
-# - Erstellung mit Tools wie `setuptools`, `hatchling`, `poetry` oder `flit`
-
-# %% [markdown]
-#
-# ## PyPI
-#
-# - Python Package Index
-# - Zentrale Datenbank für Python-Pakete
-# - Enthält Metadaten für viele Pakete und Links zu den Wheels
-# - `pip` kann Pakete von PyPI herunterladen und installieren
+# - Erstellung mit Tools wie `setuptools`, `hatchling`, `poetry`, `flit` oder `uv`
 
 # %% [markdown]
 #
@@ -195,6 +245,7 @@
 # python -c "import requests; print(requests.__version__)"
 # pip freeze > requirements.txt
 # deactivate
+# ```
 
 
 # %% [markdown]
@@ -210,7 +261,7 @@
 # Auflösung durch flexiblere Versions-Spezifikationen:
 #
 # ```shell
-# pip install requests~=2.31.0 urllib3~=1.26.0
+# pip install requests~=2.31.0 urllib3~=1.21.0
 # ```
 
 # %% [markdown]
@@ -241,6 +292,13 @@
 # - Installieren Sie das `requests` Paket in der Version `~= 2.0`
 # - Installieren Sie das Paket `Pillow` in der Version `~= 10.0.0`
 # - Bestimmen Sie die installierten Versionen von `requests` und `Pillow`
+#   - Die Pakete können mit den folgenden Anweisungen importiert werden:
+#   ```python
+#   import requests
+#   import PIL
+#   ```
+#   - Jedes der importierten Module hat eine `__version__`-Variable, die die
+#     installierte Version enthält
 
 # %% [markdown]
 #
@@ -260,6 +318,10 @@ show(image)
 
 # %% [markdown]
 #
+# (Das Skript ist in der Datei `download_and_show_python_logo.py` zu finden.)
+
+# %% [markdown]
+#
 # - Deaktivieren Sie das virtuelle Environment
 # - Löschen Sie das Verzeichnis `venv-workshop`
 # - Erstellen Sie ein neues virtuelles Environment in einem Verzeichnis `venv2`
@@ -270,33 +332,18 @@ show(image)
 # %% [markdown]
 #
 # ```shell
-# echo 'import requests
-# from PIL import Image
-# from PIL.ImageShow import show
-#
-# response = requests.get("https://www.python.org/static/img/python-logo.png")
-# with open("python-logo.png", "wb") as file:
-#     file.write(response.content)
-# image = Image.open("python-logo.png")
-# show(image)
-# ' > script.py
-# ```
-
-# %% [markdown]
-#
-# ```shell
 # python -m venv venv-workshop
 # source ./venv-workshop/bin/activate # Linux
 # ./venv-workshop/Scripts/activate.bat # Windows CMD
 # ./venv-workshop/Scripts/Activate.ps1 # Windows PowerShell
-# pip install requests~=2.28.1
-# pip install Pillow~=10.0.0
+# pip install requests~=2.0 Pillow~=10.0
 # python -c "import requests; print(requests.__version__)"
 # python -c "import PIL; print(PIL.__version__)"
-# python script.py
+# python download_and_show_python_logo.py
 # pip freeze > requirements.txt
 # cat requirements.txt
 # deactivate
+# ```
 
 # %% [markdown]
 #

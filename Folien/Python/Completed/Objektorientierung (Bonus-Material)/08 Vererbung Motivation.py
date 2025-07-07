@@ -78,7 +78,7 @@ class ColorPoint:
     def randomize(self):
         self.x = random.gauss(2, 0.5)
         self.y = random.gauss(3, 0.5)
-
+        self.color = random.choice(["black", "red", "green", "blue", "yellow", "white"])
 
 # %%
 cp = ColorPoint(2, 3)

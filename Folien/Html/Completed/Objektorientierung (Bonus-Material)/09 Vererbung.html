@@ -13247,7 +13247,7 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="output_area">
 <div class="prompt output_prompt">Out[5]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>Point(1.2, 3.6)</pre>
+<pre>Point(2.2, 2.9)</pre>
 </div>
 </div>
 </div>
@@ -13393,13 +13393,13 @@ von <code>Point</code> neu implementieren zu müssen?</p>
 <div class="output_area">
 <div class="prompt output_prompt">Out[13]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>ColorPoint(2.8, 2.6, 'black')</pre>
+<pre>ColorPoint(2.7, 3.4, 'yellow')</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0b494a6b253729f4"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=6b03b24cad4218c1"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Workshop:-Mitarbeiter">Workshop: Mitarbeiter<a class="anchor-link" href="#Workshop:-Mitarbeiter">¶</a></h2><p>Im Folgenden soll eine Klassenhierarchie für Mitarbeiter einer Firma erstellt
@@ -13416,8 +13416,19 @@ Grundgehalts plus der Bezahlung für die Überstunden</li>
 <li>Das Gehalt eines Managers berechnet sich als das 13/12-fache des
 Grundgehalts plus Bonus</li>
 </ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5f1f334aae714cc6"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Implementieren Sie Python Klassen <code>Mitarbeiter</code>, <code>Arbeiter</code> und <code>Manager</code> mit
 geeigneten Attributen und einer Methode <code>gehalt()</code>, die das Gehalt berechnet.</p>
+<p>Implementieren Sie in der Klasse <code>Mitarbeiter</code> eine Version der <code>gehalt()</code>
+Methode, die das 13/12-fache des Grundgehalts zurückgibt. Überschreiben Sie in
+den Klassen <code>Arbeiter</code> und <code>Manager</code> die Methode <code>gehalt()</code>, um das Gehalt
+entsprechend der angegebenen Formeln zu berechnen. Verwenden Sie dazu die Methode
+<code>gehalt()</code> der Basisklasse <code>Mitarbeiter</code> mit <code>super()</code>.</p>
 </div>
 </div>
 </div>
@@ -13483,7 +13494,7 @@ geeigneten Attributen und einer Methode <code>gehalt()</code>, die das Gehalt be
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=66dc1567d95018ed"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=66dc1567d95018ed"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Erzeugen Sie einen Arbeiter mit Namen Hans, Personalnummer 123, einem
@@ -13522,7 +13533,7 @@ hat. Drucken Sie das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=e86725a16acf79b2"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e86725a16acf79b2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Schreiben sie Assertions, die die Funktionalität der Klasse <code>Arbeiter</code> testen.</p>
@@ -13548,7 +13559,7 @@ hat. Drucken Sie das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=09854cd3fb48f14c"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=09854cd3fb48f14c"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Erzeugen Sie einen Manager mit Namen Sepp, Personalnummer 843, der ein
@@ -13587,7 +13598,7 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=4f7545ac5aeca525"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=4f7545ac5aeca525"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Testen Sie die Funktionalität der <code>Manager</code> Klasse.</p>
@@ -13605,14 +13616,14 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_alt" id="cell-id=98b21d3bcf77eb16"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=211d091ecb9765f9"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="L%C3%B6sung-ohne-Dataclasses:">Lösung ohne Dataclasses:<a class="anchor-link" href="#L%C3%B6sung-ohne-Dataclasses:">¶</a></h2>
+<h2 id="L%C3%B6sungsvorschlag-ohne-Dataclasses:">Lösungsvorschlag ohne Dataclasses:<a class="anchor-link" href="#L%C3%B6sungsvorschlag-ohne-Dataclasses:">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=560bc006a14831f2">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=560bc006a14831f2">
 <div class="input">
 <div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
@@ -13630,7 +13641,7 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=8a4cd4b3ff70c08f">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=8a4cd4b3ff70c08f">
 <div class="input">
 <div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
@@ -13654,7 +13665,7 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=abb0b9b81d28eee7">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=abb0b9b81d28eee7">
 <div class="input">
 <div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
@@ -13677,7 +13688,7 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=b49ef6241added5f">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=b49ef6241added5f">
 <div class="input">
 <div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
@@ -13688,7 +13699,7 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=d38f80c6bf738781">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=d38f80c6bf738781">
 <div class="input">
 <div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
@@ -13710,7 +13721,7 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2069c291d3663838">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=038238ee49bf73d7">
 <div class="input">
 <div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
@@ -13721,11 +13732,1276 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=24a6257532999740"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=be45bbf8268c5eec"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Eine Visualisierung für <code>super()</code>-Aufrufe bei Vererbung mit Python Tutor
-ist <a href="shorturl.at/efDKW">hier</a>.</p>
+<h2 id="Workshop:-Fahrzeuge">Workshop: Fahrzeuge<a class="anchor-link" href="#Workshop:-Fahrzeuge">¶</a></h2><p>In dieser Übung implementieren wir eine Hierarchie von Fahrzeugklassen.</p>
+<p>Erstellen Sie eine Basisklasse <code>Fahrzeug</code> mit den folgenden Attributen:</p>
+<ul>
+<li><code>hersteller</code> (string)</li>
+<li><code>modell</code> (string)</li>
+<li><code>baujahr</code> (int)</li>
+<li><code>maximale_geschwindigkeit</code> (float)</li>
+<li><code>aktuelle_geschwindigkeit</code> (float, Standardwert 0)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=252c0533130a50a0"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Die Klasse <code>Fahrzeug</code> soll folgende Methoden haben:</p>
+<ul>
+<li><code>beschleunige(self, wert)</code>: Erhöht die <code>aktuelle_geschwindigkeit</code> um <code>wert</code>,
+aber nicht über <code>maximale_geschwindigkeit</code>.</li>
+<li><code>bremse(self, wert)</code>: Verringert die <code>aktuelle_geschwindigkeit</code> um <code>wert</code>,
+aber nicht unter 0.</li>
+<li><code>details(self)</code>: Gibt einen String mit den allgemeinen Fahrzeuginformationen
+zurück.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2cf15558f1abdf81"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erstellen Sie eine abgeleitete Klasse <code>Auto</code>, die von <code>Fahrzeug</code> erbt.</p>
+<ul>
+<li>Zusätzliche Attribute: <code>anzahl_tueren</code> (int), <code>kraftstoffart</code> (string, z.B.
+"Benzin", "Elektro").</li>
+<li>Überschreiben Sie <code>details(self)</code>, um autospezifische Informationen
+(inklusive der Basisinformationen via <code>super()</code>) anzuzeigen.</li>
+<li>Die <code>repr()</code>-Funktion, angewandt auf ein Auto-Objekt, soll eine lesbare
+Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9b311a2b147ae3d0"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erstellen Sie eine weitere abgeleitete Klasse <code>Fahrrad</code>, die von <code>Fahrzeug</code>
+erbt.</p>
+<ul>
+<li>Zusätzliche Attribute: <code>anzahl_gaenge</code> (int), <code>rahmentyp</code> (string, z.B.
+"Mountainbike", "Rennrad").</li>
+<li>Überschreiben Sie <code>details(self)</code>, um fahrradspezifische Informationen
+(inklusive der Basisinformationen via <code>super()</code>) anzuzeigen.</li>
+<li>Fügen Sie eine Methode <code>klingle(self)</code> hinzu, die "Klingeling!" ausgibt.</li>
+<li>Die <code>repr()</code>-Funktion, angewandt auf ein Fahrrad-Objekt, soll eine lesbare
+Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=de83bd9e203f5ae0"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="L%C3%B6sungsvorschlag-mit-Dataclasses">Lösungsvorschlag mit Dataclasses<a class="anchor-link" href="#L%C3%B6sungsvorschlag-mit-Dataclasses">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=f4c35f14c8bcec81">
+<div class="input">
+<div class="prompt input_prompt">In [29]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=3a6d38ce098f7142">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clamp</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">),</span> <span class="n">min_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=cc1998d929e44c56">
+<div class="input">
+<div class="prompt input_prompt">In [31]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Fahrzeug</span><span class="p">:</span>
+    <span class="n">hersteller</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">modell</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">baujahr</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">maximale_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">aktuelle_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">beschleunige</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">wert</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Beschleunigungswert muss positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">+=</span> <span class="n">wert</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span>
+
+    <span class="k">def</span> <span class="nf">bremse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">wert</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Bremswert muss positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">-=</span> <span class="n">wert</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">), "</span>
+            <span class="sa">f</span><span class="s2">"Max Geschwindigkeit: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="si">}</span><span class="s2"> km/h, "</span>
+            <span class="sa">f</span><span class="s2">"Aktuelle Geschwindigkeit: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> km/h"</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9a31a2367a7b6c73">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Auto</span><span class="p">(</span><span class="n">Fahrzeug</span><span class="p">):</span>
+    <span class="n">anzahl_tueren</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">kraftstoffart</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Benzin"</span>
+
+    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">basis_details</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">details</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">basis_details</span><span class="si">}</span><span class="s2">, Türen: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_tueren</span><span class="si">}</span><span class="s2">, Kraftstoff: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kraftstoffart</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=cacd6f87e033abc0">
+<div class="input">
+<div class="prompt input_prompt">In [33]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Fahrrad</span><span class="p">(</span><span class="n">Fahrzeug</span><span class="p">):</span>
+    <span class="n">anzahl_gaenge</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="n">rahmentyp</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Mountainbike"</span>
+
+    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">basis_details</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">details</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">basis_details</span><span class="si">}</span><span class="s2">, Gänge: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_gaenge</span><span class="si">}</span><span class="s2">, Rahmen: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rahmentyp</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="k">def</span> <span class="nf">klingle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Klingeling!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=79db0884f8cfd23c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Auto-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=d8a6e78a8bc9de9a">
+<div class="input">
+<div class="prompt input_prompt">In [34]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_auto</span> <span class="o">=</span> <span class="n">Auto</span><span class="p">(</span><span class="s2">"VW"</span><span class="p">,</span> <span class="s2">"Golf"</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mf">220.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"Benzin"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_auto</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+<span class="n">mein_auto</span><span class="o">.</span><span class="n">beschleunige</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_auto</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+<span class="n">mein_auto</span><span class="o">.</span><span class="n">beschleunige</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>  <span class="c1"># Versucht über Max Speed zu gehen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_auto</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+<span class="n">mein_auto</span><span class="o">.</span><span class="n">bremse</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_auto</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+<span class="n">mein_auto</span><span class="o">.</span><span class="n">bremse</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>  <span class="c1"># Versucht unter 0 zu gehen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_auto</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>VW Golf (2021), Max Geschwindigkeit: 220.0 km/h, Aktuelle Geschwindigkeit: 0.0 km/h, Türen: 4, Kraftstoff: Benzin
+VW Golf (2021), Max Geschwindigkeit: 220.0 km/h, Aktuelle Geschwindigkeit: 50.0 km/h, Türen: 4, Kraftstoff: Benzin
+VW Golf (2021), Max Geschwindigkeit: 220.0 km/h, Aktuelle Geschwindigkeit: 220.0 km/h, Türen: 4, Kraftstoff: Benzin
+VW Golf (2021), Max Geschwindigkeit: 220.0 km/h, Aktuelle Geschwindigkeit: 120.0 km/h, Türen: 4, Kraftstoff: Benzin
+VW Golf (2021), Max Geschwindigkeit: 220.0 km/h, Aktuelle Geschwindigkeit: 0.0 km/h, Türen: 4, Kraftstoff: Benzin
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2f2181ee6055a375"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Fahrrad-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a7f4b90f25dc1d82">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_fahrrad</span> <span class="o">=</span> <span class="n">Fahrrad</span><span class="p">(</span><span class="s2">"Cube"</span><span class="p">,</span> <span class="s2">"Nature"</span><span class="p">,</span> <span class="mi">2023</span><span class="p">,</span> <span class="mf">35.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s2">"Crossbike"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_fahrrad</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+<span class="n">mein_fahrrad</span><span class="o">.</span><span class="n">beschleunige</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_fahrrad</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+<span class="n">mein_fahrrad</span><span class="o">.</span><span class="n">klingle</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cube Nature (2023), Max Geschwindigkeit: 35.0 km/h, Aktuelle Geschwindigkeit: 0.0 km/h, Gänge: 24, Rahmen: Crossbike
+Cube Nature (2023), Max Geschwindigkeit: 35.0 km/h, Aktuelle Geschwindigkeit: 15.0 km/h, Gänge: 24, Rahmen: Crossbike
+Klingeling!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_alt celltag_subslide" id="cell-id=0702f818623a0bd5"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="L%C3%B6sungsvorschlag-ohne-Dataclasses">Lösungsvorschlag ohne Dataclasses<a class="anchor-link" href="#L%C3%B6sungsvorschlag-ohne-Dataclasses">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=574240785f4e3d3a">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">FahrzeugOhneDC</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">hersteller</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">modell</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">baujahr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">maximale_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">aktuelle_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span> <span class="o">=</span> <span class="n">hersteller</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modell</span> <span class="o">=</span> <span class="n">modell</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span> <span class="o">=</span> <span class="n">baujahr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span> <span class="o">=</span> <span class="n">maximale_geschwindigkeit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span>
+            <span class="n">aktuelle_geschwindigkeit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maximale_geschwindigkeit</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"FahrzeugOhneDC(hersteller=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">!r}</span><span class="s2">, modell=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">!r}</span><span class="s2">, "</span>
+                <span class="sa">f</span><span class="s2">"baujahr=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">, "</span>
+                <span class="sa">f</span><span class="s2">"maximale_geschwindigkeit=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">beschleunige</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">wert</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Beschleunigungswert muss positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">+=</span> <span class="n">wert</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span>
+
+    <span class="k">def</span> <span class="nf">bremse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">wert</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Bremswert muss positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">-=</span> <span class="n">wert</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">), "</span>
+                <span class="sa">f</span><span class="s2">"Max Geschwindigkeit: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="si">}</span><span class="s2"> km/h, "</span>
+                <span class="sa">f</span><span class="s2">"Aktuelle Geschwindigkeit: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> km/h"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=6f01b2ccfb0649db">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">AutoOhneDC</span><span class="p">(</span><span class="n">FahrzeugOhneDC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">hersteller</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">modell</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">baujahr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">maximale_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">anzahl_tueren</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">kraftstoffart</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">aktuelle_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">hersteller</span><span class="p">,</span>
+            <span class="n">modell</span><span class="p">,</span>
+            <span class="n">baujahr</span><span class="p">,</span>
+            <span class="n">maximale_geschwindigkeit</span><span class="p">,</span>
+            <span class="n">aktuelle_geschwindigkeit</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anzahl_tueren</span> <span class="o">=</span> <span class="n">anzahl_tueren</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kraftstoffart</span> <span class="o">=</span> <span class="n">kraftstoffart</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"AutoOhneDC(hersteller=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">!r}</span><span class="s2">, modell=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">!r}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"baujahr=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"maximale_geschwindigkeit=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"anzahl_tueren=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_tueren</span><span class="si">}</span><span class="s2">, kraftstoffart=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kraftstoffart</span><span class="si">!r}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">basis_details</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">details</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">basis_details</span><span class="si">}</span><span class="s2">, Türen: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_tueren</span><span class="si">}</span><span class="s2">, Kraftstoff: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kraftstoffart</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=d77dadf1a0c73501">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">FahrradOhneDC</span><span class="p">(</span><span class="n">FahrzeugOhneDC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">hersteller</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">modell</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">baujahr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">maximale_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">anzahl_gaenge</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">rahmentyp</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">aktuelle_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">hersteller</span><span class="p">,</span>
+            <span class="n">modell</span><span class="p">,</span>
+            <span class="n">baujahr</span><span class="p">,</span>
+            <span class="n">maximale_geschwindigkeit</span><span class="p">,</span>
+            <span class="n">aktuelle_geschwindigkeit</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anzahl_gaenge</span> <span class="o">=</span> <span class="n">anzahl_gaenge</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rahmentyp</span> <span class="o">=</span> <span class="n">rahmentyp</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"FahrradOhneDC(hersteller=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">!r}</span><span class="s2">, modell=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">!r}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"baujahr=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"maximale_geschwindigkeit=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"anzahl_gaenge=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_gaenge</span><span class="si">}</span><span class="s2">, rahmentyp=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rahmentyp</span><span class="si">!r}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">basis_details</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">details</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">basis_details</span><span class="si">}</span><span class="s2">, Gänge: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_gaenge</span><span class="si">}</span><span class="s2">, Rahmen: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rahmentyp</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="k">def</span> <span class="nf">klingle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Klingeling!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=93be42351982aea1">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_auto_ohne_dc</span> <span class="o">=</span> <span class="n">AutoOhneDC</span><span class="p">(</span><span class="s2">"BMW"</span><span class="p">,</span> <span class="s2">"X5"</span><span class="p">,</span> <span class="mi">2022</span><span class="p">,</span> <span class="mf">250.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">"Diesel"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_auto_ohne_dc</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+<span class="n">mein_auto_ohne_dc</span><span class="o">.</span><span class="n">beschleunige</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">mein_auto_ohne_dc</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">==</span> <span class="mf">100.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_auto_ohne_dc</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>BMW X5 (2022), Max Geschwindigkeit: 250.0 km/h, Aktuelle Geschwindigkeit: 0.0 km/h, Türen: 5, Kraftstoff: Diesel
+BMW X5 (2022), Max Geschwindigkeit: 250.0 km/h, Aktuelle Geschwindigkeit: 100.0 km/h, Türen: 5, Kraftstoff: Diesel
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=0da0a0fb9cb875d8">
+<div class="input">
+<div class="prompt input_prompt">In [40]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_fahrrad_ohne_dc</span> <span class="o">=</span> <span class="n">FahrradOhneDC</span><span class="p">(</span><span class="s2">"Scott"</span><span class="p">,</span> <span class="s2">"Scale"</span><span class="p">,</span> <span class="mi">2023</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">"Mountainbike"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_fahrrad_ohne_dc</span><span class="o">.</span><span class="n">details</span><span class="p">())</span>
+<span class="n">mein_fahrrad_ohne_dc</span><span class="o">.</span><span class="n">klingle</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">mein_fahrrad_ohne_dc</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">==</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Scott Scale (2023), Max Geschwindigkeit: 30.0 km/h, Aktuelle Geschwindigkeit: 0.0 km/h, Gänge: 12, Rahmen: Mountainbike
+Klingeling!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=01d57f31d57a6354"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Geometrische-Formen">Workshop: Geometrische Formen<a class="anchor-link" href="#Workshop:-Geometrische-Formen">¶</a></h2><p>In dieser Übung implementieren wir eine Hierarchie von geometrischen Formen.</p>
+<ul>
+<li>Erstellen Sie eine Basisklasse <code>Form</code> mit den folgenden Attributen:<ul>
+<li><code>farbe</code> (string)</li>
+</ul>
+</li>
+<li>Die Klasse <code>Form</code> soll folgende Methoden haben:<ul>
+<li><code>flaeche(self)</code>: Soll einen <code>NotImplementedError</code> auslösen, da die
+Flächenberechnung formabhängig ist.</li>
+<li><code>umfang(self)</code>: Soll einen <code>NotImplementedError</code> auslösen.</li>
+<li><code>beschreibung(self)</code>: Gibt einen String mit Namen und Farbe der Form
+zurück.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=234979e10dca7a6b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Erstellen Sie eine Klasse <code>Rechteck</code>, die von <code>Form</code> erbt.<ul>
+<li>Zusätzliche Attribute: <code>breite</code> (float), <code>hoehe</code> (float).</li>
+<li>Implementieren Sie <code>flaeche(self)</code>: $breite \times hoehe$.</li>
+<li>Implementieren Sie <code>umfang(self)</code>: $2 \times (breite + hoehe)$.</li>
+<li>Überschreiben Sie <code>beschreibung(self)</code>, um zusätzlich Breite und Höhe
+anzuzeigen.</li>
+<li>Die <code>repr()</code>-Funktion, angewandt auf ein Rechteck-Objekt, soll eine
+lesbare Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf
+ähnelt.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=029e7a734db84b32"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Erstellen Sie eine abgeleitete Klasse <code>Kreis</code>, die von <code>Form</code> erbt.<ul>
+<li>Zusätzliche Attribute: <code>radius</code> (float).</li>
+<li>Implementieren Sie <code>flaeche(self)</code>: $\pi \times radius^2$. (Verwenden Sie
+<code>math.pi</code>)</li>
+<li>Implementieren Sie <code>umfang(self)</code>: $2 \times \pi \times radius$.</li>
+<li>Überschreiben Sie <code>beschreibung(self)</code>, um zusätzlich den Radius
+anzuzeigen.</li>
+<li>Die <code>repr()</code>-Funktion, angewandt auf ein Kreis-Objekt, soll eine lesbare
+Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=4d0716d422962495">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=ea8c03f485ebe65b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="L%C3%B6sungsvorschlag-mit-Dataclasses">Lösungsvorschlag mit Dataclasses<a class="anchor-link" href="#L%C3%B6sungsvorschlag-mit-Dataclasses">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a595062db8bae0a4">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Form</span><span class="p">:</span>
+    <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Unterklassen müssen diese Methode implementieren"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Unterklassen müssen diese Methode implementieren"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Farbe: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=d6f979eaba8cbb7b">
+<div class="input">
+<div class="prompt input_prompt">In [43]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Rechteck</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">breite</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">hoehe</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Breite und Höhe müssen positiv sein."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span>
+
+    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">basis_beschreibung</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Rechteck: </span><span class="si">{</span><span class="n">basis_beschreibung</span><span class="si">}</span><span class="s2">, Breite: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span><span class="si">}</span><span class="s2">, Höhe: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=e6f7cead05ff3efe">
+<div class="input">
+<div class="prompt input_prompt">In [44]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Kreis</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Radius muss positiv sein."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+
+    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">basis_beschreibung</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Kreis: </span><span class="si">{</span><span class="n">basis_beschreibung</span><span class="si">}</span><span class="s2">, Radius: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9897e687558d870b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Rechteck-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=d8c5f2fe4db67775">
+<div class="input">
+<div class="prompt input_prompt">In [45]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_rechteck</span> <span class="o">=</span> <span class="n">Rechteck</span><span class="p">(</span><span class="s2">"Blau"</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_rechteck</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Fläche: </span><span class="si">{</span><span class="n">mein_rechteck</span><span class="o">.</span><span class="n">flaeche</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Umfang: </span><span class="si">{</span><span class="n">mein_rechteck</span><span class="o">.</span><span class="n">umfang</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Rechteck: Farbe: Blau, Breite: 10.0, Höhe: 5.0
+Fläche: 50.00
+Umfang: 30.00
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3b4bf0c48dfd2612"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Kreis-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=80dd708ab37bcdb1">
+<div class="input">
+<div class="prompt input_prompt">In [46]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_kreis</span> <span class="o">=</span> <span class="n">Kreis</span><span class="p">(</span><span class="s2">"Rot"</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_kreis</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Fläche: </span><span class="si">{</span><span class="n">mein_kreis</span><span class="o">.</span><span class="n">flaeche</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Umfang: </span><span class="si">{</span><span class="n">mein_kreis</span><span class="o">.</span><span class="n">umfang</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Kreis: Farbe: Rot, Radius: 7.0
+Fläche: 153.94
+Umfang: 43.98
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_alt celltag_subslide" id="cell-id=789cabebfd15e508"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="L%C3%B6sungsvorschlag-ohne-Dataclasses">Lösungsvorschlag ohne Dataclasses<a class="anchor-link" href="#L%C3%B6sungsvorschlag-ohne-Dataclasses">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=1fd42073a8af0598">
+<div class="input">
+<div class="prompt input_prompt">In [47]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">FormOhneDC</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">farbe</span> <span class="o">=</span> <span class="n">farbe</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"FormOhneDC(farbe=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">!r}</span><span class="s2">)"</span>
+
+    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Unterklassen müssen diese Methode implementieren"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Unterklassen müssen diese Methode implementieren"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Farbe: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=3c45ecc94cff7756">
+<div class="input">
+<div class="prompt input_prompt">In [48]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">RechteckOhneDC</span><span class="p">(</span><span class="n">FormOhneDC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breite</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">hoehe</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">farbe</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">breite</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hoehe</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Breite und Höhe müssen positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">=</span> <span class="n">breite</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span> <span class="o">=</span> <span class="n">hoehe</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"RechteckOhneDC(farbe=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">!r}</span><span class="s2">, breite=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span><span class="si">}</span><span class="s2">, hoehe=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="si">}</span><span class="s2">)"</span>
+
+    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span>
+
+    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">basis_beschreibung</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Rechteck: </span><span class="si">{</span><span class="n">basis_beschreibung</span><span class="si">}</span><span class="s2">, Breite: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span><span class="si">}</span><span class="s2">, Höhe: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=3e16cdb085f3dac2">
+<div class="input">
+<div class="prompt input_prompt">In [49]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">KreisOhneDC</span><span class="p">(</span><span class="n">FormOhneDC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">farbe</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Radius muss positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"KreisOhneDC(name=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, farbe=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">!r}</span><span class="s2">, radius=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="si">}</span><span class="s2">)"</span>
+
+    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+
+    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">basis_beschreibung</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Kreis: </span><span class="si">{</span><span class="n">basis_beschreibung</span><span class="si">}</span><span class="s2">, Radius: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=ce792137dac89419">
+<div class="input">
+<div class="prompt input_prompt">In [50]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">rechteck_plain_de</span> <span class="o">=</span> <span class="n">RechteckOhneDC</span><span class="p">(</span><span class="s2">"Grün"</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rechteck_plain_de</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">())</span>
+<span class="k">assert</span> <span class="n">rechteck_plain_de</span><span class="o">.</span><span class="n">flaeche</span><span class="p">()</span> <span class="o">==</span> <span class="mf">12.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Fläche: </span><span class="si">{</span><span class="n">rechteck_plain_de</span><span class="o">.</span><span class="n">flaeche</span><span class="p">()</span><span class="si">}</span><span class="s2">, Umfang: </span><span class="si">{</span><span class="n">rechteck_plain_de</span><span class="o">.</span><span class="n">umfang</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">kreis_plain_de</span> <span class="o">=</span> <span class="n">KreisOhneDC</span><span class="p">(</span><span class="s2">"Gelb"</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kreis_plain_de</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">())</span>
+<span class="k">assert</span> <span class="n">kreis_plain_de</span><span class="o">.</span><span class="n">flaeche</span><span class="p">()</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Fläche: </span><span class="si">{</span><span class="n">kreis_plain_de</span><span class="o">.</span><span class="n">flaeche</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, Umfang: </span><span class="si">{</span><span class="n">kreis_plain_de</span><span class="o">.</span><span class="n">umfang</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Rechteck: Farbe: Grün, Breite: 3.0, Höhe: 4.0
+Fläche: 12.0, Umfang: 14.0
+Kreis: Farbe: Gelb, Radius: 1.0
+Fläche: 3.14, Umfang: 6.28
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=c3ee9290c72f2b94"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Bankkonten">Workshop: Bankkonten<a class="anchor-link" href="#Workshop:-Bankkonten">¶</a></h2><p>In dieser Übung implementieren wir eine Hierarchie von Bankkonten.</p>
+<ul>
+<li>Erstellen Sie eine Basisklasse <code>BankKonto</code> mit den folgenden Attributen:<ul>
+<li><code>konto_nummer</code> (string)</li>
+<li><code>saldo</code> (float)</li>
+<li><code>konto_inhaber</code> (string)</li>
+</ul>
+</li>
+<li>Die Klasse <code>BankKonto</code> soll folgende Methoden haben:<ul>
+<li><code>zahle_ein(self, betrag)</code>: Erhöht den <code>saldo</code>. Betrag muss positiv sein.</li>
+<li><code>hebe_ab(self, betrag)</code>: Verringert den <code>saldo</code>. Betrag muss positiv sein. Gibt <code>True</code> zurück bei Erfolg, <code>False</code> sonst (z.B. nicht genug Guthaben).</li>
+<li><code>get_saldo(self)</code>: Gibt den aktuellen <code>saldo</code> zurück.</li>
+<li><code>konto_info(self)</code>: Gibt einen String mit Kontoinformationen zurück.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ead7219bb79c255c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Erstellen Sie eine abgeleitete Klasse <code>SparKonto</code>, die von <code>BankKonto</code> erbt.<ul>
+<li>Zusätzliches Attribut: <code>zinssatz</code> (float, z.B. 0.02 für 2%).</li>
+<li>Fügen Sie eine Methode <code>addiere_zinsen(self)</code> hinzu, die Zinsen auf den
+Saldo anrechnet ($saldo = saldo \times (1 + zinssatz)$).</li>
+<li>Überschreiben Sie <code>hebe_ab(self, betrag)</code>: Ein Sparkonto könnte eine
+Abhebegebühr oder ein Limit haben (für diese Übung: Gebühr von 1.50, wenn
+Abhebung erfolgreich).</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ceb9f26e8d38818f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Erstellen Sie eine abgeleitete Klasse <code>GiroKonto</code>, die von <code>BankKonto</code> erbt.<ul>
+<li>Zusätzliches Attribut: <code>ueberziehungs_limit</code> (float).</li>
+<li>Überschreiben Sie <code>hebe_ab(self, betrag)</code>: Erlaubt Abhebungen bis zum
+$saldo + ueberziehungs\_limit$.</li>
+<li>Fügen Sie eine Methode <code>ziehe_monatliche_gebuehr_ab(self, gebuehr)</code> hinzu.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=b2f619ace25267f2"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="L%C3%B6sungsvorschlag-mit-Dataclasses">Lösungsvorschlag mit Dataclasses<a class="anchor-link" href="#L%C3%B6sungsvorschlag-mit-Dataclasses">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9d562a01edaca545">
+<div class="input">
+<div class="prompt input_prompt">In [51]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">BankKonto</span><span class="p">:</span>
+    <span class="n">konto_nummer</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">saldo</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">konto_inhaber</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Anfangssaldo darf nicht negativ sein, es sei denn, es ist ein Girokonto mit Überziehung."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">zahle_ein</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Einzahlungsbetrag muss positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+=</span> <span class="n">betrag</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR eingezahlt. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">&gt;=</span> <span class="n">betrag</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">betrag</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR abgehoben. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Abhebung von </span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR fehlgeschlagen. Nicht genügend Guthaben."</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">get_saldo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span>
+
+    <span class="k">def</span> <span class="nf">konto_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Kontonr: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">}</span><span class="s2">, Inhaber: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">}</span><span class="s2">, Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=83404ba1d8b12d8e">
+<div class="input">
+<div class="prompt input_prompt">In [52]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">SparKonto</span><span class="p">(</span><span class="n">BankKonto</span><span class="p">):</span>
+    <span class="n">zinssatz</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># z.B. 0.02 für 2%</span>
+    <span class="n">abhebegebuehr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.50</span>
+
+    <span class="k">def</span> <span class="nf">addiere_zinsen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">zinsen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+=</span> <span class="n">zinsen</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Zinsen (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%) in Höhe von </span><span class="si">{</span><span class="n">zinsen</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR angewendet. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
+
+        <span class="n">gesamtkosten</span> <span class="o">=</span> <span class="n">betrag</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">abhebegebuehr</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">&gt;=</span> <span class="n">gesamtkosten</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">gesamtkosten</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR abgehoben (plus </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">abhebegebuehr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR Gebühr). Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Abhebung von </span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR (plus Gebühr) fehlgeschlagen. Nicht genügend Guthaben für Betrag + Gebühr."</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=53e70b5cd487cf33">
+<div class="input">
+<div class="prompt input_prompt">In [53]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">GiroKonto</span><span class="p">(</span><span class="n">BankKonto</span><span class="p">):</span>
+    <span class="n">ueberziehungs_limit</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ueberziehungs_limit</span> <span class="o">&gt;=</span> <span class="n">betrag</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">betrag</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR abgehoben. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Abhebung von </span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR fehlgeschlagen. Überziehungslimit überschritten."</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">ziehe_monatliche_gebuehr_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gebuehr</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">gebuehr</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Gebühr muss positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">gebuehr</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Monatliche Gebühr von </span><span class="si">{</span><span class="n">gebuehr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR abgebucht. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=72a3a1945397e57f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Sparkonto-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9b92b692c9e5ee93">
+<div class="input">
+<div class="prompt input_prompt">In [54]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_sparkonto</span> <span class="o">=</span> <span class="n">SparKonto</span><span class="p">(</span><span class="s2">"SK123"</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="s2">"Max Mustermann"</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_sparkonto</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+<span class="n">mein_sparkonto</span><span class="o">.</span><span class="n">zahle_ein</span><span class="p">(</span><span class="mf">500.0</span><span class="p">)</span>
+<span class="n">mein_sparkonto</span><span class="o">.</span><span class="n">addiere_zinsen</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_sparkonto</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+<span class="n">mein_sparkonto</span><span class="o">.</span><span class="n">hebe_ab</span><span class="p">(</span><span class="mf">200.0</span><span class="p">)</span>  <span class="c1"># Erfolgreich mit Gebühr</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_sparkonto</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+<span class="n">mein_sparkonto</span><span class="o">.</span><span class="n">hebe_ab</span><span class="p">(</span><span class="mf">1400.0</span><span class="p">)</span>  <span class="c1"># Sollte fehlschlagen</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Kontonr: SK123, Inhaber: Max Mustermann, Saldo: 1000.00 EUR
+500.00 EUR eingezahlt. Neuer Saldo: 1500.00 EUR.
+Zinsen (2.50%) in Höhe von 37.50 EUR angewendet. Neuer Saldo: 1537.50 EUR.
+Kontonr: SK123, Inhaber: Max Mustermann, Saldo: 1537.50 EUR
+200.00 EUR abgehoben (plus 1.50 EUR Gebühr). Neuer Saldo: 1336.00 EUR.
+Kontonr: SK123, Inhaber: Max Mustermann, Saldo: 1336.00 EUR
+Abhebung von 1400.00 EUR (plus Gebühr) fehlgeschlagen. Nicht genügend Guthaben für Betrag + Gebühr.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[54]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2ff94dd63b4743d3"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Girokonto-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=b9d7dd5760df5b49">
+<div class="input">
+<div class="prompt input_prompt">In [55]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">mein_girokonto</span> <span class="o">=</span> <span class="n">GiroKonto</span><span class="p">(</span><span class="s2">"GK789"</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="s2">"Erika Mustermann"</span><span class="p">,</span> <span class="mf">500.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_girokonto</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+<span class="n">mein_girokonto</span><span class="o">.</span><span class="n">zahle_ein</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_girokonto</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+<span class="n">mein_girokonto</span><span class="o">.</span><span class="n">hebe_ab</span><span class="p">(</span><span class="mf">400.0</span><span class="p">)</span>  <span class="c1"># Geht in Überziehung</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_girokonto</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+<span class="n">mein_girokonto</span><span class="o">.</span><span class="n">hebe_ab</span><span class="p">(</span><span class="mf">500.0</span><span class="p">)</span>  <span class="c1"># Sollte fehlschlagen (Limit überschritten)</span>
+<span class="n">mein_girokonto</span><span class="o">.</span><span class="n">ziehe_monatliche_gebuehr_ab</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mein_girokonto</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: 200.00 EUR
+100.00 EUR eingezahlt. Neuer Saldo: 300.00 EUR.
+Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: 300.00 EUR
+400.00 EUR abgehoben. Neuer Saldo: -100.00 EUR.
+Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: -100.00 EUR
+Abhebung von 500.00 EUR fehlgeschlagen. Überziehungslimit überschritten.
+Monatliche Gebühr von 5.00 EUR abgebucht. Neuer Saldo: -105.00 EUR.
+Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: -105.00 EUR
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_alt celltag_subslide" id="cell-id=9651e102d384f4cc"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Bankkonten-L%C3%B6sung-ohne-Dataclasses">Bankkonten-Lösung ohne Dataclasses<a class="anchor-link" href="#Bankkonten-L%C3%B6sung-ohne-Dataclasses">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=180935ce7d7685cd">
+<div class="input">
+<div class="prompt input_prompt">In [56]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">BankKontoOhneDC</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">konto_nummer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">saldo</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">konto_inhaber</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span> <span class="o">=</span> <span class="n">konto_nummer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">=</span> <span class="n">saldo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span> <span class="o">=</span> <span class="n">konto_inhaber</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Warnung: Konto </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">}</span><span class="s2"> mit negativem Saldo initialisiert: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"BankKontoOhneDC(konto_nummer=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">!r}</span><span class="s2">, saldo=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">}</span><span class="s2">, inhaber=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">!r}</span><span class="s2">)"</span>
+
+    <span class="k">def</span> <span class="nf">zahle_ein</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Einzahlungsbetrag muss positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+=</span> <span class="n">betrag</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR eingezahlt. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">&gt;=</span> <span class="n">betrag</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">betrag</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR abgehoben. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Abhebung von </span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR fehlgeschlagen. Nicht genügend Guthaben."</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">get_saldo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span>
+
+    <span class="k">def</span> <span class="nf">konto_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Kontonr: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">}</span><span class="s2">, Inhaber: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">}</span><span class="s2">, Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=e9be253c4e5f2d3b">
+<div class="input">
+<div class="prompt input_prompt">In [57]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SparKontoOhneDC</span><span class="p">(</span><span class="n">BankKontoOhneDC</span><span class="p">):</span>
+    <span class="n">abhebegebuehr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.50</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">konto_nummer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">saldo</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">konto_inhaber</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">zinssatz</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">konto_nummer</span><span class="p">,</span> <span class="n">saldo</span><span class="p">,</span> <span class="n">konto_inhaber</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span> <span class="o">=</span> <span class="n">zinssatz</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"SparKontoOhneDC(konto_nummer=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">!r}</span><span class="s2">, saldo=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">}</span><span class="s2">, inhaber=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">!r}</span><span class="s2">, zinssatz=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span><span class="si">}</span><span class="s2">)"</span>
+
+    <span class="k">def</span> <span class="nf">addiere_zinsen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">zinsen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+=</span> <span class="n">zinsen</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Zinsen (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%) in Höhe von </span><span class="si">{</span><span class="n">zinsen</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR angewendet. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
+        <span class="n">gesamtkosten</span> <span class="o">=</span> <span class="n">betrag</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">abhebegebuehr</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">&gt;=</span> <span class="n">gesamtkosten</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">gesamtkosten</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR abgehoben (plus </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">abhebegebuehr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR Gebühr). Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Abhebung von </span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR (plus Gebühr) fehlgeschlagen. Nicht genügend Guthaben für Betrag + Gebühr."</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=7da1ccbd6613c662">
+<div class="input">
+<div class="prompt input_prompt">In [58]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">GiroKontoOhneDC</span><span class="p">(</span><span class="n">BankKontoOhneDC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">konto_nummer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">saldo</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">konto_inhaber</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">ueberziehungs_limit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">konto_nummer</span><span class="p">,</span> <span class="n">saldo</span><span class="p">,</span> <span class="n">konto_inhaber</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ueberziehungs_limit</span> <span class="o">=</span> <span class="n">ueberziehungs_limit</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"GiroKontoOhneDC(konto_nummer=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">!r}</span><span class="s2">, saldo=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">}</span><span class="s2">, inhaber=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">!r}</span><span class="s2">, limit=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ueberziehungs_limit</span><span class="si">}</span><span class="s2">)"</span>
+
+    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ueberziehungs_limit</span> <span class="o">&gt;=</span> <span class="n">betrag</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">betrag</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR abgehoben. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Abhebung von </span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR fehlgeschlagen. Überziehungslimit überschritten."</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">ziehe_monatliche_gebuehr_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gebuehr</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">gebuehr</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Gebühr muss positiv sein."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">gebuehr</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Monatliche Gebühr von </span><span class="si">{</span><span class="n">gebuehr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR abgebucht. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=af40d4d39fd7ae3a">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sparkonto_plain_de</span> <span class="o">=</span> <span class="n">SparKontoOhneDC</span><span class="p">(</span><span class="s2">"SPPlain1"</span><span class="p">,</span> <span class="mf">2000.0</span><span class="p">,</span> <span class="s2">"Anna Alt"</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sparkonto_plain_de</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+<span class="n">sparkonto_plain_de</span><span class="o">.</span><span class="n">addiere_zinsen</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">sparkonto_plain_de</span><span class="o">.</span><span class="n">saldo</span><span class="p">,</span> <span class="mf">2060.0</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span>
+<span class="n">sparkonto_plain_de</span><span class="o">.</span><span class="n">hebe_ab</span><span class="p">(</span><span class="mf">250.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sparkonto_plain_de</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Kontonr: SPPlain1, Inhaber: Anna Alt, Saldo: 2000.00 EUR
+Zinsen (3.00%) in Höhe von 60.00 EUR angewendet. Neuer Saldo: 2060.00 EUR.
+250.00 EUR abgehoben (plus 1.50 EUR Gebühr). Neuer Saldo: 1808.50 EUR.
+Kontonr: SPPlain1, Inhaber: Anna Alt, Saldo: 1808.50 EUR
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=a15412573ef77879">
+<div class="input">
+<div class="prompt input_prompt">In [60]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">girokonto_plain_de</span> <span class="o">=</span> <span class="n">GiroKontoOhneDC</span><span class="p">(</span><span class="s2">"zahle_ein"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s2">"Peter Alt"</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">)</span>
+<span class="n">girokonto_plain_de</span><span class="o">.</span><span class="n">hebe_ab</span><span class="p">(</span><span class="mf">250.0</span><span class="p">)</span>  <span class="c1"># Geht hebe_ab Überziehung</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">girokonto_plain_de</span><span class="o">.</span><span class="n">konto_info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>250.00 EUR abgehoben. Neuer Saldo: -150.00 EUR.
+Kontonr: zahle_ein, Inhaber: Peter Alt, Saldo: -150.00 EUR
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=6b4e03423667dbb7">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>

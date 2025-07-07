@@ -13329,7 +13329,7 @@ von <code>Point</code> neu implementieren zu müssen?</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0b494a6b253729f4"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=6b03b24cad4218c1"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Workshop:-Mitarbeiter">Workshop: Mitarbeiter<a class="anchor-link" href="#Workshop:-Mitarbeiter">¶</a></h2><p>Im Folgenden soll eine Klassenhierarchie für Mitarbeiter einer Firma erstellt
@@ -13346,8 +13346,19 @@ Grundgehalts plus der Bezahlung für die Überstunden</li>
 <li>Das Gehalt eines Managers berechnet sich als das 13/12-fache des
 Grundgehalts plus Bonus</li>
 </ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5f1f334aae714cc6"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Implementieren Sie Python Klassen <code>Mitarbeiter</code>, <code>Arbeiter</code> und <code>Manager</code> mit
 geeigneten Attributen und einer Methode <code>gehalt()</code>, die das Gehalt berechnet.</p>
+<p>Implementieren Sie in der Klasse <code>Mitarbeiter</code> eine Version der <code>gehalt()</code>
+Methode, die das 13/12-fache des Grundgehalts zurückgibt. Überschreiben Sie in
+den Klassen <code>Arbeiter</code> und <code>Manager</code> die Methode <code>gehalt()</code>, um das Gehalt
+entsprechend der angegebenen Formeln zu berechnen. Verwenden Sie dazu die Methode
+<code>gehalt()</code> der Basisklasse <code>Mitarbeiter</code> mit <code>super()</code>.</p>
 </div>
 </div>
 </div>
@@ -13395,7 +13406,7 @@ geeigneten Attributen und einer Methode <code>gehalt()</code>, die das Gehalt be
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=66dc1567d95018ed"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=66dc1567d95018ed"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Erzeugen Sie einen Arbeiter mit Namen Hans, Personalnummer 123, einem
@@ -13415,7 +13426,7 @@ hat. Drucken Sie das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=e86725a16acf79b2"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e86725a16acf79b2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Schreiben sie Assertions, die die Funktionalität der Klasse <code>Arbeiter</code> testen.</p>
@@ -13433,7 +13444,7 @@ hat. Drucken Sie das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=09854cd3fb48f14c"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=09854cd3fb48f14c"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Erzeugen Sie einen Manager mit Namen Sepp, Personalnummer 843, der ein
@@ -13453,7 +13464,7 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=4f7545ac5aeca525"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=4f7545ac5aeca525"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Testen Sie die Funktionalität der <code>Manager</code> Klasse.</p>
@@ -13471,33 +13482,429 @@ das Gehalt aus.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=d38f80c6bf738781">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2069c291d3663838">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=24a6257532999740"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=be45bbf8268c5eec"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Eine Visualisierung für <code>super()</code>-Aufrufe bei Vererbung mit Python Tutor
-ist <a href="shorturl.at/efDKW">hier</a>.</p>
+<h2 id="Workshop:-Fahrzeuge">Workshop: Fahrzeuge<a class="anchor-link" href="#Workshop:-Fahrzeuge">¶</a></h2><p>In dieser Übung implementieren wir eine Hierarchie von Fahrzeugklassen.</p>
+<p>Erstellen Sie eine Basisklasse <code>Fahrzeug</code> mit den folgenden Attributen:</p>
+<ul>
+<li><code>hersteller</code> (string)</li>
+<li><code>modell</code> (string)</li>
+<li><code>baujahr</code> (int)</li>
+<li><code>maximale_geschwindigkeit</code> (float)</li>
+<li><code>aktuelle_geschwindigkeit</code> (float, Standardwert 0)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=252c0533130a50a0"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Die Klasse <code>Fahrzeug</code> soll folgende Methoden haben:</p>
+<ul>
+<li><code>beschleunige(self, wert)</code>: Erhöht die <code>aktuelle_geschwindigkeit</code> um <code>wert</code>,
+aber nicht über <code>maximale_geschwindigkeit</code>.</li>
+<li><code>bremse(self, wert)</code>: Verringert die <code>aktuelle_geschwindigkeit</code> um <code>wert</code>,
+aber nicht unter 0.</li>
+<li><code>details(self)</code>: Gibt einen String mit den allgemeinen Fahrzeuginformationen
+zurück.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2cf15558f1abdf81"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erstellen Sie eine abgeleitete Klasse <code>Auto</code>, die von <code>Fahrzeug</code> erbt.</p>
+<ul>
+<li>Zusätzliche Attribute: <code>anzahl_tueren</code> (int), <code>kraftstoffart</code> (string, z.B.
+"Benzin", "Elektro").</li>
+<li>Überschreiben Sie <code>details(self)</code>, um autospezifische Informationen
+(inklusive der Basisinformationen via <code>super()</code>) anzuzeigen.</li>
+<li>Die <code>repr()</code>-Funktion, angewandt auf ein Auto-Objekt, soll eine lesbare
+Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9b311a2b147ae3d0"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erstellen Sie eine weitere abgeleitete Klasse <code>Fahrrad</code>, die von <code>Fahrzeug</code>
+erbt.</p>
+<ul>
+<li>Zusätzliche Attribute: <code>anzahl_gaenge</code> (int), <code>rahmentyp</code> (string, z.B.
+"Mountainbike", "Rennrad").</li>
+<li>Überschreiben Sie <code>details(self)</code>, um fahrradspezifische Informationen
+(inklusive der Basisinformationen via <code>super()</code>) anzuzeigen.</li>
+<li>Fügen Sie eine Methode <code>klingle(self)</code> hinzu, die "Klingeling!" ausgibt.</li>
+<li>Die <code>repr()</code>-Funktion, angewandt auf ein Fahrrad-Objekt, soll eine lesbare
+Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=f4c35f14c8bcec81">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=3a6d38ce098f7142">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=cc1998d929e44c56">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9a31a2367a7b6c73">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=cacd6f87e033abc0">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=79db0884f8cfd23c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Auto-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=d8a6e78a8bc9de9a">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2f2181ee6055a375"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Fahrrad-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a7f4b90f25dc1d82">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=01d57f31d57a6354"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Geometrische-Formen">Workshop: Geometrische Formen<a class="anchor-link" href="#Workshop:-Geometrische-Formen">¶</a></h2><p>In dieser Übung implementieren wir eine Hierarchie von geometrischen Formen.</p>
+<ul>
+<li>Erstellen Sie eine Basisklasse <code>Form</code> mit den folgenden Attributen:<ul>
+<li><code>farbe</code> (string)</li>
+</ul>
+</li>
+<li>Die Klasse <code>Form</code> soll folgende Methoden haben:<ul>
+<li><code>flaeche(self)</code>: Soll einen <code>NotImplementedError</code> auslösen, da die
+Flächenberechnung formabhängig ist.</li>
+<li><code>umfang(self)</code>: Soll einen <code>NotImplementedError</code> auslösen.</li>
+<li><code>beschreibung(self)</code>: Gibt einen String mit Namen und Farbe der Form
+zurück.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=234979e10dca7a6b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Erstellen Sie eine Klasse <code>Rechteck</code>, die von <code>Form</code> erbt.<ul>
+<li>Zusätzliche Attribute: <code>breite</code> (float), <code>hoehe</code> (float).</li>
+<li>Implementieren Sie <code>flaeche(self)</code>: $breite \times hoehe$.</li>
+<li>Implementieren Sie <code>umfang(self)</code>: $2 \times (breite + hoehe)$.</li>
+<li>Überschreiben Sie <code>beschreibung(self)</code>, um zusätzlich Breite und Höhe
+anzuzeigen.</li>
+<li>Die <code>repr()</code>-Funktion, angewandt auf ein Rechteck-Objekt, soll eine
+lesbare Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf
+ähnelt.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=029e7a734db84b32"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Erstellen Sie eine abgeleitete Klasse <code>Kreis</code>, die von <code>Form</code> erbt.<ul>
+<li>Zusätzliche Attribute: <code>radius</code> (float).</li>
+<li>Implementieren Sie <code>flaeche(self)</code>: $\pi \times radius^2$. (Verwenden Sie
+<code>math.pi</code>)</li>
+<li>Implementieren Sie <code>umfang(self)</code>: $2 \times \pi \times radius$.</li>
+<li>Überschreiben Sie <code>beschreibung(self)</code>, um zusätzlich den Radius
+anzuzeigen.</li>
+<li>Die <code>repr()</code>-Funktion, angewandt auf ein Kreis-Objekt, soll eine lesbare
+Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=4d0716d422962495">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a595062db8bae0a4">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=d6f979eaba8cbb7b">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=e6f7cead05ff3efe">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9897e687558d870b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Rechteck-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=d8c5f2fe4db67775">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3b4bf0c48dfd2612"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Kreis-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=80dd708ab37bcdb1">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=c3ee9290c72f2b94"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Bankkonten">Workshop: Bankkonten<a class="anchor-link" href="#Workshop:-Bankkonten">¶</a></h2><p>In dieser Übung implementieren wir eine Hierarchie von Bankkonten.</p>
+<ul>
+<li>Erstellen Sie eine Basisklasse <code>BankKonto</code> mit den folgenden Attributen:<ul>
+<li><code>konto_nummer</code> (string)</li>
+<li><code>saldo</code> (float)</li>
+<li><code>konto_inhaber</code> (string)</li>
+</ul>
+</li>
+<li>Die Klasse <code>BankKonto</code> soll folgende Methoden haben:<ul>
+<li><code>zahle_ein(self, betrag)</code>: Erhöht den <code>saldo</code>. Betrag muss positiv sein.</li>
+<li><code>hebe_ab(self, betrag)</code>: Verringert den <code>saldo</code>. Betrag muss positiv sein. Gibt <code>True</code> zurück bei Erfolg, <code>False</code> sonst (z.B. nicht genug Guthaben).</li>
+<li><code>get_saldo(self)</code>: Gibt den aktuellen <code>saldo</code> zurück.</li>
+<li><code>konto_info(self)</code>: Gibt einen String mit Kontoinformationen zurück.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ead7219bb79c255c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Erstellen Sie eine abgeleitete Klasse <code>SparKonto</code>, die von <code>BankKonto</code> erbt.<ul>
+<li>Zusätzliches Attribut: <code>zinssatz</code> (float, z.B. 0.02 für 2%).</li>
+<li>Fügen Sie eine Methode <code>addiere_zinsen(self)</code> hinzu, die Zinsen auf den
+Saldo anrechnet ($saldo = saldo \times (1 + zinssatz)$).</li>
+<li>Überschreiben Sie <code>hebe_ab(self, betrag)</code>: Ein Sparkonto könnte eine
+Abhebegebühr oder ein Limit haben (für diese Übung: Gebühr von 1.50, wenn
+Abhebung erfolgreich).</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ceb9f26e8d38818f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Erstellen Sie eine abgeleitete Klasse <code>GiroKonto</code>, die von <code>BankKonto</code> erbt.<ul>
+<li>Zusätzliches Attribut: <code>ueberziehungs_limit</code> (float).</li>
+<li>Überschreiben Sie <code>hebe_ab(self, betrag)</code>: Erlaubt Abhebungen bis zum
+$saldo + ueberziehungs\_limit$.</li>
+<li>Fügen Sie eine Methode <code>ziehe_monatliche_gebuehr_ab(self, gebuehr)</code> hinzu.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9d562a01edaca545">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=83404ba1d8b12d8e">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=53e70b5cd487cf33">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=72a3a1945397e57f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Sparkonto-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9b92b692c9e5ee93">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2ff94dd63b4743d3"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Erzeugen Sie ein Girokonto-Objekt und testen Sie seine Methoden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=b9d7dd5760df5b49">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=6b4e03423667dbb7">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>
