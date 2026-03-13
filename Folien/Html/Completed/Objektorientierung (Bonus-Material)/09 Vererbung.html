@@ -16,9 +16,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .hll { background-color: #ffffcc }
 .highlight { background: #f8f8f8; }
 .highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .err { border: 1px solid #F00 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
+.highlight .o { color: #666 } /* Operator */
 .highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #9C6500 } /* Comment.Preproc */
@@ -35,34 +35,34 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .gt { color: #04D } /* Generic.Traceback */
 .highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
 .highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
 .highlight .kp { color: #008000 } /* Keyword.Pseudo */
 .highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .m { color: #666 } /* Literal.Number */
 .highlight .s { color: #BA2121 } /* Literal.String */
 .highlight .na { color: #687822 } /* Name.Attribute */
 .highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .nc { color: #00F; font-weight: bold } /* Name.Class */
+.highlight .no { color: #800 } /* Name.Constant */
+.highlight .nd { color: #A2F } /* Name.Decorator */
 .highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
 .highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nf { color: #00F } /* Name.Function */
 .highlight .nl { color: #767600 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nn { color: #00F; font-weight: bold } /* Name.Namespace */
 .highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
 .highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #BBB } /* Text.Whitespace */
+.highlight .mb { color: #666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666 } /* Literal.Number.Float */
+.highlight .mh { color: #666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666 } /* Literal.Number.Oct */
 .highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
@@ -77,12 +77,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .fm { color: #00F } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight .il { color: #666 } /* Literal.Number.Integer.Long */
   </style>
 <style type="text/css">
 /*!
@@ -13069,6 +13069,7 @@ div#notebook {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -13156,7 +13157,7 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 </pre></div>
 </div>
 </div>
@@ -13167,19 +13168,19 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Point(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)"</span>
 
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span>
 
-    <span class="k">def</span> <span class="nf">randomize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">randomize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
@@ -13247,7 +13248,7 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="output_area">
 <div class="prompt output_prompt">Out[5]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>Point(2.2, 2.9)</pre>
+<pre>Point(1.4, 2.8)</pre>
 </div>
 </div>
 </div>
@@ -13266,15 +13267,15 @@ von <code>Point</code> neu implementieren zu müssen?</p>
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">ColorPoint</span><span class="p">(</span><span class="n">Point</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ColorPoint</span><span class="p">(</span><span class="n">Point</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"ColorPoint(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="si">!r}</span><span class="s2">)"</span>
 
-    <span class="k">def</span> <span class="nf">randomize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">randomize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">randomize</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"black"</span><span class="p">,</span> <span class="s2">"red"</span><span class="p">,</span> <span class="s2">"green"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"yellow"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">])</span>
 </pre></div>
@@ -13393,7 +13394,7 @@ von <code>Point</code> neu implementieren zu müssen?</p>
 <div class="output_area">
 <div class="prompt output_prompt">Out[13]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>ColorPoint(2.7, 3.4, 'yellow')</pre>
+<pre>ColorPoint(2.0, 2.7, 'yellow')</pre>
 </div>
 </div>
 </div>
@@ -13437,7 +13438,7 @@ entsprechend der angegebenen Formeln zu berechnen. Verwenden Sie dazu die Method
 <div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 </pre></div>
 </div>
 </div>
@@ -13449,12 +13450,12 @@ entsprechend der angegebenen Formeln zu berechnen. Verwenden Sie dazu die Method
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Mitarbeiter</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Mitarbeiter</span><span class="p">:</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">pers_nr</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">grundgehalt</span><span class="p">:</span> <span class="nb">float</span>
 
-    <span class="k">def</span> <span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">13</span> <span class="o">/</span> <span class="mi">12</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">grundgehalt</span>
 </pre></div>
 </div>
@@ -13467,11 +13468,11 @@ entsprechend der angegebenen Formeln zu berechnen. Verwenden Sie dazu die Method
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Arbeiter</span><span class="p">(</span><span class="n">Mitarbeiter</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Arbeiter</span><span class="p">(</span><span class="n">Mitarbeiter</span><span class="p">):</span>
     <span class="n">überstunden</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">stundensatz</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-    <span class="k">def</span> <span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">gehalt</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">überstunden</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">stundensatz</span>
 </pre></div>
 </div>
@@ -13484,10 +13485,10 @@ entsprechend der angegebenen Formeln zu berechnen. Verwenden Sie dazu die Method
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Mitarbeiter</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Manager</span><span class="p">(</span><span class="n">Mitarbeiter</span><span class="p">):</span>
     <span class="n">bonus</span><span class="p">:</span> <span class="nb">float</span>
 
-    <span class="k">def</span> <span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">gehalt</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bonus</span>
 </pre></div>
 </div>
@@ -13628,13 +13629,13 @@ das Gehalt aus.</p>
 <div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Mitarbeiter</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pers_nr</span><span class="p">,</span> <span class="n">grundgehalt</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mitarbeiter</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pers_nr</span><span class="p">,</span> <span class="n">grundgehalt</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pers_nr</span> <span class="o">=</span> <span class="n">pers_nr</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">grundgehalt</span> <span class="o">=</span> <span class="n">grundgehalt</span>
 
-    <span class="k">def</span> <span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">13</span> <span class="o">/</span> <span class="mi">12</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">grundgehalt</span>
 </pre></div>
 </div>
@@ -13646,19 +13647,19 @@ das Gehalt aus.</p>
 <div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Arbeiter</span><span class="p">(</span><span class="n">Mitarbeiter</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pers_nr</span><span class="p">,</span> <span class="n">grundgehalt</span><span class="p">,</span> <span class="n">überstunden</span><span class="p">,</span> <span class="n">stundensatz</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Arbeiter</span><span class="p">(</span><span class="n">Mitarbeiter</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pers_nr</span><span class="p">,</span> <span class="n">grundgehalt</span><span class="p">,</span> <span class="n">überstunden</span><span class="p">,</span> <span class="n">stundensatz</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">pers_nr</span><span class="p">,</span> <span class="n">grundgehalt</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">überstunden</span> <span class="o">=</span> <span class="n">überstunden</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stundensatz</span> <span class="o">=</span> <span class="n">stundensatz</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="sa">f</span><span class="s2">"Arbeiter(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pers_nr</span><span class="si">!r}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">grundgehalt</span><span class="si">}</span><span class="s2">, "</span>
             <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">überstunden</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stundensatz</span><span class="si">}</span><span class="s2">)"</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">gehalt</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">überstunden</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">stundensatz</span>
 </pre></div>
 </div>
@@ -13670,18 +13671,18 @@ das Gehalt aus.</p>
 <div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">Mitarbeiter</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pers_nr</span><span class="p">,</span> <span class="n">grundgehalt</span><span class="p">,</span> <span class="n">bonus</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Manager</span><span class="p">(</span><span class="n">Mitarbeiter</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pers_nr</span><span class="p">,</span> <span class="n">grundgehalt</span><span class="p">,</span> <span class="n">bonus</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">pers_nr</span><span class="p">,</span> <span class="n">grundgehalt</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bonus</span> <span class="o">=</span> <span class="n">bonus</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="sa">f</span><span class="s2">"Manager(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pers_nr</span><span class="si">!r}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">grundgehalt</span><span class="si">}</span><span class="s2">, "</span>
             <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">bonus</span><span class="si">}</span><span class="s2">)"</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gehalt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">gehalt</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bonus</span>
 </pre></div>
 </div>
@@ -13806,7 +13807,7 @@ Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
 <div class="prompt input_prompt">In [29]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 </pre></div>
 </div>
 </div>
@@ -13817,7 +13818,7 @@ Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
 <div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clamp</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clamp</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">),</span> <span class="n">min_value</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -13830,33 +13831,33 @@ Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Fahrzeug</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Fahrzeug</span><span class="p">:</span>
     <span class="n">hersteller</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">modell</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">baujahr</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">maximale_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">aktuelle_geschwindigkeit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">beschleunige</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">beschleunige</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">wert</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Beschleunigungswert muss positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">+=</span> <span class="n">wert</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span>
 
-    <span class="k">def</span> <span class="nf">bremse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bremse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">wert</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Bremswert muss positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">-=</span> <span class="n">wert</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">), "</span>
             <span class="sa">f</span><span class="s2">"Max Geschwindigkeit: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="si">}</span><span class="s2"> km/h, "</span>
@@ -13873,11 +13874,11 @@ Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Auto</span><span class="p">(</span><span class="n">Fahrzeug</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Auto</span><span class="p">(</span><span class="n">Fahrzeug</span><span class="p">):</span>
     <span class="n">anzahl_tueren</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
     <span class="n">kraftstoffart</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Benzin"</span>
 
-    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">basis_details</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">details</span><span class="p">()</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">basis_details</span><span class="si">}</span><span class="s2">, Türen: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_tueren</span><span class="si">}</span><span class="s2">, Kraftstoff: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kraftstoffart</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
@@ -13891,15 +13892,15 @@ Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Fahrrad</span><span class="p">(</span><span class="n">Fahrzeug</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Fahrrad</span><span class="p">(</span><span class="n">Fahrzeug</span><span class="p">):</span>
     <span class="n">anzahl_gaenge</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span>
     <span class="n">rahmentyp</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Mountainbike"</span>
 
-    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">basis_details</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">details</span><span class="p">()</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">basis_details</span><span class="si">}</span><span class="s2">, Gänge: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_gaenge</span><span class="si">}</span><span class="s2">, Rahmen: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rahmentyp</span><span class="si">}</span><span class="s2">"</span>
 
-    <span class="k">def</span> <span class="nf">klingle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">klingle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Klingeling!"</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -13995,8 +13996,8 @@ Klingeling!
 <div class="prompt input_prompt">In [36]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">FahrzeugOhneDC</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">FahrzeugOhneDC</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">hersteller</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">modell</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -14012,26 +14013,26 @@ Klingeling!
             <span class="n">aktuelle_geschwindigkeit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maximale_geschwindigkeit</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"FahrzeugOhneDC(hersteller=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">!r}</span><span class="s2">, modell=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">!r}</span><span class="s2">, "</span>
                 <span class="sa">f</span><span class="s2">"baujahr=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">, "</span>
                 <span class="sa">f</span><span class="s2">"maximale_geschwindigkeit=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">beschleunige</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">beschleunige</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">wert</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Beschleunigungswert muss positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">+=</span> <span class="n">wert</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span>
 
-    <span class="k">def</span> <span class="nf">bremse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bremse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wert</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">wert</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Bremswert muss positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">-=</span> <span class="n">wert</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">), "</span>
                 <span class="sa">f</span><span class="s2">"Max Geschwindigkeit: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">maximale_geschwindigkeit</span><span class="si">}</span><span class="s2"> km/h, "</span>
                 <span class="sa">f</span><span class="s2">"Aktuelle Geschwindigkeit: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">aktuelle_geschwindigkeit</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> km/h"</span><span class="p">)</span>
@@ -14045,8 +14046,8 @@ Klingeling!
 <div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">AutoOhneDC</span><span class="p">(</span><span class="n">FahrzeugOhneDC</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">AutoOhneDC</span><span class="p">(</span><span class="n">FahrzeugOhneDC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">hersteller</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">modell</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -14066,7 +14067,7 @@ Klingeling!
         <span class="bp">self</span><span class="o">.</span><span class="n">anzahl_tueren</span> <span class="o">=</span> <span class="n">anzahl_tueren</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kraftstoffart</span> <span class="o">=</span> <span class="n">kraftstoffart</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="sa">f</span><span class="s2">"AutoOhneDC(hersteller=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">!r}</span><span class="s2">, modell=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">!r}</span><span class="s2">, "</span>
             <span class="sa">f</span><span class="s2">"baujahr=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">, "</span>
@@ -14074,7 +14075,7 @@ Klingeling!
             <span class="sa">f</span><span class="s2">"anzahl_tueren=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_tueren</span><span class="si">}</span><span class="s2">, kraftstoffart=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kraftstoffart</span><span class="si">!r}</span><span class="s2">)"</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">basis_details</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">details</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">basis_details</span><span class="si">}</span><span class="s2">, Türen: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_tueren</span><span class="si">}</span><span class="s2">, Kraftstoff: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kraftstoffart</span><span class="si">}</span><span class="s2">"</span>
@@ -14089,8 +14090,8 @@ Klingeling!
 <div class="prompt input_prompt">In [38]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">FahrradOhneDC</span><span class="p">(</span><span class="n">FahrzeugOhneDC</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">FahrradOhneDC</span><span class="p">(</span><span class="n">FahrzeugOhneDC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">hersteller</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">modell</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -14110,7 +14111,7 @@ Klingeling!
         <span class="bp">self</span><span class="o">.</span><span class="n">anzahl_gaenge</span> <span class="o">=</span> <span class="n">anzahl_gaenge</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rahmentyp</span> <span class="o">=</span> <span class="n">rahmentyp</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="sa">f</span><span class="s2">"FahrradOhneDC(hersteller=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hersteller</span><span class="si">!r}</span><span class="s2">, modell=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modell</span><span class="si">!r}</span><span class="s2">, "</span>
             <span class="sa">f</span><span class="s2">"baujahr=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">baujahr</span><span class="si">}</span><span class="s2">, "</span>
@@ -14118,11 +14119,11 @@ Klingeling!
             <span class="sa">f</span><span class="s2">"anzahl_gaenge=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_gaenge</span><span class="si">}</span><span class="s2">, rahmentyp=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rahmentyp</span><span class="si">!r}</span><span class="s2">)"</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">basis_details</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">details</span><span class="p">()</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">basis_details</span><span class="si">}</span><span class="s2">, Gänge: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">anzahl_gaenge</span><span class="si">}</span><span class="s2">, Rahmen: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rahmentyp</span><span class="si">}</span><span class="s2">"</span>
 
-    <span class="k">def</span> <span class="nf">klingle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">klingle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Klingeling!"</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -14246,7 +14247,7 @@ Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
 <div class="prompt input_prompt">In [41]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 </pre></div>
 </div>
 </div>
@@ -14265,16 +14266,16 @@ Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Form</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Form</span><span class="p">:</span>
     <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span>
 
-    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Unterklassen müssen diese Methode implementieren"</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Unterklassen müssen diese Methode implementieren"</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Farbe: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
 </div>
@@ -14287,21 +14288,21 @@ Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Rechteck</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Rechteck</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
     <span class="n">breite</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">hoehe</span><span class="p">:</span> <span class="nb">float</span>
 
-    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Breite und Höhe müssen positiv sein."</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span>
 
-    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">basis_beschreibung</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">()</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Rechteck: </span><span class="si">{</span><span class="n">basis_beschreibung</span><span class="si">}</span><span class="s2">, Breite: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span><span class="si">}</span><span class="s2">, Höhe: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
@@ -14315,20 +14316,20 @@ Darstellung des Objekts zurückgeben, die dem Konstruktoraufruf ähnelt.</li>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Kreis</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Kreis</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
     <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span>
 
-    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Radius muss positiv sein."</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
 
-    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">basis_beschreibung</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">()</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Kreis: </span><span class="si">{</span><span class="n">basis_beschreibung</span><span class="si">}</span><span class="s2">, Radius: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
@@ -14416,20 +14417,20 @@ Umfang: 43.98
 <div class="prompt input_prompt">In [47]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">FormOhneDC</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">FormOhneDC</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">farbe</span> <span class="o">=</span> <span class="n">farbe</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"FormOhneDC(farbe=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">!r}</span><span class="s2">)"</span>
 
-    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Unterklassen müssen diese Methode implementieren"</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Unterklassen müssen diese Methode implementieren"</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Farbe: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
 </div>
@@ -14441,24 +14442,24 @@ Umfang: 43.98
 <div class="prompt input_prompt">In [48]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">RechteckOhneDC</span><span class="p">(</span><span class="n">FormOhneDC</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breite</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">hoehe</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RechteckOhneDC</span><span class="p">(</span><span class="n">FormOhneDC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breite</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">hoehe</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">farbe</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">breite</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hoehe</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Breite und Höhe müssen positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">=</span> <span class="n">breite</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span> <span class="o">=</span> <span class="n">hoehe</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"RechteckOhneDC(farbe=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">!r}</span><span class="s2">, breite=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span><span class="si">}</span><span class="s2">, hoehe=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="si">}</span><span class="s2">)"</span>
 
-    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span>
 
-    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">basis_beschreibung</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">()</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Rechteck: </span><span class="si">{</span><span class="n">basis_beschreibung</span><span class="si">}</span><span class="s2">, Breite: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breite</span><span class="si">}</span><span class="s2">, Höhe: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hoehe</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
@@ -14471,23 +14472,23 @@ Umfang: 43.98
 <div class="prompt input_prompt">In [49]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">KreisOhneDC</span><span class="p">(</span><span class="n">FormOhneDC</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">KreisOhneDC</span><span class="p">(</span><span class="n">FormOhneDC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">farbe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">farbe</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Radius muss positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"KreisOhneDC(name=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, farbe=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">farbe</span><span class="si">!r}</span><span class="s2">, radius=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="si">}</span><span class="s2">)"</span>
 
-    <span class="k">def</span> <span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flaeche</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">umfang</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
 
-    <span class="k">def</span> <span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">beschreibung</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">basis_beschreibung</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">beschreibung</span><span class="p">()</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Kreis: </span><span class="si">{</span><span class="n">basis_beschreibung</span><span class="si">}</span><span class="s2">, Radius: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
@@ -14595,22 +14596,22 @@ $saldo + ueberziehungs\_limit$.</li>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">BankKonto</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BankKonto</span><span class="p">:</span>
     <span class="n">konto_nummer</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">saldo</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">konto_inhaber</span><span class="p">:</span> <span class="nb">str</span>
 
-    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Anfangssaldo darf nicht negativ sein, es sei denn, es ist ein Girokonto mit Überziehung."</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">zahle_ein</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">zahle_ein</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Einzahlungsbetrag muss positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+=</span> <span class="n">betrag</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR eingezahlt. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">&gt;=</span> <span class="n">betrag</span><span class="p">:</span>
@@ -14623,10 +14624,10 @@ $saldo + ueberziehungs\_limit$.</li>
             <span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">def</span> <span class="nf">get_saldo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_saldo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span>
 
-    <span class="k">def</span> <span class="nf">konto_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">konto_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Kontonr: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">}</span><span class="s2">, Inhaber: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">}</span><span class="s2">, Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR"</span>
 </pre></div>
 </div>
@@ -14639,18 +14640,18 @@ $saldo + ueberziehungs\_limit$.</li>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">SparKonto</span><span class="p">(</span><span class="n">BankKonto</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SparKonto</span><span class="p">(</span><span class="n">BankKonto</span><span class="p">):</span>
     <span class="n">zinssatz</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># z.B. 0.02 für 2%</span>
     <span class="n">abhebegebuehr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.50</span>
 
-    <span class="k">def</span> <span class="nf">addiere_zinsen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">addiere_zinsen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">zinsen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+=</span> <span class="n">zinsen</span>
         <span class="nb">print</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">"Zinsen (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%) in Höhe von </span><span class="si">{</span><span class="n">zinsen</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR angewendet. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
 
@@ -14677,10 +14678,10 @@ $saldo + ueberziehungs\_limit$.</li>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">GiroKonto</span><span class="p">(</span><span class="n">BankKonto</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GiroKonto</span><span class="p">(</span><span class="n">BankKonto</span><span class="p">):</span>
     <span class="n">ueberziehungs_limit</span><span class="p">:</span> <span class="nb">float</span>
 
-    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ueberziehungs_limit</span> <span class="o">&gt;=</span> <span class="n">betrag</span><span class="p">:</span>
@@ -14693,7 +14694,7 @@ $saldo + ueberziehungs\_limit$.</li>
             <span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">def</span> <span class="nf">ziehe_monatliche_gebuehr_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gebuehr</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ziehe_monatliche_gebuehr_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gebuehr</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">gebuehr</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Gebühr muss positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">gebuehr</span>
@@ -14809,8 +14810,8 @@ Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: -105.00 EUR
 <div class="prompt input_prompt">In [56]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">BankKontoOhneDC</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">konto_nummer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">saldo</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">konto_inhaber</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">BankKontoOhneDC</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">konto_nummer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">saldo</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">konto_inhaber</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span> <span class="o">=</span> <span class="n">konto_nummer</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">=</span> <span class="n">saldo</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span> <span class="o">=</span> <span class="n">konto_inhaber</span>
@@ -14819,16 +14820,16 @@ Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: -105.00 EUR
                 <span class="sa">f</span><span class="s2">"Warnung: Konto </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">}</span><span class="s2"> mit negativem Saldo initialisiert: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"BankKontoOhneDC(konto_nummer=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">!r}</span><span class="s2">, saldo=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">}</span><span class="s2">, inhaber=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">!r}</span><span class="s2">)"</span>
 
-    <span class="k">def</span> <span class="nf">zahle_ein</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">zahle_ein</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Einzahlungsbetrag muss positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+=</span> <span class="n">betrag</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">betrag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR eingezahlt. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">&gt;=</span> <span class="n">betrag</span><span class="p">:</span>
@@ -14841,10 +14842,10 @@ Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: -105.00 EUR
             <span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">def</span> <span class="nf">get_saldo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_saldo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span>
 
-    <span class="k">def</span> <span class="nf">konto_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">konto_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Kontonr: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">}</span><span class="s2">, Inhaber: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">}</span><span class="s2">, Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR"</span>
 </pre></div>
 </div>
@@ -14856,26 +14857,26 @@ Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: -105.00 EUR
 <div class="prompt input_prompt">In [57]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SparKontoOhneDC</span><span class="p">(</span><span class="n">BankKontoOhneDC</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SparKontoOhneDC</span><span class="p">(</span><span class="n">BankKontoOhneDC</span><span class="p">):</span>
     <span class="n">abhebegebuehr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.50</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">konto_nummer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">saldo</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">konto_inhaber</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">zinssatz</span><span class="p">:</span> <span class="nb">float</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">konto_nummer</span><span class="p">,</span> <span class="n">saldo</span><span class="p">,</span> <span class="n">konto_inhaber</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span> <span class="o">=</span> <span class="n">zinssatz</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"SparKontoOhneDC(konto_nummer=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">!r}</span><span class="s2">, saldo=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">}</span><span class="s2">, inhaber=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">!r}</span><span class="s2">, zinssatz=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span><span class="si">}</span><span class="s2">)"</span>
 
-    <span class="k">def</span> <span class="nf">addiere_zinsen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">addiere_zinsen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">zinsen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+=</span> <span class="n">zinsen</span>
         <span class="nb">print</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">"Zinsen (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">zinssatz</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%) in Höhe von </span><span class="si">{</span><span class="n">zinsen</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR angewendet. Neuer Saldo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> EUR."</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
         <span class="n">gesamtkosten</span> <span class="o">=</span> <span class="n">betrag</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">abhebegebuehr</span>
@@ -14900,8 +14901,8 @@ Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: -105.00 EUR
 <div class="prompt input_prompt">In [58]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">GiroKontoOhneDC</span><span class="p">(</span><span class="n">BankKontoOhneDC</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">GiroKontoOhneDC</span><span class="p">(</span><span class="n">BankKontoOhneDC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">konto_nummer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">saldo</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -14911,10 +14912,10 @@ Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: -105.00 EUR
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">konto_nummer</span><span class="p">,</span> <span class="n">saldo</span><span class="p">,</span> <span class="n">konto_inhaber</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ueberziehungs_limit</span> <span class="o">=</span> <span class="n">ueberziehungs_limit</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"GiroKontoOhneDC(konto_nummer=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_nummer</span><span class="si">!r}</span><span class="s2">, saldo=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="si">}</span><span class="s2">, inhaber=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">konto_inhaber</span><span class="si">!r}</span><span class="s2">, limit=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ueberziehungs_limit</span><span class="si">}</span><span class="s2">)"</span>
 
-    <span class="k">def</span> <span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hebe_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betrag</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">betrag</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Abhebungsbetrag muss positiv sein."</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ueberziehungs_limit</span> <span class="o">&gt;=</span> <span class="n">betrag</span><span class="p">:</span>
@@ -14927,7 +14928,7 @@ Kontonr: GK789, Inhaber: Erika Mustermann, Saldo: -105.00 EUR
             <span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">def</span> <span class="nf">ziehe_monatliche_gebuehr_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gebuehr</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ziehe_monatliche_gebuehr_ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gebuehr</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">gebuehr</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Gebühr muss positiv sein."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">gebuehr</span>

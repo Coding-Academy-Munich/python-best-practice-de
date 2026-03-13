@@ -16,9 +16,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .hll { background-color: #ffffcc }
 .highlight { background: #f8f8f8; }
 .highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .err { border: 1px solid #F00 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
+.highlight .o { color: #666 } /* Operator */
 .highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #9C6500 } /* Comment.Preproc */
@@ -35,34 +35,34 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .gt { color: #04D } /* Generic.Traceback */
 .highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
 .highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
 .highlight .kp { color: #008000 } /* Keyword.Pseudo */
 .highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .m { color: #666 } /* Literal.Number */
 .highlight .s { color: #BA2121 } /* Literal.String */
 .highlight .na { color: #687822 } /* Name.Attribute */
 .highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .nc { color: #00F; font-weight: bold } /* Name.Class */
+.highlight .no { color: #800 } /* Name.Constant */
+.highlight .nd { color: #A2F } /* Name.Decorator */
 .highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
 .highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nf { color: #00F } /* Name.Function */
 .highlight .nl { color: #767600 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nn { color: #00F; font-weight: bold } /* Name.Namespace */
 .highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
 .highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #BBB } /* Text.Whitespace */
+.highlight .mb { color: #666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666 } /* Literal.Number.Float */
+.highlight .mh { color: #666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666 } /* Literal.Number.Oct */
 .highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
@@ -77,12 +77,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .fm { color: #00F } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight .il { color: #666 } /* Literal.Number.Integer.Long */
   </style>
 <style type="text/css">
 /*!
@@ -13069,6 +13069,7 @@ div#notebook {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -13254,7 +13255,7 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
 </pre></div>
 </div>
 </div>
@@ -13265,9 +13266,9 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">DataSource</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DataSource</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="o">...</span>
 </pre></div>
 </div>
@@ -13279,9 +13280,9 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">DataSink</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DataSink</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="o">...</span>
 </pre></div>
 </div>
@@ -13293,12 +13294,12 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Processor</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">,</span> <span class="n">sink</span><span class="p">:</span> <span class="n">DataSink</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Processor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">,</span> <span class="n">sink</span><span class="p">:</span> <span class="n">DataSink</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sink</span> <span class="o">=</span> <span class="n">sink</span>
 
-    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sink</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
@@ -13311,8 +13312,8 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">DataSourceStub</span><span class="p">(</span><span class="n">DataSource</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DataSourceStub</span><span class="p">(</span><span class="n">DataSource</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">42</span>
 </pre></div>
 </div>
@@ -13324,11 +13325,11 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">DataSinkSpy</span><span class="p">(</span><span class="n">DataSink</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DataSinkSpy</span><span class="p">(</span><span class="n">DataSink</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -13340,7 +13341,7 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_processor</span><span class="p">():</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_processor</span><span class="p">():</span>
     <span class="n">source</span> <span class="o">=</span> <span class="n">DataSourceStub</span><span class="p">()</span>
     <span class="n">sink</span> <span class="o">=</span> <span class="n">DataSinkSpy</span><span class="p">()</span>
     <span class="n">processor</span> <span class="o">=</span> <span class="n">Processor</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
@@ -13389,312 +13390,346 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a854c2673b750351"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9ef6cc33687cf1a4"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Workshop:-Test-Doubles">Workshop: Test Doubles<a class="anchor-link" href="#Workshop:-Test-Doubles">¶</a></h2><p>Wir haben die folgenden Interfaces, die von der Funktion <code>test_me()</code>
-verwendet werden:</p>
+<h2 id="Workshop:-Test-Doubles-in-der-Praxis">Workshop: Test Doubles in der Praxis<a class="anchor-link" href="#Workshop:-Test-Doubles-in-der-Praxis">¶</a></h2><ul>
+<li>Wir entwickeln ein Bestellsystem</li>
+<li>Der <code>OrderProcessor</code> verarbeitet Bestellungen</li>
+<li>Er verwendet drei externe Dienste:<ul>
+<li><code>InventoryService</code>: Prüft und reserviert Lagerbestand</li>
+<li><code>PaymentGateway</code>: Verarbeitet Zahlungen</li>
+<li><code>NotificationService</code>: Sendet Bestätigungen</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=f0fc8bc0b84af6d1">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f339c2bb819c59db"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Domain-Modelle">Domain-Modelle<a class="anchor-link" href="#Domain-Modelle">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=45ef1dfc03bd2170">
 <div class="input">
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Service1</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="o">...</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=ca05960de6d28e49">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=9bfca8df17e783c9">
 <div class="input">
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Service2</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">OrderStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">PENDING</span> <span class="o">=</span> <span class="s2">"pending"</span>
+    <span class="n">CONFIRMED</span> <span class="o">=</span> <span class="s2">"confirmed"</span>
+    <span class="n">FAILED</span> <span class="o">=</span> <span class="s2">"failed"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=df771ec513b0e542">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OrderItem</span><span class="p">:</span>
+    <span class="n">product_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">quantity</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">unit_price</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_price</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit_price</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=ef004f8a56bf0d65">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Order</span><span class="p">:</span>
+    <span class="n">order_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">customer_email</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">OrderItem</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_amount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">total_price</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=2b318db07c582226">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OrderResult</span><span class="p">:</span>
+    <span class="n">status</span><span class="p">:</span> <span class="n">OrderStatus</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6c91e34bb2f47a82"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Service-Interfaces">Service-Interfaces<a class="anchor-link" href="#Service-Interfaces">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=5c92a830019f0958">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">InventoryService</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_stock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">quantity</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="o">...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reserve_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">quantity</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=0159dcda2c5ce21c">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_me</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">service1</span><span class="p">:</span> <span class="n">Service1</span><span class="p">,</span> <span class="n">service2</span><span class="p">:</span> <span class="n">Service2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="n">service1</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">service2</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e4982caddbe0c6e6"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Welche Arten von Test-Doubles brauchen Sie um die Funktion <code>test_me()</code> für
-die angegebenen Werte von <code>i</code> und <code>j</code> zu testen?</p>
-<table>
-<thead>
-<tr>
-<th>i</th>
-<th>j</th>
-<th>Service1</th>
-<th>Service2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=fc0dea94e617995a"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<table>
-<thead>
-<tr>
-<th>i</th>
-<th>j</th>
-<th>Service1</th>
-<th>Service2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>Dummy</td>
-<td>Dummy</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>Dummy</td>
-<td>Spy/Mock</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>Stub</td>
-<td>Dummy</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>Stub</td>
-<td>Spy/Mock</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d6cb4e63664783a0"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Implementieren Sie die entsprechenden Doubles und schreiben Sie die Tests</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=a816d3b4d819db42">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Service1Stub</span><span class="p">(</span><span class="n">Service1</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">42</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=9c7a21040b4af9cc">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Service2Spy</span><span class="p">(</span><span class="n">Service2</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=676fd0b94d01f6cc">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_test_me_0_0</span><span class="p">():</span>
-    <span class="n">test_me</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># type: ignore</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test passed"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=ab38d8616d92d6bd">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=682457f4781d390a">
 <div class="input">
 <div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">test_test_me_0_0</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PaymentGateway</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_payment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">customer_email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Test passed
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=0cddb4ce989858a3">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=fd5a5df79f2df289">
 <div class="input">
 <div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_test_me_0_1</span><span class="p">():</span>
-    <span class="n">service2</span> <span class="o">=</span> <span class="n">Service2Spy</span><span class="p">()</span>
-    <span class="n">test_me</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">service2</span><span class="p">)</span> <span class="c1"># type: ignore</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">service2</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="k">assert</span> <span class="n">service2</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test passed"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NotificationService</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_order_confirmation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span> <span class="n">customer_email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=182c49404ba73d6c">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b0ce39ff1f872aff"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Warum-brauchen-wir-Test-Doubles?">Warum brauchen wir Test Doubles?<a class="anchor-link" href="#Warum-brauchen-wir-Test-Doubles?">¶</a></h3><p>Echte Implementierungen haben Testbarkeitsprobleme:</p>
+<ul>
+<li><code>StripePaymentGateway</code>: HTTP-Aufrufe, API-Keys, echtes Geld!</li>
+<li><code>DatabaseInventoryService</code>: PostgreSQL-Datenbank erforderlich</li>
+<li><code>SmtpNotificationService</code>: Sendet echte E-Mails</li>
+</ul>
+<p>Diese sind für Unit-Tests ungeeignet.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d09c6ff9b89f2a48"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Der-OrderProcessor-(System-Under-Test)">Der OrderProcessor (System Under Test)<a class="anchor-link" href="#Der-OrderProcessor-(System-Under-Test)">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=c9e7d08b0f9fe8e7">
 <div class="input">
 <div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">test_test_me_0_1</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">OrderProcessor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">inventory</span><span class="p">:</span> <span class="n">InventoryService</span><span class="p">,</span>
+        <span class="n">payment</span><span class="p">:</span> <span class="n">PaymentGateway</span><span class="p">,</span>
+        <span class="n">notifications</span><span class="p">:</span> <span class="n">NotificationService</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span> <span class="o">=</span> <span class="n">inventory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">payment</span> <span class="o">=</span> <span class="n">payment</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notifications</span> <span class="o">=</span> <span class="n">notifications</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OrderResult</span><span class="p">:</span>
+        <span class="c1"># Check stock for all items</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">order</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="o">.</span><span class="n">check_stock</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">product_id</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">quantity</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">OrderResult</span><span class="p">(</span>
+                    <span class="n">OrderStatus</span><span class="o">.</span><span class="n">FAILED</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Insufficient stock for </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">product_id</span><span class="si">}</span><span class="s2">"</span>
+                <span class="p">)</span>
+
+        <span class="c1"># Reserve items</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">order</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="o">.</span><span class="n">reserve_items</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">product_id</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">quantity</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">OrderResult</span><span class="p">(</span>
+                    <span class="n">OrderStatus</span><span class="o">.</span><span class="n">FAILED</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Could not reserve </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">product_id</span><span class="si">}</span><span class="s2">"</span>
+                <span class="p">)</span>
+
+        <span class="c1"># Process payment</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">payment</span><span class="o">.</span><span class="n">process_payment</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">total_amount</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">customer_email</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">OrderResult</span><span class="p">(</span><span class="n">OrderStatus</span><span class="o">.</span><span class="n">FAILED</span><span class="p">,</span> <span class="s2">"Payment failed"</span><span class="p">)</span>
+
+        <span class="c1"># Send confirmation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notifications</span><span class="o">.</span><span class="n">send_order_confirmation</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">customer_email</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">OrderResult</span><span class="p">(</span><span class="n">OrderStatus</span><span class="o">.</span><span class="n">CONFIRMED</span><span class="p">,</span> <span class="s2">"Order processed successfully"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Test passed
-</pre>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f036031b49130252"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Workshop-Aufgabe">Workshop-Aufgabe<a class="anchor-link" href="#Workshop-Aufgabe">¶</a></h3><p>Schreiben Sie Tests für die folgenden Szenarien:</p>
+<ol>
+<li>Erfolgreiche Bestellungsverarbeitung</li>
+<li>Bestellung schlägt fehl wegen unzureichendem Lagerbestand</li>
+<li>Bestellung schlägt fehl wegen Zahlungsfehler</li>
+</ol>
+<p>Implementieren Sie die benötigten Test Doubles.</p>
+<p>Siehe <code>examples/TestDoublesStarterKit</code> für den Starter-Code.</p>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=3525163dbbe22285"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="L%C3%B6sung:-Test-Doubles">Lösung: Test Doubles<a class="anchor-link" href="#L%C3%B6sung:-Test-Doubles">¶</a></h3>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=35df0b67d45c00f7">
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=4eb0843e98b65a6e">
 <div class="input">
 <div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_test_me_1_0</span><span class="p">():</span>
-    <span class="n">service1</span> <span class="o">=</span> <span class="n">Service1Stub</span><span class="p">()</span>
-    <span class="n">test_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">service1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># type: ignore</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test passed"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">InventoryServiceStub</span><span class="p">(</span><span class="n">InventoryService</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">stock_available</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">reservation_success</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stock_available</span> <span class="o">=</span> <span class="n">stock_available</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reservation_success</span> <span class="o">=</span> <span class="n">reservation_success</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_stock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">quantity</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stock_available</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">reserve_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">quantity</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reservation_success</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=b1cc1900aa82ed2b">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=44e98bd3dee84454">
 <div class="input">
 <div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">test_test_me_1_0</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PaymentGatewayStub</span><span class="p">(</span><span class="n">PaymentGateway</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payment_success</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">payment_success</span> <span class="o">=</span> <span class="n">payment_success</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_payment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">customer_email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">payment_success</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Test passed
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=142f7c51a6818b57">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=4c5feb1ae3ddffaf">
 <div class="input">
 <div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_test_me_1_1</span><span class="p">():</span>
-    <span class="n">service1</span> <span class="o">=</span> <span class="n">Service1Stub</span><span class="p">()</span>
-    <span class="n">service2</span> <span class="o">=</span> <span class="n">Service2Spy</span><span class="p">()</span>
-    <span class="n">test_me</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">service1</span><span class="p">,</span> <span class="n">service2</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">service2</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="k">assert</span> <span class="n">service2</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">42</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test passed"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NotificationServiceSpy</span><span class="p">(</span><span class="n">NotificationService</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">confirmations_sent</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Order</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_order_confirmation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span> <span class="n">customer_email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">confirmations_sent</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">order</span><span class="p">,</span> <span class="n">customer_email</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">confirmation_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">confirmations_sent</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=20784c2eb9f57046">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=7292a16b0a96fa92"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="L%C3%B6sung:-Test-f%C3%BCr-erfolgreiche-Bestellung">Lösung: Test für erfolgreiche Bestellung<a class="anchor-link" href="#L%C3%B6sung:-Test-f%C3%BCr-erfolgreiche-Bestellung">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=f726df3fddbe24ee">
 <div class="input">
 <div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">test_test_me_1_1</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_process_order_success</span><span class="p">():</span>
+    <span class="c1"># Arrange</span>
+    <span class="n">inventory</span> <span class="o">=</span> <span class="n">InventoryServiceStub</span><span class="p">(</span><span class="n">stock_available</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reservation_success</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">payment</span> <span class="o">=</span> <span class="n">PaymentGatewayStub</span><span class="p">(</span><span class="n">payment_success</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">notifications</span> <span class="o">=</span> <span class="n">NotificationServiceSpy</span><span class="p">()</span>
+    <span class="n">processor</span> <span class="o">=</span> <span class="n">OrderProcessor</span><span class="p">(</span><span class="n">inventory</span><span class="p">,</span> <span class="n">payment</span><span class="p">,</span> <span class="n">notifications</span><span class="p">)</span>
+
+    <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span>
+        <span class="n">order_id</span><span class="o">=</span><span class="s2">"ORD-001"</span><span class="p">,</span>
+        <span class="n">customer_email</span><span class="o">=</span><span class="s2">"customer@example.com"</span><span class="p">,</span>
+        <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">OrderItem</span><span class="p">(</span><span class="s2">"PROD-1"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">29.99</span><span class="p">)]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Act</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">process_order</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+
+    <span class="c1"># Assert</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">OrderStatus</span><span class="o">.</span><span class="n">CONFIRMED</span>
+    <span class="k">assert</span> <span class="n">notifications</span><span class="o">.</span><span class="n">confirmation_count</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test passed!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=36efec2457cfb951">
+<div class="input">
+<div class="prompt input_prompt">In [22]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">test_process_order_success</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -13704,10 +13739,181 @@ die angegebenen Werte von <code>i</code> und <code>j</code> zu testen?</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Test passed
+<pre>Test passed!
 </pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=47776e42a7e720e1"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="L%C3%B6sung:-Test-f%C3%BCr-unzureichenden-Lagerbestand">Lösung: Test für unzureichenden Lagerbestand<a class="anchor-link" href="#L%C3%B6sung:-Test-f%C3%BCr-unzureichenden-Lagerbestand">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=bcdea065fda5cc08">
+<div class="input">
+<div class="prompt input_prompt">In [23]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_process_order_insufficient_stock</span><span class="p">():</span>
+    <span class="c1"># Arrange</span>
+    <span class="n">inventory</span> <span class="o">=</span> <span class="n">InventoryServiceStub</span><span class="p">(</span><span class="n">stock_available</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">payment</span> <span class="o">=</span> <span class="n">PaymentGatewayStub</span><span class="p">()</span>
+    <span class="n">notifications</span> <span class="o">=</span> <span class="n">NotificationServiceSpy</span><span class="p">()</span>
+    <span class="n">processor</span> <span class="o">=</span> <span class="n">OrderProcessor</span><span class="p">(</span><span class="n">inventory</span><span class="p">,</span> <span class="n">payment</span><span class="p">,</span> <span class="n">notifications</span><span class="p">)</span>
+
+    <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span>
+        <span class="n">order_id</span><span class="o">=</span><span class="s2">"ORD-002"</span><span class="p">,</span>
+        <span class="n">customer_email</span><span class="o">=</span><span class="s2">"customer@example.com"</span><span class="p">,</span>
+        <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">OrderItem</span><span class="p">(</span><span class="s2">"PROD-1"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">29.99</span><span class="p">)]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Act</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">process_order</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+
+    <span class="c1"># Assert</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">OrderStatus</span><span class="o">.</span><span class="n">FAILED</span>
+    <span class="k">assert</span> <span class="s2">"Insufficient stock"</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">message</span>
+    <span class="k">assert</span> <span class="n">notifications</span><span class="o">.</span><span class="n">confirmation_count</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test passed!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=d4426fdfbc732070">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">test_process_order_insufficient_stock</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Test passed!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=07af35bfeaac2ec6"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="L%C3%B6sung:-Test-f%C3%BCr-Zahlungsfehler">Lösung: Test für Zahlungsfehler<a class="anchor-link" href="#L%C3%B6sung:-Test-f%C3%BCr-Zahlungsfehler">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=679113ad9d667d05">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_process_order_payment_failed</span><span class="p">():</span>
+    <span class="c1"># Arrange</span>
+    <span class="n">inventory</span> <span class="o">=</span> <span class="n">InventoryServiceStub</span><span class="p">(</span><span class="n">stock_available</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reservation_success</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">payment</span> <span class="o">=</span> <span class="n">PaymentGatewayStub</span><span class="p">(</span><span class="n">payment_success</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">notifications</span> <span class="o">=</span> <span class="n">NotificationServiceSpy</span><span class="p">()</span>
+    <span class="n">processor</span> <span class="o">=</span> <span class="n">OrderProcessor</span><span class="p">(</span><span class="n">inventory</span><span class="p">,</span> <span class="n">payment</span><span class="p">,</span> <span class="n">notifications</span><span class="p">)</span>
+
+    <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span>
+        <span class="n">order_id</span><span class="o">=</span><span class="s2">"ORD-003"</span><span class="p">,</span>
+        <span class="n">customer_email</span><span class="o">=</span><span class="s2">"customer@example.com"</span><span class="p">,</span>
+        <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">OrderItem</span><span class="p">(</span><span class="s2">"PROD-1"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">99.99</span><span class="p">)]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Act</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">process_order</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+
+    <span class="c1"># Assert</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">OrderStatus</span><span class="o">.</span><span class="n">FAILED</span>
+    <span class="k">assert</span> <span class="s2">"Payment failed"</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">message</span>
+    <span class="k">assert</span> <span class="n">notifications</span><span class="o">.</span><span class="n">confirmation_count</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test passed!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=753cdb5b92d97836">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">test_process_order_payment_failed</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Test passed!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ab1c29a82f38b603"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Diskussion:-Welche-Test-Doubles-haben-Sie-verwendet?">Diskussion: Welche Test Doubles haben Sie verwendet?<a class="anchor-link" href="#Diskussion:-Welche-Test-Doubles-haben-Sie-verwendet?">¶</a></h3><table>
+<thead>
+<tr>
+<th>Abhängigkeit</th>
+<th>Typ</th>
+<th>Grund</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InventoryService</td>
+<td><strong>Stub</strong></td>
+<td>Eingehend: Liefert Werte für Bestandsprüfung</td>
+</tr>
+<tr>
+<td>PaymentGateway</td>
+<td><strong>Stub</strong></td>
+<td>Eingehend: Liefert Ergebnis der Zahlung</td>
+</tr>
+<tr>
+<td>NotificationService</td>
+<td><strong>Spy</strong></td>
+<td>Ausgehend: Wir prüfen, ob Benachrichtigung gesendet wurde</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a9b836c84d7a4520"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Wichtige-Erkenntnis">Wichtige Erkenntnis<a class="anchor-link" href="#Wichtige-Erkenntnis">¶</a></h3><ul>
+<li><strong>Stubs</strong> für eingehende Abhängigkeiten<ul>
+<li>Wir kontrollieren die Rückgabewerte</li>
+<li>Ermöglicht deterministische Tests</li>
+</ul>
+</li>
+<li><strong>Spies/Mocks</strong> für ausgehende Abhängigkeiten<ul>
+<li>Wir überprüfen die Seiteneffekte</li>
+<li>Stellt sicher, dass Aktionen ausgeführt wurden</li>
+</ul>
+</li>
+</ul>
+<p>Vollständige Lösung: siehe <code>examples/TestDoubles</code></p>
 </div>
 </div>
 </div>

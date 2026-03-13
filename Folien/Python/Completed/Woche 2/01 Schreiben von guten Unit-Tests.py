@@ -10,18 +10,22 @@
 # %% [markdown]
 #
 # ## Welche Form hat ein Unit Test?
-# - Arrange
-# - Act
-# - Assert
+#
+# - Arrange / Given
+# - Act / When
+# - Assert / Then
 
 # %%
 def test_the_extend_method_of_the_built_in_list_type():
-    x = [1, 2, 3]  # arrange
+    # Arrange/Given
+    x = [1, 2, 3]
     y = [10, 20]
 
-    x.extend(y)  # act
+    # Act/When
+    x.extend(y)
 
-    assert x == [1, 2, 3, 10, 20]  # assert
+    # Assert/Then
+    assert x == [1, 2, 3, 10, 20]
 
 
 # %% [markdown]
@@ -107,7 +111,7 @@ def test_the_extend_method_of_the_built_in_list_type():
 #     - **Nicht:** konkreten Zustand öffentlich machen
 
 # %%
-class Stack:  # type: ignore
+class Stack:
     def __init__(self):
         self._items = []
 
@@ -148,13 +152,10 @@ assert my_stack.pop() == 5
 # ## Test Doubles
 #
 # - Test Double: Vereinfachte Version einer Abhängigkeit im System
-#   - z.B. Ersetzen einer Datenbankabfrage durch einen fixen Wert
+#   - Dummy, Stub, Fake, Spy, Mock
 # - Test Doubles sind wichtig zum Vereinfachen von Tests
 # - Aber: zu viele oder komplexe Test Doubles machen Tests unübersichtlich
 #   - Was wird von einem Test eigentlich getestet?
-# - Test Doubles: Dummies, Stubs, Fakes, Mocks, Spies
-#   - Dummies, Stubs, Fakes: eingehende Abhängigkeiten
-#   - Mocks, Spies: ausgehende Abhängigkeiten
 
 
 # %% [markdown]
@@ -164,7 +165,7 @@ assert my_stack.pop() == 5
 # - Zugriff auf Datenbank, Dateisystem
 # - Zeit, Zufallswerte
 # - Nichtdeterminismus
-# - Verborgener Zustand (`AdderSpy`)
+# - Verborgener Zustand
 
 # %% [markdown]
 #
@@ -179,7 +180,7 @@ assert my_stack.pop() == 5
 
 # %% [markdown]
 #
-# ### Wert
+# ### Funktionen/Werte
 
 # %%
 def add(x, y):
@@ -197,15 +198,23 @@ assert add(2, 3) == 5
 # %%
 class Adder:
     def __init__(self):
+        self.x = 0
+        self.y = 0
         self.result = None
 
-    def add(self, x, y):
-        self.result = x + y
+    def add(self):
+        self.result = self.x + self.y
 
 
 # %%
 my_adder = Adder()
-my_adder.add(2, 3)
+my_adder.x = 2
+my_adder.y = 3
+
+# %%
+my_adder.add()
+
+# %%
 assert my_adder.result == 5
 
 
@@ -228,12 +237,12 @@ call_fun(lambda x, y: x + y)
 class AdderSpy:
     def __init__(self):
         self.was_called = False
-        self.result = None
+        self.args = None
 
     def __call__(self, x, y):
         self.was_called = True
-        self.result = x + y
-        return self.result
+        self.args = (x, y)
+        return x + y
 
 
 # %%
@@ -245,33 +254,226 @@ assert spy(2, 3) == 5
 
 # %%
 assert spy.was_called
-assert spy.result == 5
+assert spy.args == (2, 3)
 
 # %%
 adder_spy = AdderSpy()
+
+# %%
 call_fun(adder_spy)
+
+# %%
 assert adder_spy.was_called
-assert adder_spy.result == 5
+assert adder_spy.args == (2, 3)
 
 # %% [markdown]
 #
 # ## Wie schreibt man testbaren Code?
 #
-# - Keine globalen oder statischen Daten
-# - Techniken aus der funktionalen Programmierung (Iterables, Higher-order Funktionen,
-#   etc.)
-# - Funktionale Datenstrukturen (Immutability)
+# - Umwandeln von weniger testbarem in besser testbaren Stil
+#   - Beobachtbarkeit
+#   - Keine globalen oder statischen Daten
+#   - Funktionale (unveränderliche) Datenstrukturen
 # - Gutes objektorientiertes Design
-#   - Hohe Kohärenz
+#   - Hohe Kohäsion
 #   - Geringe Kopplung, Management von Abhängigkeiten
 # - Etc.
-#
-# Hilfsmittel: Test-Driven Development
 
 
 # %% [markdown]
 #
-# ## Mini-Workshop: Tests für die Einkaufslisten-Implementierung
+# ## Prozess
+#
+# - Iteratives Vorgehen
+#   - Kleine Schritte mit Tests
+# - Test-Driven Development (TDD)
+#   - Schreiben von Tests vor Code
+
+# %% [markdown]
+#
+# ## Workshop: Bessere Testbarkeit
+#
+# - Wie können Sie Tests für die folgenden Funktionen/Klassen schreiben?
+# - Wie können Sie die folgenden Funktionen/Klassen verbessern, um sie besser
+#   testbar zu machen?
+# - Was für Nachteile ergeben sich dadurch?
+
+# %%
+def make_counter():
+    result = 0
+
+    def count():
+        nonlocal result
+        result += 1
+        return result
+
+    return count
+
+
+# %%
+count = make_counter()
+
+# %%
+for i in range(3):
+    print(count())
+
+
+# %%
+class Counter:
+    def __init__(self):
+        self.c_ = 0
+
+    def __call__(self):
+        result = self.c_
+        self.c_ += 1
+        return result
+
+
+# %%
+count2 = Counter()
+
+# %%
+for i in range(3):
+    print(count2())
+
+# %%
+from enum import Enum
+
+
+class State(Enum):
+    OFF = 0
+    ON = 1
+
+
+# %%
+class Switch:
+    def __init__(self):
+        self._state = State.OFF
+
+    def toggle(self):
+        self._state = State.ON if self._state == State.OFF else State.OFF
+        print(f"Switch is {'OFF' if self._state == State.OFF else 'ON'}")
+
+
+# %%
+s = Switch()
+
+# %%
+for i in range(3):
+    s.toggle()
+
+
+# %%
+class SwitchWithGetter:
+    def __init__(self):
+        self._state = State.OFF
+
+    def toggle(self):
+        self._state = State.ON if self._state == State.OFF else State.OFF
+        print(f"Switch is {'OFF' if self._state == State.OFF else 'ON'}")
+
+    def get_state(self):
+        return self._state
+
+
+# %%
+sg = SwitchWithGetter()
+
+# %%
+for i in range(3):
+    sg.toggle()
+
+# %%
+print(f"Switch is {'OFF' if sg.get_state() == State.OFF else 'ON'}")
+
+
+# %%
+class ObservableSwitch:
+    def __init__(self):
+        self._state = State.OFF
+        self._observers = []
+
+    def toggle(self):
+        self._state = State.ON if self._state == State.OFF else State.OFF
+        self._notify(self._state)
+
+    def register_observer(self, f):
+        self._observers.append(f)
+
+    def _notify(self, s):
+        for f in self._observers:
+            f(s)
+
+
+# %%
+os = ObservableSwitch()
+
+# %%
+os.register_observer(lambda s: print(f"Switch is {'OFF' if s == State.OFF else 'ON'}"))
+
+# %%
+for i in range(3):
+    os.toggle()
+
+
+# %%
+def print_fib(n):
+    a = 0
+    b = 1
+    for i in range(n):
+        print(f"fib({i}) = {b}")
+        tmp = a
+        a = b
+        b = tmp + b
+
+
+# %%
+print_fib(5)
+
+
+# %%
+def fib1(n):
+    a = 0
+    b = 1
+    for i in range(n):
+        tmp = a
+        a = b
+        b = tmp + b
+    return b
+
+
+# %%
+def print_fib1(n):
+    for i in range(n):
+        print(f"fib({i}) = {fib1(i)}")
+
+
+# %%
+print_fib1(5)
+
+
+# %%
+def fib_gen(n, f):
+    a = 0
+    b = 1
+    for i in range(n):
+        f(i, b)
+        tmp = a
+        a = b
+        b = tmp + b
+
+
+# %%
+def print_fib2(n):
+    fib_gen(n, lambda i, x: print(f"fib({i}) = {x}"))
+
+
+# %%
+print_fib2(5)
+
+# %% [markdown]
+#
+# ## Workshop: Tests für die Einkaufslisten-Implementierung
 #
 # Fügen Sie zur Implementierung einer Einkaufsliste in `examples/ShoppingListPytestSK`
 # geeignete Unit-Tests hinzu.
