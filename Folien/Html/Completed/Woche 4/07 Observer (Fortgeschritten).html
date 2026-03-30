@@ -13087,7 +13087,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=f2153b4f26c13aa0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ae7d6396822ad167"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="Python Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRw
@@ -13137,7 +13137,7 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 " style="display:block;margin:auto;width:10%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>Observer</b>
+<b>Observer (Fortgeschritten)</b>
 </div>
 <br>
 <div style="text-align:center;">Dr. Matthias Hölzl</div>
@@ -13147,27 +13147,24 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=09ee2ed9fbca62fe"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e36f438d34013ee2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Beispiel:-Aktienkurse">Beispiel: Aktienkurse<a class="anchor-link" href="#Beispiel:-Aktienkurse">¶</a></h3><ul>
-<li>Aktienkurse ändern sich ständig</li>
-<li>Viele verschiedene Clients wollen über Änderungen informiert werden</li>
-<li>Clients sollen unabhängig voneinander sein</li>
-<li>Die Anwendung soll nicht über konkrete Clients Bescheid wissen</li>
+<h2 id="Wiederholung:-Push-Observer">Wiederholung: Push Observer<a class="anchor-link" href="#Wiederholung:-Push-Observer">¶</a></h2><ul>
+<li>Publisher hält eine Liste von Subscribern</li>
+<li>Bei Zustandsänderung: Publisher benachrichtigt alle Subscriber</li>
+<li>Subscriber erhalten die relevanten Daten als Parameter</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=d21ace15e73959cc">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=a446b5879f0033a1">
 <div class="input">
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">normalvariate</span><span class="p">,</span> <span class="n">sample</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">weakref</span>
 </pre></div>
 </div>
 </div>
@@ -13187,241 +13184,66 @@ ZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIi8+PC9zdmc+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=4b1d109ade1327f6">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=9884ee08bce1b7ad">
 <div class="input">
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">StockMarket</span><span class="p">:</span>
-    <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-    <span class="n">price_dist_mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">price_dist_stddev</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_stock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stock</span><span class="p">:</span> <span class="n">Stock</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Updated price for </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">update_prices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">stocks_to_update</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_select_stocks_to_update</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_update_prices_for</span><span class="p">(</span><span class="n">stocks_to_update</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks_to_update</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Updated price for </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_select_stocks_to_update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]:</span>
-        <span class="n">num_stocks_to_update</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">sample</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="p">,</span> <span class="n">num_stocks_to_update</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_update_prices_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]):</span>
-        <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="p">:</span>
-            <span class="n">change_percent</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price_dist_mean</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">price_dist_stddev</span><span class="p">)</span>
-            <span class="n">stock</span><span class="o">.</span><span class="n">price</span> <span class="o">*=</span> <span class="n">change_percent</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">StockObserver</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]):</span> <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=e6a19ec155d1b760">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=71abceed8b7009d6">
 <div class="input">
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span> <span class="o">=</span> <span class="n">StockMarket</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=faf7006d7a9e3c48">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Banana"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">))</span>
-<span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Billionz"</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">))</span>
-<span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Macrosoft"</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">))</span>
-<span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"BCD"</span><span class="p">,</span> <span class="mf">400.0</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Updated price for Banana to 100.00
-Updated price for Billionz to 200.00
-Updated price for Macrosoft to 300.00
-Updated price for BCD to 400.00
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=36133fd27028ba04">
-<div class="input">
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"============= Update </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> ============="</span><span class="p">)</span>
-    <span class="n">market</span><span class="o">.</span><span class="n">update_prices</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>============= Update 1 =============
-Updated price for Macrosoft to 198.19
-Updated price for BCD to 283.56
-Updated price for Billionz to 211.27
-============= Update 2 =============
-Updated price for Billionz to 175.98
-Updated price for Macrosoft to 236.38
-============= Update 3 =============
-Updated price for Banana to 148.47
-============= Update 4 =============
-Updated price for Macrosoft to 215.75
-============= Update 5 =============
-Updated price for Macrosoft to 118.01
-Updated price for BCD to 293.39
-Updated price for Banana to 207.55
-============= Update 6 =============
-Updated price for Billionz to 198.86
-Updated price for Macrosoft to 79.05
-============= Update 7 =============
-Updated price for Banana to 160.36
-Updated price for Billionz to 272.32
-============= Update 8 =============
-Updated price for BCD to 259.62
-============= Update 9 =============
-============= Update 10 =============
-Updated price for Banana to 153.95
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2d5f19147820b3cf"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Konsequenzen">Konsequenzen<a class="anchor-link" href="#Konsequenzen">¶</a></h3><ul>
-<li>Die Lösung implementiert die Grundanforderungen</li>
-<li>Änderung des Ausgabeformats nur durch Änderung des <code>StockMarket</code></li>
-<li>Keine einfache Möglichkeit, Clients hinzuzufügen oder zu entfernen</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=7ac807392252f09b"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Probleme">Probleme<a class="anchor-link" href="#Probleme">¶</a></h3><ul>
-<li>Verletzung des Single Responsibility Principle/hohe Kohäsion</li>
-<li>Verletzung des Open-Closed-Prinzips</li>
-<li>Hohe Kopplung (an alle Clients)</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ec33dabadaabf13b"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Observer">Observer<a class="anchor-link" href="#Observer">¶</a></h2><h3 id="Zweck">Zweck<a class="anchor-link" href="#Zweck">¶</a></h3><ul>
-<li>1:n Beziehung zwischen Objekten</li>
-<li>Automatische Benachrichtigung aller abhängigen Objekte bei Zustandsänderung</li>
-</ul>
-<h3 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h3><ul>
-<li>Konsistenz zwischen zusammenhängenden Objekten erhalten</li>
-<li>Dabei aber lose Kopplung erhalten</li>
-<li>Ein <em>Subject</em> kann beliebig viele <em>Observers</em> haben</li>
-<li><em>Observer</em> werden automatisch über Änderungen am <em>Subject</em> benachrichtigt</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=16c5595e834e4af5"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Klassendiagramm-mit-Observer">Klassendiagramm mit Observer<a class="anchor-link" href="#Klassendiagramm-mit-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/stock_example.png" style="display:block;margin:auto;width:90%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=a134ffcce6bcb9ca">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">StockObserver</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="s2">"Stock"</span><span class="p">]):</span> <span class="o">...</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=3a3b6c80060c6899">
-<div class="input">
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-<div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">StockMarket</span><span class="p">:</span>
     <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-    <span class="n">price_dist_mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">price_dist_stddev</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span>
-    <span class="n">observers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">observers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">StockObserver</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">add_stock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stock</span><span class="p">:</span> <span class="n">Stock</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_notify_observers</span><span class="p">([</span><span class="n">stock</span><span class="p">])</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">update_prices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">stocks_to_update</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_select_stocks_to_update</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_update_prices_for</span><span class="p">(</span><span class="n">stocks_to_update</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_notify_observers</span><span class="p">(</span><span class="n">stocks_to_update</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_stock_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">stock</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="n">stock</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">new_price</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_notify_observers</span><span class="p">([</span><span class="n">stock</span><span class="p">])</span>
+                <span class="k">return</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Stock </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> not found"</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_select_stocks_to_update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]:</span>
-        <span class="n">num_stocks_to_update</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-        <span class="k">return</span> <span class="n">sample</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="p">,</span> <span class="n">num_stocks_to_update</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">StockObserver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_update_prices_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]):</span>
-        <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="p">:</span>
-            <span class="n">change_percent</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price_dist_mean</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">price_dist_stddev</span><span class="p">)</span>
-            <span class="n">stock</span><span class="o">.</span><span class="n">price</span> <span class="o">*=</span> <span class="n">change_percent</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">attach_observer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">StockObserver</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">StockObserver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_notify_observers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]):</span>
-        <span class="k">for</span> <span class="n">weak_observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
-            <span class="n">observer</span> <span class="o">=</span> <span class="n">weak_observer</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">observer</span><span class="p">:</span>
-                <span class="n">observer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">stocks</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
+            <span class="n">observer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">stocks</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=34b8a72dcc5bf397">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=070a93dc77216c42">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PrintingStockObserver</span><span class="p">(</span><span class="n">StockObserver</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PrintingStockObserver </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> received update:"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -13429,633 +13251,509 @@ Updated price for Banana to 153.95
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=8abc94b68c61f334">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RisingStockObserver</span><span class="p">(</span><span class="n">StockObserver</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">old_prices</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"RisingStockObserver </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> received update:"</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="p">:</span>
-            <span class="n">old_price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">old_prices</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">stock</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">stock</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="n">old_price</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">old_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">old_prices</span><span class="p">[</span><span class="n">stock</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="o">.</span><span class="n">price</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=489cf5952bdc48e1">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span> <span class="o">=</span> <span class="n">StockMarket</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=3c29e3361682004e">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">printing_observer</span> <span class="o">=</span> <span class="n">PrintingStockObserver</span><span class="p">(</span><span class="s2">"PrintingObserver"</span><span class="p">)</span>
-<span class="n">rising_observer</span> <span class="o">=</span> <span class="n">RisingStockObserver</span><span class="p">(</span><span class="s2">"RisingObserver"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=02f22e7b120fe2dd">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">printing_observer</span><span class="p">)</span>
-<span class="n">market</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">rising_observer</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=7010ff79a53836d8">
-<div class="input">
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Banana"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">))</span>
-<span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Billionz"</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">))</span>
-<span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Macrosoft"</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">))</span>
-<span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"BCD"</span><span class="p">,</span> <span class="mf">400.0</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>PrintingStockObserver PrintingObserver received update:
-  Banana: 100.00
-RisingStockObserver RisingObserver received update:
-  Banana: -inf -&gt; 100.00
-PrintingStockObserver PrintingObserver received update:
-  Billionz: 200.00
-RisingStockObserver RisingObserver received update:
-  Billionz: -inf -&gt; 200.00
-PrintingStockObserver PrintingObserver received update:
-  Macrosoft: 300.00
-RisingStockObserver RisingObserver received update:
-  Macrosoft: -inf -&gt; 300.00
-PrintingStockObserver PrintingObserver received update:
-  BCD: 400.00
-RisingStockObserver RisingObserver received update:
-  BCD: -inf -&gt; 400.00
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=a78a2a7c76a75409">
-<div class="input">
-<div class="prompt input_prompt">In [16]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"============= Update </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> ============="</span><span class="p">)</span>
-    <span class="n">market</span><span class="o">.</span><span class="n">update_prices</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>============= Update 1 =============
-PrintingStockObserver PrintingObserver received update:
-  Macrosoft: 408.34
-  Banana: 72.58
-RisingStockObserver RisingObserver received update:
-  Macrosoft: 300.00 -&gt; 408.34
-============= Update 2 =============
-PrintingStockObserver PrintingObserver received update:
-  Billionz: 245.37
-  BCD: 399.70
-RisingStockObserver RisingObserver received update:
-  Billionz: 200.00 -&gt; 245.37
-============= Update 3 =============
-PrintingStockObserver PrintingObserver received update:
-  Macrosoft: 635.63
-  BCD: 422.64
-RisingStockObserver RisingObserver received update:
-  Macrosoft: 408.34 -&gt; 635.63
-  BCD: 399.70 -&gt; 422.64
-============= Update 4 =============
-PrintingStockObserver PrintingObserver received update:
-  Billionz: 199.32
-  Macrosoft: 594.94
-RisingStockObserver RisingObserver received update:
-============= Update 5 =============
-PrintingStockObserver PrintingObserver received update:
-  Billionz: 228.02
-  Macrosoft: 420.54
-RisingStockObserver RisingObserver received update:
-  Billionz: 199.32 -&gt; 228.02
-============= Update 6 =============
-PrintingStockObserver PrintingObserver received update:
-  BCD: 440.61
-  Billionz: 189.47
-RisingStockObserver RisingObserver received update:
-  BCD: 422.64 -&gt; 440.61
-============= Update 7 =============
-PrintingStockObserver PrintingObserver received update:
-  Macrosoft: 444.31
-  Banana: 85.87
-RisingStockObserver RisingObserver received update:
-  Macrosoft: 420.54 -&gt; 444.31
-  Banana: 72.58 -&gt; 85.87
-============= Update 8 =============
-PrintingStockObserver PrintingObserver received update:
-  Macrosoft: 144.69
-  Billionz: 93.76
-RisingStockObserver RisingObserver received update:
-============= Update 9 =============
-PrintingStockObserver PrintingObserver received update:
-  Billionz: 83.23
-  BCD: -14.51
-RisingStockObserver RisingObserver received update:
-============= Update 10 =============
-PrintingStockObserver PrintingObserver received update:
-  BCD: -9.27
-  Billionz: 85.57
-RisingStockObserver RisingObserver received update:
-  BCD: -14.51 -&gt; -9.27
-  Billionz: 83.23 -&gt; 85.57
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=ae5b601f40e2afc2">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">printing_observer</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=46562e20031b3756">
-<div class="input">
-<div class="prompt input_prompt">In [18]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"============= Update </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> ============="</span><span class="p">)</span>
-    <span class="n">market</span><span class="o">.</span><span class="n">update_prices</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>============= Update 1 =============
-RisingStockObserver RisingObserver received update:
-  Banana: 85.87 -&gt; 120.65
-  BCD: -9.27 -&gt; -6.93
-============= Update 2 =============
-RisingStockObserver RisingObserver received update:
-============= Update 3 =============
-RisingStockObserver RisingObserver received update:
-  BCD: -6.93 -&gt; -4.92
-  Macrosoft: 89.39 -&gt; 92.52
-============= Update 4 =============
-RisingStockObserver RisingObserver received update:
-  Billionz: 36.40 -&gt; 45.84
-============= Update 5 =============
-RisingStockObserver RisingObserver received update:
-  Billionz: 45.84 -&gt; 56.87
-  BCD: -5.19 -&gt; -4.53
-============= Update 6 =============
-RisingStockObserver RisingObserver received update:
-============= Update 7 =============
-RisingStockObserver RisingObserver received update:
-  BCD: -4.53 -&gt; -4.31
-============= Update 8 =============
-RisingStockObserver RisingObserver received update:
-  Macrosoft: 70.53 -&gt; 78.90
-============= Update 9 =============
-RisingStockObserver RisingObserver received update:
-  Banana: 120.65 -&gt; 123.83
-============= Update 10 =============
-RisingStockObserver RisingObserver received update:
-  BCD: -4.31 -&gt; -3.89
-  Billionz: 34.65 -&gt; 35.68
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=d8ace39736c27e29"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=9d75bb93dba5f0b9"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Anwendbarkeit">Anwendbarkeit<a class="anchor-link" href="#Anwendbarkeit">¶</a></h3><ul>
-<li>Ein Objekt muss andere Objekte benachrichtigen, ohne Details zu kennen</li>
-<li>Eine Änderung in einem Objekt führt zu Änderungen in (beliebig vielen)
-anderen Objekten</li>
-<li>Eine Abstraktion hat zwei Aspekte, wobei einer vom anderen abhängt</li>
+<h2 id="Problem:-Lebenszeit-von-Observern">Problem: Lebenszeit von Observern<a class="anchor-link" href="#Problem:-Lebenszeit-von-Observern">¶</a></h2><ul>
+<li>Was passiert, wenn ein Observer gelöscht wird?</li>
+<li>Der Publisher hält noch eine Referenz auf den Observer</li>
+<li>Der Observer wird nicht vom Garbage Collector entfernt</li>
+<li><code>_notify_observers()</code> ruft <code>update()</code> auf einem "gelöschten" Observer auf</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=990f7cdb4ee438c3"><div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=beed8bfb0655e4bd">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span> <span class="o">=</span> <span class="n">StockMarket</span><span class="p">()</span>
+<span class="n">observer1</span> <span class="o">=</span> <span class="n">PrintingStockObserver</span><span class="p">(</span><span class="s2">"Observer-1"</span><span class="p">)</span>
+<span class="n">observer2</span> <span class="o">=</span> <span class="n">PrintingStockObserver</span><span class="p">(</span><span class="s2">"Observer-2"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=b2be4e1453ca320f">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+<span class="n">market</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=adf60c676a8b00d7">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Banana"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[Observer-1]
+  Banana: 100.00
+[Observer-2]
+  Banana: 100.00
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=82d57c7aada474bf">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">observer1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=8737eb26034628b7">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">update_stock_price</span><span class="p">(</span><span class="s2">"Banana"</span><span class="p">,</span> <span class="mf">110.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[Observer-1]
+  Banana: 110.00
+[Observer-2]
+  Banana: 110.00
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2df66d77a89e6546"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><code>del observer1</code> entfernt nur die lokale Variable</li>
+<li><code>StockMarket</code> hält weiterhin eine Referenz</li>
+<li>Der Observer wird weiterhin benachrichtigt!</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=73823daee66ca337"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="L%C3%B6sung-1:-Explizites-Detach">Lösung 1: Explizites Detach<a class="anchor-link" href="#L%C3%B6sung-1:-Explizites-Detach">¶</a></h2><ul>
+<li>Observer muss vor dem Löschen explizit entfernt werden</li>
+<li><code>market.detach(observer)</code> entfernt die Referenz</li>
+<li>Einfach, aber fehleranfällig (Aufrufer kann das Detach vergessen)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=fb6a34856f64dfc8"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="L%C3%B6sung-2:-Weak-References">Lösung 2: Weak References<a class="anchor-link" href="#L%C3%B6sung-2:-Weak-References">¶</a></h2><ul>
+<li><code>weakref.ref()</code> erzeugt eine schwache Referenz</li>
+<li>Verhindert nicht, dass der Garbage Collector das Objekt entfernt</li>
+<li>Aufruf der Referenz gibt das Objekt oder <code>None</code> zurück</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=67d113b26df8cb6a">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">weakref</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=5bdc617eab990494">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">PrintingStockObserver</span><span class="p">(</span><span class="s2">"Test"</span><span class="p">)</span>
+<span class="n">weak</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=f91fe20aa8d9640d">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">weak</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;__main__.PrintingStockObserver at 0x1d76f423250&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=c0c5f7172f8e5967">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">obj</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=d2f253d406ff3df9">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">weak</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;__main__.PrintingStockObserver at 0x1d76f423250&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=92792b21529134f7">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">weak</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=7a30504933e43392"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="StockMarket-mit-Weak-References">StockMarket mit Weak References<a class="anchor-link" href="#StockMarket-mit-Weak-References">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=07dc6c14f3e861f2">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">StockMarket</span><span class="p">:</span>
+    <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">observers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_stock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stock</span><span class="p">:</span> <span class="n">Stock</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_notify_observers</span><span class="p">([</span><span class="n">stock</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_stock_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">stock</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="n">stock</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">new_price</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_notify_observers</span><span class="p">([</span><span class="n">stock</span><span class="p">])</span>
+                <span class="k">return</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Stock </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> not found"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">StockObserver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">StockObserver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span> <span class="k">if</span> <span class="n">o</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">observer</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_notify_observers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">weak_observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
+            <span class="n">observer</span> <span class="o">=</span> <span class="n">weak_observer</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">observer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">observer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">stocks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=dada82ac8e7ac40e">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span> <span class="o">=</span> <span class="n">StockMarket</span><span class="p">()</span>
+<span class="n">observer1</span> <span class="o">=</span> <span class="n">PrintingStockObserver</span><span class="p">(</span><span class="s2">"Observer-1"</span><span class="p">)</span>
+<span class="n">observer2</span> <span class="o">=</span> <span class="n">PrintingStockObserver</span><span class="p">(</span><span class="s2">"Observer-2"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=9039c845b506f555">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+<span class="n">market</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=fc3e5bd5e5d1f881">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Banana"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[Observer-1]
+  Banana: 100.00
+[Observer-2]
+  Banana: 100.00
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=b1464590d0a33300">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">observer1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=7b0dc0a687f2381c">
+<div class="input">
+<div class="prompt input_prompt">In [22]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">update_stock_price</span><span class="p">(</span><span class="s2">"Banana"</span><span class="p">,</span> <span class="mf">110.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[Observer-2]
+  Banana: 110.00
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e572c274d132daa3"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Nach <code>del observer1</code> wird der Observer automatisch entfernt</li>
+<li>Nur Observer-2 wird noch benachrichtigt</li>
+<li>Kein explizites <code>detach()</code> nötig</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0a385aab76093551"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Pull-Observer">Pull Observer<a class="anchor-link" href="#Pull-Observer">¶</a></h2><ul>
+<li>Alternative zum Push Observer</li>
+<li>Publisher benachrichtigt ohne Daten: <code>update()</code> ohne Parameter</li>
+<li>Observer fragt den Publisher nach dem aktuellen Zustand</li>
+<li>Observer hält eine Referenz auf den Publisher</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=06d74cd3c4d2c702"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Struktur:-Pull-Observer">Struktur: Pull Observer<a class="anchor-link" href="#Struktur:-Pull-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_observer_pull.png" style="display:block;margin:auto;width:100%"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ccc3ddb3c50772fc"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2aae7b7a25e7ca8b"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Observer-(Verhaltensmuster)">Observer (Verhaltensmuster)<a class="anchor-link" href="#Observer-(Verhaltensmuster)">¶</a></h2><h3 id="Teilnehmer">Teilnehmer<a class="anchor-link" href="#Teilnehmer">¶</a></h3><ul>
-<li><code>Subject</code><ul>
-<li>kennt seine Observer. Jede Anzahl von Observern kann ein Subject
-beobachten</li>
-<li>stellt eine Schnittstelle zum Hinzufügen und Entfernen von Observern
-bereit</li>
-</ul>
-</li>
-<li><code>Observer</code><ul>
-<li>definiert eine Aktualisierungs-Schnittstelle für Objekte, die über
-Änderungen eines Subjects informiert werden sollen</li>
-</ul>
-</li>
-</ul>
+<h3 id="Interaktion:-Pull-Observer">Interaktion: Pull Observer<a class="anchor-link" href="#Interaktion:-Pull-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_observer_pull_seq.png" style="display:block;margin:auto;width:65%"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=4b9b61060e7cc28d"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=981c01debf113a74"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>ConcreteSubject</code><ul>
-<li>Speichert den Zustand, der für <code>ConcreteObserver</code>-Objekte von Interesse
-ist</li>
-<li>Sendet eine Benachrichtigung an seine Observer, wenn sich sein Zustand
-ändert</li>
-</ul>
-</li>
-<li><code>ConcreteObserver</code><ul>
-<li>Kann eine Referenz auf ein <code>ConcreteSubject</code>-Objekt halten</li>
-<li>Speichert Zustand, der mit dem des Subjects konsistent bleiben soll</li>
-<li>Implementiert die <code>Observer</code>-Aktualisierungs-Schnittstelle, um seinen
-Zustand mit dem des Subjects konsistent zu halten</li>
-</ul>
-</li>
-</ul>
+<h2 id="Pull-Observer:-Implementierung">Pull Observer: Implementierung<a class="anchor-link" href="#Pull-Observer:-Implementierung">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=86b4616e3d056a7d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Interaktionen:-Pull-Observer">Interaktionen: Pull Observer<a class="anchor-link" href="#Interaktionen:-Pull-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_observer_pull_seq.png" style="display:block;margin:auto;width:65%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=be025a9811a4cd82"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Zusammenarbeit">Zusammenarbeit<a class="anchor-link" href="#Zusammenarbeit">¶</a></h3><ul>
-<li><code>ConcreteSubject</code> benachrichtigt seine Observer über Änderungen in seinem
-Zustand</li>
-<li>Nachdem ein <code>ConcreteObserver</code> über eine Änderung im <code>ConcreteSubject</code>
-informiert wurde, holt es den neuen Zustand vom Subjekt</li>
-<li><code>ConcreteObserver</code> verwendet diese Informationen, um seinen Zustand mit dem
-des Subjects in Einklang zu bringen</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2f96fe6433f307fb"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Struktur:-Push-Observer">Struktur: Push Observer<a class="anchor-link" href="#Struktur:-Push-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_observer_push.png" style="display:block;margin:auto;width:100%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=315948864b60e63d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Interaktion:-Push-Observer">Interaktion: Push Observer<a class="anchor-link" href="#Interaktion:-Push-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_observer_push_seq.png" style="display:block;margin:auto;width:65%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=f822f4a7a35a7b37"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Konsequenzen">Konsequenzen<a class="anchor-link" href="#Konsequenzen">¶</a></h3><ul>
-<li><code>Subject</code> und <code>Observer</code> können unabhängig voneinander<ul>
-<li>variiert werden</li>
-<li>wiederverwendet werden</li>
-</ul>
-</li>
-<li>Hinzufügen neuer <code>Observer</code> ohne Änderungen am <code>Subject</code></li>
-<li>Abstrakte Kopplung zwischen <code>Subject</code> und <code>Observer</code></li>
-<li>Unterstützung für Broadcast-Kommunikation</li>
-<li>Unerwartete Updates</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=d9caf78f47e11d9e"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Praxisbeispiele">Praxisbeispiele<a class="anchor-link" href="#Praxisbeispiele">¶</a></h3><ul>
-<li>Event-Listener in Benutzeroberflächen</li>
-</ul>
-<h3 id="Verwandte-Patterns">Verwandte Patterns<a class="anchor-link" href="#Verwandte-Patterns">¶</a></h3><ul>
-<li>Mediator: Durch die Kapselung komplexer Update-Semantik fungiert der
-<code>ChangeManager</code> als Mediator zwischen Subjects und Observers</li>
-<li>Singleton: ...</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=5e43526bff6224d1"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Mini-Workshop:-Produktion-von-Werkst%C3%BCcken">Mini-Workshop: Produktion von Werkstücken<a class="anchor-link" href="#Mini-Workshop:-Produktion-von-Werkst%C3%BCcken">¶</a></h2><p>In einem Produktionssystem wollen Sie verschiedene andere Systeme
-benachrichtigen, wenn Sie ein Werkstück erzeugt haben. Dabei sollen diese
-Systeme vom konkreten Produzenten unabhängig sein und auch der Produzent
-keine (statische) Kenntnis über die benachrichtigten Systeme haben.</p>
-<p>Implementieren Sie ein derartiges System mit dem Observer-Muster.
-Implementieren Sie dazu einen konkreten Observer <code>PrintingObserver</code>, der den
-Zustand des beobachteten Objekts ausgibt.</p>
-<p><em>Hinweis:</em> Sie können das System sowohl mit Pull- als auch mit Push-Observern
-implementieren. Es ist eine gute Übung, wenn Sie beide Varianten
-implementieren und vergleichen.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=58eeb990a16dd49c">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>  <span class="c1"># noqa: E402</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=ca1ba25b9a4f8dba">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PullObserver</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span>
-
-    <span class="nd">@property</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> <span class="o">...</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=8e8016e4f1ccc41a">
-<div class="input">
-<div class="prompt input_prompt">In [21]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">weakref</span>  <span class="c1"># noqa</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=a86406432ea26610">
-<div class="input">
-<div class="prompt input_prompt">In [22]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PullSubject</span><span class="p">:</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">PullObserver</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">print_observers</span><span class="p">(</span><span class="s2">"after attaching"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">PullObserver</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span> <span class="k">if</span> <span class="n">o</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">observer</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">print_observers</span><span class="p">(</span><span class="s2">"after detaching"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">print_observers</span><span class="p">(</span><span class="s2">"before notifying"</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">weak_observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
-            <span class="n">observer</span> <span class="o">=</span> <span class="n">weak_observer</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">observer</span><span class="p">:</span>
-                <span class="n">observer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">print_observers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Observers </span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2"> are:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">weak_observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
-            <span class="n">observer</span> <span class="o">=</span> <span class="n">weak_observer</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">observer</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" Observer-</span><span class="si">{</span><span class="n">observer</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">" Observer-&lt;deleted&gt;"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=ce3b1e090cd79256">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=ba0f5f7d2d375047">
 <div class="input">
 <div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PrintingPullObserver</span><span class="p">(</span><span class="n">PullObserver</span><span class="p">):</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">id_</span> <span class="o">=</span> <span class="n">id_</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="p">:</span> <span class="n">PullSubject</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">observer_state</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Observer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">: Observing </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Old observer state is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">observer_state</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">observer_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  New observer state is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">observer_state</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">attach_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="n">PullSubject</span><span class="p">):</span>
-        <span class="n">subject</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="n">subject</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">detach_from_subject</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="kc">None</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PullStockObserver</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=161485d661b46e51">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=3d5cca005e773ea9">
 <div class="input">
 <div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PullProducer</span><span class="p">(</span><span class="n">PullSubject</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PullStockMarket</span><span class="p">:</span>
+    <span class="n">stocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">observers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">PullStockObserver</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">available_items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_stock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stock</span><span class="p">:</span> <span class="n">Stock</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_notify_observers</span><span class="p">()</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">produce_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">available_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_stock_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">stock</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="n">stock</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">new_price</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_notify_observers</span><span class="p">()</span>
+                <span class="k">return</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Stock </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> not found"</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">available_items</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_stocks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Stock</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">PullStockObserver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">PullStockObserver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_notify_observers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
+            <span class="n">observer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=c975ad5c1f5cdf9f">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=f544b21cfa1b414a">
 <div class="input">
 <div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">PullProducer</span><span class="p">()</span>
-<span class="n">o1</span> <span class="o">=</span> <span class="n">PrintingPullObserver</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">o1</span><span class="o">.</span><span class="n">attach_to</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="n">o2</span> <span class="o">=</span> <span class="n">PrintingPullObserver</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">o2</span><span class="o">.</span><span class="n">attach_to</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PrintingPullObserver</span><span class="p">(</span><span class="n">PullStockObserver</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">market</span><span class="p">:</span> <span class="s2">"PullStockMarket"</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">market</span> <span class="o">=</span> <span class="n">market</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">stocks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">market</span><span class="o">.</span><span class="n">get_stocks</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">stock</span><span class="o">.</span><span class="n">price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Observers after attaching are: Observer-1
-Observers after attaching are: Observer-1 Observer-2
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=757bba69ea8665ae">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=473e29cab149c814">
 <div class="input">
 <div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pull_market</span> <span class="o">=</span> <span class="n">PullStockMarket</span><span class="p">()</span>
+<span class="n">pull_observer</span> <span class="o">=</span> <span class="n">PrintingPullObserver</span><span class="p">(</span><span class="s2">"PullPrinter"</span><span class="p">,</span> <span class="n">pull_market</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Observers before notifying are: Observer-1 Observer-2
-Observer 1: Observing &lt;__main__.PullProducer object at 0x000002DB91A05940&gt;.
-  Old observer state is [].
-  New observer state is [1].
-Observer 2: Observing &lt;__main__.PullProducer object at 0x000002DB91A05940&gt;.
-  Old observer state is [].
-  New observer state is [1].
-Observers before notifying are: Observer-1 Observer-2
-Observer 1: Observing &lt;__main__.PullProducer object at 0x000002DB91A05940&gt;.
-  Old observer state is [1].
-  New observer state is [1, 2].
-Observer 2: Observing &lt;__main__.PullProducer object at 0x000002DB91A05940&gt;.
-  Old observer state is [1].
-  New observer state is [1, 2].
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=31e3ccdad469741e">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=57862492a9b943f1">
 <div class="input">
 <div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">o1</span><span class="o">.</span><span class="n">detach_from_subject</span><span class="p">()</span>
-<span class="n">p</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pull_market</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">pull_observer</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Observers after detaching are: Observer-2
-Observers before notifying are: Observer-2
-Observer 2: Observing &lt;__main__.PullProducer object at 0x000002DB91A05940&gt;.
-  Old observer state is [1, 2].
-  New observer state is [1, 2, 3].
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=1e2a7145c2f2f29a">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=89b363005a40cc4e">
 <div class="input">
 <div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">o1</span><span class="o">.</span><span class="n">attach_to</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="k">del</span> <span class="n">o2</span>
-<span class="n">p</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pull_market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Banana"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">))</span>
+<span class="n">pull_market</span><span class="o">.</span><span class="n">add_stock</span><span class="p">(</span><span class="n">Stock</span><span class="p">(</span><span class="s2">"Billionz"</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -14065,180 +13763,223 @@ Observer 2: Observing &lt;__main__.PullProducer object at 0x000002DB91A05940&gt;
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Observers after attaching are: Observer-2 Observer-1
-Observers before notifying are: Observer-&lt;deleted&gt; Observer-1
-Observer 1: Observing &lt;__main__.PullProducer object at 0x000002DB91A05940&gt;.
-  Old observer state is [1, 2].
-  New observer state is [1, 2, 3, 4].
+<pre>[PullPrinter]
+  Banana: 100.00
+[PullPrinter]
+  Banana: 100.00
+  Billionz: 200.00
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=9e6365c27177dc22">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=2a851d0cf4e425c7">
 <div class="input">
 <div class="prompt input_prompt">In [29]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PushObserver</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span> <span class="o">...</span>
-
-    <span class="nd">@property</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> <span class="o">...</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pull_market</span><span class="o">.</span><span class="n">update_stock_price</span><span class="p">(</span><span class="s2">"Banana"</span><span class="p">,</span> <span class="mf">105.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PullPrinter]
+  Banana: 105.00
+  Billionz: 200.00
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=1ecc29d8b809556a">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=1e12cf9fed60fab2"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Push-vs.-Pull:-Vergleich">Push vs. Pull: Vergleich<a class="anchor-link" href="#Push-vs.-Pull:-Vergleich">¶</a></h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Push</th>
+<th>Pull</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Datenfluss</strong></td>
+<td>Publisher → Subscriber</td>
+<td>Subscriber ← Publisher</td>
+</tr>
+<tr>
+<td><strong><code>update()</code></strong></td>
+<td>Erhält Daten als Parameter</td>
+<td>Keine Parameter</td>
+</tr>
+<tr>
+<td><strong>Abhängigkeit</strong></td>
+<td>Subscriber kennt Publisher nicht</td>
+<td>Subscriber kennt Publisher</td>
+</tr>
+<tr>
+<td><strong>Flexibilität</strong></td>
+<td>Alle Subscriber erhalten gleiche Daten</td>
+<td>Jeder Subscriber wählt seine Daten</td>
+</tr>
+<tr>
+<td><strong>Einfachheit</strong></td>
+<td>Einfacher zu implementieren</td>
+<td>Komplexere Abhängigkeiten</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f3a81bc2a768af42"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Wann-welche-Variante?">Wann welche Variante?<a class="anchor-link" href="#Wann-welche-Variante?">¶</a></h3><ul>
+<li><strong>Push</strong> bevorzugen, wenn:<ul>
+<li>Die relevanten Daten für alle Subscriber gleich sind</li>
+<li>Subscriber den Publisher nicht kennen sollen (lose Kopplung)</li>
+<li>Event-basierte Systeme (UI, Messaging)</li>
+</ul>
+</li>
+<li><strong>Pull</strong> bevorzugen, wenn:<ul>
+<li>Verschiedene Subscriber unterschiedliche Daten brauchen</li>
+<li>Der Gesamtzustand sehr groß ist</li>
+<li>Subscriber nur an bestimmten Teilen des Zustands interessiert sind</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=8d4defd9c408848a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Mini-Workshop:-Pull-Observer">Mini-Workshop: Pull Observer<a class="anchor-link" href="#Mini-Workshop:-Pull-Observer">¶</a></h2><p>Refaktorieren Sie das Produktionssystem aus dem vorherigen Workshop
+(Push Observer) zu einem Pull Observer:</p>
+<ul>
+<li><code>ItemObserver.update()</code> hat keinen Parameter</li>
+<li><code>Producer</code> hat eine Methode <code>get_last_item()</code>, die das zuletzt erzeugte
+Item zurückgibt</li>
+<li><code>PrintingObserver</code> hält eine Referenz auf den <code>Producer</code> und ruft
+<code>get_last_item()</code> in <code>update()</code> auf</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=3fcf2b644c82cc8e">
 <div class="input">
 <div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PushSubject</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">PushObserver</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">print_observers</span><span class="p">(</span><span class="s2">"after attaching"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">PushObserver</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span> <span class="k">if</span> <span class="n">o</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">observer</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">print_observers</span><span class="p">(</span><span class="s2">"after detaching"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">print_observers</span><span class="p">(</span><span class="s2">"before notifying"</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">weak_observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
-            <span class="n">observer</span> <span class="o">=</span> <span class="n">weak_observer</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">observer</span><span class="p">:</span>
-                <span class="n">observer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">print_observers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Observers </span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2"> are:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">weak_observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
-            <span class="n">observer</span> <span class="o">=</span> <span class="n">weak_observer</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">observer</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" Observer-</span><span class="si">{</span><span class="n">observer</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">" Observer-&lt;deleted&gt;"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Item</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">serial_number</span><span class="p">:</span> <span class="nb">int</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=a34f18a72c0530de">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=f8c0af9f6395d624">
 <div class="input">
 <div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PrintingPushObserver</span><span class="p">(</span><span class="n">PushObserver</span><span class="p">):</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">id_</span> <span class="o">=</span> <span class="n">id_</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Observer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Received item </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PullItemObserver</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=d0959663381810ab">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=c79f10f4d3c29ed3">
 <div class="input">
 <div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PushProducer</span><span class="p">(</span><span class="n">PushSubject</span><span class="p">):</span>
-
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PullProducer</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">available_items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">PullItemObserver</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">produce_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">available_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">PullItemObserver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">PullItemObserver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_last_item</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Item</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_item</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_notify_observers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
+            <span class="n">observer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">produce_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">serial_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_item</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">serial_number</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_notify_observers</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=381c4d0a5dc99acd">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=e5c1c547d959f04d">
 <div class="input">
 <div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">PushProducer</span><span class="p">()</span>
-<span class="n">o1</span> <span class="o">=</span> <span class="n">PrintingPushObserver</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
-<span class="n">o2</span> <span class="o">=</span> <span class="n">PrintingPushObserver</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">o2</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PullPrintingObserver</span><span class="p">(</span><span class="n">PullItemObserver</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">producer</span><span class="p">:</span> <span class="n">PullProducer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">producer</span> <span class="o">=</span> <span class="n">producer</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">producer</span><span class="o">.</span><span class="n">get_last_item</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Produced: </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (#</span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">serial_number</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Observers after attaching are: Observer-1
-Observers after attaching are: Observer-1 Observer-2
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=78457328d908517a">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=48f0b1b60c8aa9db">
 <div class="input">
 <div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pull_producer</span> <span class="o">=</span> <span class="n">PullProducer</span><span class="p">()</span>
+<span class="n">pull_printer</span> <span class="o">=</span> <span class="n">PullPrintingObserver</span><span class="p">(</span><span class="n">pull_producer</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Observers before notifying are: Observer-1 Observer-2
-Observer 1
-  Received item 1.
-Observer 2
-  Received item 1.
-Observers before notifying are: Observer-1 Observer-2
-Observer 1
-  Received item 2.
-Observer 2
-  Received item 2.
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=86f643b45a95f251">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=96258af0d4352c52">
 <div class="input">
 <div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">detach</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pull_producer</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">pull_printer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=5be91e93b52419a2">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pull_producer</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="s2">"Widget"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -14248,24 +13989,19 @@ Observer 2
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Observers after detaching are: Observer-2
-Observers before notifying are: Observer-2
-Observer 2
-  Received item 3.
+<pre>Produced: Widget (#1)
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=d88e8e648ca279dc">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=565ca6af8356ca66">
 <div class="input">
-<div class="prompt input_prompt">In [36]:</div>
+<div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
-<span class="k">del</span> <span class="n">o2</span>
-<span class="n">p</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pull_producer</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="s2">"Gadget"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -14275,10 +14011,29 @@ Observer 2
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Observers after attaching are: Observer-2 Observer-1
-Observers before notifying are: Observer-&lt;deleted&gt; Observer-1
-Observer 1
-  Received item 4.
+<pre>Produced: Gadget (#2)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=00eb90b986703993">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pull_producer</span><span class="o">.</span><span class="n">produce_item</span><span class="p">(</span><span class="s2">"Gizmo"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Produced: Gizmo (#3)
 </pre>
 </div>
 </div>
