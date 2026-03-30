@@ -39,28 +39,26 @@ class StockMarket:
 
     def add_stock(self, stock: Stock):
         self.stocks.append(stock)
-        self._print_stocks([stock])
-        self._print_rising_stocks([stock])
+        self._print_stock(stock)
+        self._print_rising_stock(stock)
 
     def update_stock_price(self, name: str, new_price: float):
         for stock in self.stocks:
             if stock.name == name:
                 stock.price = new_price
-                self._print_stocks([stock])
-                self._print_rising_stocks([stock])
+                self._print_stock(stock)
+                self._print_rising_stock(stock)
                 return
         raise ValueError(f"Stock {name!r} not found")
 
-    def _print_stocks(self, stocks: list[Stock]):
-        for stock in stocks:
-            print(f"  {stock.name}: {stock.price:.2f}")
+    def _print_stock(self, stock: Stock):
+        print(f"  {stock.name}: {stock.price:.2f}")
 
-    def _print_rising_stocks(self, stocks: list[Stock]):
-        for stock in stocks:
-            old_price = self.old_prices.get(stock.name, float("-inf"))
-            if stock.price > old_price:
-                print(f"  RISING: {stock.name}: {old_price:.2f} -> {stock.price:.2f}")
-            self.old_prices[stock.name] = stock.price
+    def _print_rising_stock(self, stock: Stock):
+        old_price = self.old_prices.get(stock.name, float("-inf"))
+        if stock.price > old_price:
+            print(f"  RISING: {stock.name}: {old_price:.2f} -> {stock.price:.2f}")
+        self.old_prices[stock.name] = stock.price
 
 
 # %%
@@ -135,7 +133,7 @@ from abc import ABC, abstractmethod
 # %%
 class StockObserver(ABC):
     @abstractmethod
-    def update(self, stocks: list[Stock]): ...
+    def update(self, stock: Stock): ...
 
 
 # %%
@@ -146,13 +144,13 @@ class StockMarket:
 
     def add_stock(self, stock: Stock):
         self.stocks.append(stock)
-        self._notify_observers([stock])
+        self._notify_observers(stock)
 
     def update_stock_price(self, name: str, new_price: float):
         for stock in self.stocks:
             if stock.name == name:
                 stock.price = new_price
-                self._notify_observers([stock])
+                self._notify_observers(stock)
                 return
         raise ValueError(f"Stock {name!r} not found")
 
@@ -162,9 +160,9 @@ class StockMarket:
     def detach(self, observer: StockObserver):
         self.observers.remove(observer)
 
-    def _notify_observers(self, stocks: list[Stock]):
+    def _notify_observers(self, stock: Stock):
         for observer in self.observers:
-            observer.update(stocks)
+            observer.update(stock)
 
 
 # %%
@@ -172,10 +170,8 @@ class PrintingStockObserver(StockObserver):
     def __init__(self, name: str):
         self.name = name
 
-    def update(self, stocks: list[Stock]):
-        print(f"[{self.name}]")
-        for stock in stocks:
-            print(f"  {stock.name}: {stock.price:.2f}")
+    def update(self, stock: Stock):
+        print(f"[{self.name}] {stock.name}: {stock.price:.2f}")
 
 
 # %%
@@ -184,14 +180,13 @@ class RisingStockObserver(StockObserver):
         self.name = name
         self.old_prices: dict[str, float] = {}
 
-    def update(self, stocks: list[Stock]):
-        for stock in stocks:
-            old_price = self.old_prices.get(stock.name, float("-inf"))
-            if stock.price > old_price:
-                print(
-                    f"[{self.name}] {stock.name}: {old_price:.2f} -> {stock.price:.2f}"
-                )
-            self.old_prices[stock.name] = stock.price
+    def update(self, stock: Stock):
+        old_price = self.old_prices.get(stock.name, float("-inf"))
+        if stock.price > old_price:
+            print(
+                f"[{self.name}] {stock.name}: {old_price:.2f} -> {stock.price:.2f}"
+            )
+        self.old_prices[stock.name] = stock.price
 
 
 # %%
@@ -290,7 +285,8 @@ market.update_stock_price("Banana", 90.0)
 # - Event-Listener in Benutzeroberflächen (z.B. JavaScript `addEventListener`)
 # - Django Signals
 # - Message Broker (z.B. RabbitMQ, Kafka)
-# - Reactive Programming (z.B. RxPY)
+
+# %% [markdown]
 #
 # ### Verwandtes Pattern
 #
