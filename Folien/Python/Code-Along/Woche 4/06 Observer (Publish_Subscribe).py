@@ -34,16 +34,16 @@ class Stock:
 # %%
 @dataclass
 class StockMarket:
-    stocks: list[Stock] = field(default_factory=list)
-    old_prices: dict[str, float] = field(default_factory=dict)
+    _stocks: list[Stock] = field(default_factory=list)
+    _old_prices: dict[str, float] = field(default_factory=dict)
 
     def add_stock(self, stock: Stock):
-        self.stocks.append(stock)
+        self._stocks.append(stock)
         self._print_stock(stock)
         self._print_rising_stock(stock)
 
     def update_stock_price(self, name: str, new_price: float):
-        for stock in self.stocks:
+        for stock in self._stocks:
             if stock.name == name:
                 stock.price = new_price
                 self._print_stock(stock)
@@ -55,10 +55,10 @@ class StockMarket:
         print(f"  {stock.name}: {stock.price:.2f}")
 
     def _print_rising_stock(self, stock: Stock):
-        old_price = self.old_prices.get(stock.name, float("-inf"))
+        old_price = self._old_prices.get(stock.name, float("-inf"))
         if stock.price > old_price:
             print(f"  RISING: {stock.name}: {old_price:.2f} -> {stock.price:.2f}")
-        self.old_prices[stock.name] = stock.price
+        self._old_prices[stock.name] = stock.price
 
 
 # %%
@@ -139,16 +139,16 @@ class StockObserver(ABC):
 # %%
 @dataclass
 class StockMarket:
-    stocks: list[Stock] = field(default_factory=list)
-    old_prices: dict[str, float] = field(default_factory=dict)
+    _stocks: list[Stock] = field(default_factory=list)
+    _old_prices: dict[str, float] = field(default_factory=dict)
 
     def add_stock(self, stock: Stock):
-        self.stocks.append(stock)
+        self._stocks.append(stock)
         self._print_stock(stock)
         self._print_rising_stock(stock)
 
     def update_stock_price(self, name: str, new_price: float):
-        for stock in self.stocks:
+        for stock in self._stocks:
             if stock.name == name:
                 stock.price = new_price
                 self._print_stock(stock)
@@ -157,13 +157,13 @@ class StockMarket:
         raise ValueError(f"Stock {name!r} not found")
 
     def _print_stock(self, stock: Stock):
-        print(f"  {stock.name}: {stock.price:.2f}")
+        print(f"UPDATE: {stock.name}: {stock.price:.2f}")
 
     def _print_rising_stock(self, stock: Stock):
-        old_price = self.old_prices.get(stock.name, float("-inf"))
+        old_price = self._old_prices.get(stock.name, float("-inf"))
         if stock.price > old_price:
-            print(f"  RISING: {stock.name}: {old_price:.2f} -> {stock.price:.2f}")
-        self.old_prices[stock.name] = stock.price
+            print(f"RISING: {stock.name}: {old_price:.2f} -> {stock.price:.2f}")
+        self._old_prices[stock.name] = stock.price
 
 
 # %%
