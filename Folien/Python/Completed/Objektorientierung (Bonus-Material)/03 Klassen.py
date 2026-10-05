@@ -10,13 +10,12 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
+#
 # # Benutzerdefinierte Datentypen
 #
 # Wir wollen uns jetzt der Definition von benutzerdefinierten Datentypen (Klassen)
 # zuwenden:
-
 
 # %%
 class PointV0:
@@ -62,7 +61,7 @@ p1 == p2
 # man die `.`-Notation statt der Indexing Notation `[]`:
 
 # %%
-# Möglich, aber nicht gut... / Possible but not good...
+# Possible but not good...
 p1.x = 1.0
 p1.y = 2.0
 print(p1.x)
@@ -143,7 +142,6 @@ print_point("p2", p2)
 #
 # Definieren Sie eine Klasse `Kfz`, deren Instanzen Kraftfahrzeuge beschreiben.
 # Jedes KFZ soll Attribute `hersteller` und `kennzeichen` haben.
-
 
 # %%
 class Kfz:

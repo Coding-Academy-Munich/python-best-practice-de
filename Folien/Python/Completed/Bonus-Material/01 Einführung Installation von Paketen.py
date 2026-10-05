@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Pakete in Python
@@ -71,12 +70,12 @@
 # %%
 # !python -c "import sys; print(sys.version)"
 
-
 # %% [markdown]
 #
 # ### Beispiel: Installation des Pakets `pyfiglet`
 
 # %% [markdown]
+#
 # ```shell
 # pip install pyfiglet
 # pyfiglet "Hello World!"
@@ -174,7 +173,6 @@
 #
 # - Installiert `requests` und `fastapi` in den angegebenen Versionen
 
-
 # %% [markdown]
 #
 # ## Installation von Paketen
@@ -250,7 +248,6 @@
 # pip freeze > requirements.txt
 # deactivate
 # ```
-
 
 # %% [markdown]
 #

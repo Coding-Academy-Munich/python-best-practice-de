@@ -10,8 +10,8 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
+#
 # ## Properties
 #
 # Wie können wir es ermöglichen auf einen Punkt sowohl mittels der `x` und
@@ -72,6 +72,7 @@ assert p.y == 2.0
 assert p.get_radius() == 2.0
 assert isclose(p.get_angle(), pi / 2)
 
+
 # %% [markdown]
 #
 # Es ist unschön, dass bei der Verwendung von `GeoPointV0` die Attribute `x` und `y`
@@ -81,8 +82,8 @@ assert isclose(p.get_angle(), pi / 2)
 
 # %%
 
-
 # %% [markdown]
+#
 # ## Properties mit `@property`
 #
 # Der `@property`-Dekorator erlaubt es uns, Methoden wie Attribute zu verwenden.
@@ -138,6 +139,7 @@ assert p.y == 2.0
 assert p.radius == 2.0
 assert isclose(p.angle, pi / 2)
 
+
 # %% [markdown]
 #
 # ## Schreibgeschützte Attribute
@@ -175,6 +177,7 @@ class Circle:
 # %%
 
 # %% [markdown]
+#
 # ## Workshop: Buchinformation
 #
 # Erstellen Sie eine Klasse `Book`, die Informationen über ein Buch verwaltet:
@@ -191,4 +194,5 @@ class Circle:
 # %%
 
 # %%
+
 # %%

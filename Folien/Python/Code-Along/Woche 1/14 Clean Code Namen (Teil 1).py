@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Namen
@@ -22,7 +21,6 @@
 # Namen sind ein mächtiges Kommunikationsmittel.
 # - Sie sind überall im Programm zu finden
 # - Sie verbinden den Code mit Domänen-Konzepten.
-
 
 # %%
 def foo(a: float, b: float) -> float:
@@ -147,7 +145,6 @@ game.get_flagged_cells()
 # - Kommuniziert die Intention (ist "intention revealing")
 #
 # Gute Namen sind schwer zu finden!
-
 
 # %% [markdown]
 #

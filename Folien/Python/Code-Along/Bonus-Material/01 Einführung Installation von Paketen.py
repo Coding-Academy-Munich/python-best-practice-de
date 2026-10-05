@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Pakete in Python
@@ -68,7 +67,6 @@
 # %%
 
 # %%
-
 
 # %% [markdown]
 #
@@ -163,7 +161,6 @@
 #   ```
 #
 # - Installiert `requests` und `fastapi` in den angegebenen Versionen
-
 
 # %% [markdown]
 #

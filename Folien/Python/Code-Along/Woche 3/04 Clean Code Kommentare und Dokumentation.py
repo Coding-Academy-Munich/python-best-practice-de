@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Docstrings
@@ -26,7 +25,6 @@
 # haben. Öffentliche Methoden (einschließlich des `__init__` Konstruktors)
 # sollten auch docstrings haben. Ein Package kann im Modul-Docstring der Datei
 # `__init__.py` im Package-Verzeichnis dokumentiert werden.
-
 
 # %% [markdown]
 #
@@ -110,7 +108,6 @@ DAYS_OF_WORK = 4
 SECONDS_PER_DAY = 60 * 60 * 24
 duration_in_seconds = SECONDS_PER_DAY * DAYS_OF_WORK
 
-
 # %% [markdown]
 #
 # ## Wie Kommentare scheitern
@@ -121,6 +118,7 @@ duration_in_seconds = SECONDS_PER_DAY * DAYS_OF_WORK
 # - Sie werden nicht verschoben, wenn der Code verschoben wird
 
 # %% [markdown]
+#
 # ```python
 # # Check to see if the employee is eligible for full benefits
 # if (employee.flags & HOURLY_FLAG) and (employee.age > 65):
@@ -151,7 +149,6 @@ duration_in_seconds = SECONDS_PER_DAY * DAYS_OF_WORK
 # - Python-Coder aus nicht englischsprachigen Ländern: Bitte schreibe deine
 #   Kommentare auf Englisch, es sei denn, du bist 120% sicher, dass der Code
 #   niemals von Leuten gelesen wird, die deine Sprache nicht sprechen.
-
 
 # %% [markdown]
 #
@@ -327,7 +324,6 @@ def some_function(x, y):
 # def some_function(x, y):
 #     return x + y
 
-
 # %%
 def some_other_function(x, y):
     # z = x + y
@@ -355,7 +351,6 @@ def some_other_function(x, y):
 #     at least 11 before plugging in the guitar.
 #   </li>
 # </ul>
-
 
 # %%
 # **Important:**

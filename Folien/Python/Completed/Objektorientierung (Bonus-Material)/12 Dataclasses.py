@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # - Definition von Klassen ist in Python recht einfach
@@ -58,7 +57,6 @@ p
 
 # %%
 p == Point(1, 2)
-
 
 # %% [markdown]
 #
@@ -171,7 +169,6 @@ def list_factory():
 # %%
 list_factory()
 
-
 # %%
 list_factory
 
@@ -192,7 +189,6 @@ list
 # %%
 list() is list()
 
-
 # %%
 from dataclasses import dataclass, field
 
@@ -212,7 +208,6 @@ d1.items.append(1234)
 print(d1)
 print(d2)
 
-
 # %% [markdown]
 #
 # Bei Python Versionen 3.10 und früher funktioniert der Test auf unveränderliche
@@ -223,7 +218,6 @@ print(d2)
 # @dataclass
 # class BadDefault:
 #     point: Point3D = Point3D(0.0, 0.0)
-
 
 # %%
 # bd1 = BadDefault()
@@ -273,6 +267,7 @@ class ShoppingListItem:
 
 
 # %% [markdown]
+#
 # Erzeugen sie ein `ShoppingListItem`, das 2 Pakete Kaffee zu je Eur 6.99 repräsentiert:
 
 # %%
@@ -434,7 +429,6 @@ meine_einkaufsliste = ShoppingList(
     [ShoppingListItem("Tee", 1.99, 2), ShoppingListItem("Kaffee", 6.99)]
 )
 
-
 # %%
 print(meine_einkaufsliste)
 
@@ -501,7 +495,6 @@ class ShoppingList:
 meine_einkaufsliste = ShoppingList(
     [ShoppingListItem("Tee", 1.99, 2), ShoppingListItem("Kaffee", 6.99)]
 )
-
 
 # %%
 print(meine_einkaufsliste)
@@ -582,7 +575,6 @@ meine_einkaufsliste = ShoppingList(
     ]
 )
 
-
 # %%
 print(meine_einkaufsliste)
 
@@ -615,6 +607,7 @@ meine_einkaufsliste.add_item(ShoppingListItem("Brot", 7.49))
 meine_einkaufsliste
 
 # %% [markdown]
+#
 # Drucken Sie die Einkaufsliste nochmal aus.
 
 # %%
@@ -634,6 +627,7 @@ print(meine_einkaufsliste)
 
 
 # %% [markdown]
+#
 # *Diskussion:* Wie könnte das Verhalten der Klasse verbessert werden?
 
 # %%
@@ -684,7 +678,6 @@ meine_einkaufsliste = ShoppingList(
         ShoppingListItem("Tea", 2.99, 1),
     ]
 )
-
 
 # %%
 meine_einkaufsliste.add_item(ShoppingListItem("Tee", 1.99, 2))

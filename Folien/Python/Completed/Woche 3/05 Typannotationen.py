@@ -9,7 +9,8 @@
 #
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
-
+#
+#
 
 # %% [markdown]
 #
@@ -44,6 +45,7 @@ repeat_string("abc", 3)
 # %%
 repeat_string(3, 4.0)
 
+
 # %% [markdown]
 #
 # ## Vorteile von Typannotationen
@@ -51,7 +53,6 @@ repeat_string(3, 4.0)
 # - Dokumentation
 # - Typprüfung durch externe Tools
 # - Verbesserte Code-Vervollständigung in IDEs
-
 
 # %% [markdown]
 #
@@ -71,7 +72,6 @@ repeat_string(3, 4.0)
 # "abcabcabc"
 # ```
 
-
 # %%
 def repeat(s: str, n: int) -> str:
     return s * n
@@ -79,7 +79,6 @@ def repeat(s: str, n: int) -> str:
 
 # %%
 repeat("abc", 3)
-
 
 # %% [markdown]
 #

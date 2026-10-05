@@ -9,7 +9,8 @@
 #
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
-
+#
+#
 
 # %% [markdown]
 #
@@ -443,7 +444,6 @@ my_pc_v4 = create_computer_v4(COMPUTER_TYPE_PC)
 my_mac_v4 = create_computer_v4(COMPUTER_TYPE_MAC)
 my_chromebook_v4 = create_computer_v4(COMPUTER_TYPE_CHROMEBOOK)
 print([my_pc_v4, my_mac_v4, my_chromebook_v4])
-
 
 # %%
 from functools import singledispatch

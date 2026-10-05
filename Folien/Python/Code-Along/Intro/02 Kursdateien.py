@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## GitHub
@@ -115,4 +114,3 @@
 #         ├── 02 Klassifizierung von Tests.ipynb
 #         └── img
 # ```
-

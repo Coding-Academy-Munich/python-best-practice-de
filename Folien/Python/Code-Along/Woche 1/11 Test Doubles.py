@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Test Doubles
@@ -125,11 +124,13 @@
 from dataclasses import dataclass
 from enum import Enum
 
+
 # %%
 class OrderStatus(Enum):
     PENDING = "pending"
     CONFIRMED = "confirmed"
     FAILED = "failed"
+
 
 # %%
 @dataclass
@@ -142,6 +143,7 @@ class OrderItem:
     def total_price(self) -> float:
         return self.quantity * self.unit_price
 
+
 # %%
 @dataclass
 class Order:
@@ -153,11 +155,13 @@ class Order:
     def total_amount(self) -> float:
         return sum(item.total_price for item in self.items)
 
+
 # %%
 @dataclass
 class OrderResult:
     status: OrderStatus
     message: str
+
 
 # %% [markdown]
 #
@@ -173,17 +177,20 @@ class InventoryService(ABC):
     def reserve_items(self, product_id: str, quantity: int) -> bool:
         ...
 
+
 # %%
 class PaymentGateway(ABC):
     @abstractmethod
     def process_payment(self, amount: float, customer_email: str) -> bool:
         ...
 
+
 # %%
 class NotificationService(ABC):
     @abstractmethod
     def send_order_confirmation(self, order: Order, customer_email: str) -> None:
         ...
+
 
 # %% [markdown]
 #

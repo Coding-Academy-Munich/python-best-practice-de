@@ -9,7 +9,8 @@
 #
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
-
+#
+#
 
 # %% [markdown]
 #
@@ -23,6 +24,7 @@
 # %%
 import math
 from math import isclose
+
 
 # %%
 class GeoPointV2:
@@ -44,6 +46,7 @@ class GeoPointV2:
             f"GeoPointV2({self.x:.1f}, {self.y:.1f}, "
             f"r={self.radius:.2f}, θ={self.angle:.2f})"
         )
+
 
 # %%
 
@@ -138,7 +141,6 @@ print(t)
 assert t.celsius == 0.0
 assert t.fahrenheit == 32.0
 assert t.kelvin == 273.15
-
 
 # %% [markdown]
 #

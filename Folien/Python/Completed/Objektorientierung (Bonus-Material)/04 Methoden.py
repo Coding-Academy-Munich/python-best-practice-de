@@ -10,8 +10,8 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
+#
 # ## Methoden
 #
 # - Klassen können Methoden enthalten.
@@ -29,6 +29,7 @@ class MyClass:
 my_object = MyClass()
 my_object.method()
 print(repr(my_object))
+
 
 # %% [markdown]
 #
@@ -74,7 +75,6 @@ print_point(p)
 #         self.kennzeichen = kennzeichen
 # ```
 
-
 # %% [markdown]
 #
 # Erweitern Sie diese Klasse um eine Methode
@@ -82,7 +82,6 @@ print_point(p)
 # `melde_um(self, neues_kennzeichen)`,
 #
 # die das Kennzeichen des Fahrzeugs ändert.
-
 
 # %%
 class Kfz:

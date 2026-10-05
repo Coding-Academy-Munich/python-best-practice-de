@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Warum schreiben wir Tests?
@@ -51,7 +50,6 @@
 # - Tests sind Code
 # - Code ist Kredit, nicht Gespartes!
 # - Testen sollten mehr Nutzen bringen als sie kosten
-
 
 # %% [markdown]
 #
@@ -137,7 +135,6 @@ def test_order_total():
 
 # %%
 test_order_total()
-
 
 # %% [markdown]
 #

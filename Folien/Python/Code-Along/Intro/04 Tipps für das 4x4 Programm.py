@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Tipps für das 4-Wochen Programm
@@ -48,7 +47,6 @@
 # - Ohne Workshops wird es Ihnen schwerfallen, den Stoff anzuwenden
 # - Verwenden Sie die Lösungsvorschläge, wenn Sie nicht weiter wissen
 # - ... aber **nur** wenn Sie nicht weiter wissen!
-
 
 # %% [markdown]
 #

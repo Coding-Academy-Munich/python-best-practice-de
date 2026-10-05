@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # - Use Case "Spiel initialisieren"
@@ -29,6 +28,7 @@
 # ## Kandidaten
 
 # %% [markdown]
+#
 # <div style="float:left;margin:auto;padding:80px 0;width:25%">
 # <ul>
 # <li> <code>Player</code></li>
@@ -59,6 +59,7 @@
 # ## Wer ist der Informationsexperte?
 
 # %% [markdown]
+#
 # <div style="float:left;margin:auto;padding:80px 0;width:25%">
 # <ul>
 # <li> <strike><code>Player</code></strike></li>
@@ -75,7 +76,6 @@
 from dataclasses import dataclass
 import json
 from pathlib import Path
-
 
 # %%
 json_file = list(Path().glob("**/simple-locations.json"))[0]

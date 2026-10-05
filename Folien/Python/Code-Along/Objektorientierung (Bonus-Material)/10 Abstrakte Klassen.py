@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Motivation
@@ -110,6 +109,7 @@ class Worker(Employee):  # type: ignore
 # %%
 
 # %% [markdown]
+#
 # - Abstrakte Methoden können eine Implementierung haben
 # - Klassen, die von einer abstrakten Klasse erben aber nicht alle abstrakten
 #   Methoden überschreiben sind selber abstrakt.
@@ -121,9 +121,7 @@ from abc import ABC, abstractmethod
 
 # %%
 
-
 # %%
-
 
 # %%
 
@@ -142,7 +140,6 @@ from abc import ABC, abstractmethod
 #   Klasse `Shape` erben und die abstrakten Methoden implementieren.
 # - Testen Sie Ihre Implementierung mit verschiedenen Dimensionen.
 
-
 # %% [markdown]
 #
 # ### Hinweise
@@ -152,7 +149,6 @@ from abc import ABC, abstractmethod
 #   `2 * (width + height)`.
 # - Die Fläche eines Kreises berechnet sich als `π * radius ** 2`, der Umfang als
 #   `2 * π * radius`.
-
 
 # %%
 
@@ -182,4 +178,3 @@ from abc import ABC, abstractmethod
 #
 # Verbessern Sie die Lösungen der anderen Vererbungs-Workshops ebenfalls, indem
 # Sie die Basisklassen als abstrakte Klassen definieren.
-

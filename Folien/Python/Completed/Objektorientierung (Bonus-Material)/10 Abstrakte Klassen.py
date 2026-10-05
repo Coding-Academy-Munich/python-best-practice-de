@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Motivation
@@ -136,6 +135,7 @@ c
 c.monthly_expenses()
 
 # %% [markdown]
+#
 # - Abstrakte Methoden können eine Implementierung haben
 # - Klassen, die von einer abstrakten Klasse erben aber nicht alle abstrakten
 #   Methoden überschreiben sind selber abstrakt.
@@ -158,7 +158,6 @@ class MyClass(MyBase, ABC):
 
 # %%
 # mc = MyClass()
-
 
 # %%
 class YourClass(MyBase):
@@ -184,7 +183,6 @@ yc.my_method()
 #   Klasse `Shape` erben und die abstrakten Methoden implementieren.
 # - Testen Sie Ihre Implementierung mit verschiedenen Dimensionen.
 
-
 # %% [markdown]
 #
 # ### Hinweise
@@ -194,7 +192,6 @@ yc.my_method()
 #   `2 * (width + height)`.
 # - Die Fläche eines Kreises berechnet sich als `π * radius ** 2`, der Umfang als
 #   `2 * π * radius`.
-
 
 # %%
 from abc import ABC, abstractmethod
@@ -348,7 +345,6 @@ assert isclose(
     abs_tol=1e-4,
 )
 
-
 # %% [markdown]
 #
 # ## Workshop: Bessere Versionen der bisherigen Aufgaben
@@ -361,4 +357,3 @@ assert isclose(
 #
 # Verbessern Sie die Lösungen der anderen Vererbungs-Workshops ebenfalls, indem
 # Sie die Basisklassen als abstrakte Klassen definieren.
-

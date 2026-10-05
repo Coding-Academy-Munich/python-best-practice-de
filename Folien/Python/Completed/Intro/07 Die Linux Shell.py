@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Die Shell auf Linux
@@ -22,7 +21,6 @@
 #   [hier](https://docs.anaconda.com/free/anaconda/install/linux/) weitere
 #   Informationen
 # - Die meisten Linux Systeme verwenden die Bash Shell
-
 
 # %% [markdown]
 #
@@ -44,6 +42,15 @@
 # - Information über den Benutzer, Computer und das aktuelle Verzeichnis
 # - `$` zeigt an, dass Sie jetzt Kommandos eingeben können
 #   - `root`-Benutzer: `#` statt `$`
+
+# %% [markdown]
+#
+# ## Starten von Programmen
+#
+# - Mit Namen des Programms:
+#   - `code` für Visual Studio Code (falls installiert)
+#   - `python` für den Python Interpreter
+#   - `ipython` für einen komfortableren Python Interpreter
 
 # %% [markdown]
 #
@@ -69,7 +76,6 @@
 # - Pfade mit Leerzeichen müssen in Anführungszeichen eingeschlossen werden:
 # - cd '/home/test user/'
 
-
 # %% [markdown]
 #
 # ## Tipps zum Arbeiten mit Pfaden
@@ -86,4 +92,3 @@
 #
 # - Die Kommandozeile bietet viel mehr Features als wir besprochen haben
 # - Aber für das, was wir in diesem Kurs machen wollen, wissen wir genug
-

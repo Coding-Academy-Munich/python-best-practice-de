@@ -10,16 +10,14 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
+#
 # # Benutzerdefinierte Datentypen
 #
 # Wir wollen uns jetzt der Definition von benutzerdefinierten Datentypen (Klassen)
 # zuwenden:
 
-
 # %%
-
 
 # %% [markdown]
 #
@@ -92,7 +90,6 @@
 
 # %%
 
-
 # %% [markdown]
 #
 # # Kraftfahrzeuge (Teil 1)
@@ -100,9 +97,7 @@
 # Definieren Sie eine Klasse `Kfz`, deren Instanzen Kraftfahrzeuge beschreiben.
 # Jedes KFZ soll Attribute `hersteller` und `kennzeichen` haben.
 
-
 # %%
-
 
 # %% [markdown]
 #

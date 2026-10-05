@@ -9,7 +9,8 @@
 #
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
-
+#
+#
 
 # %% [markdown]
 #
@@ -23,6 +24,7 @@
 # %%
 import math
 from math import isclose
+
 
 # %%
 class GeoPointV2:
@@ -109,6 +111,7 @@ assert p_origin.x == 0.0
 assert p_origin.y == 0.0
 assert p_origin.radius == 0.0
 
+
 # %% [markdown]
 #
 # ## Workshop: Temperatur-Konverter
@@ -168,6 +171,7 @@ class Temperature:
 
     def __repr__(self):
         return f"Temperature(celsius={self._celsius:.2f})"
+
 
 # %%
 t = Temperature(100, "C")

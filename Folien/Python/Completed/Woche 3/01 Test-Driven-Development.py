@@ -9,7 +9,8 @@
 #
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
-
+#
+#
 
 # %% [markdown]
 #
@@ -51,14 +52,12 @@
 # - Durch Refactoring wird das Design des Programms in kleinen Schritten verbessert
 # - Die Korrektheit dieser Schritte wird durch Tests abgesichert
 
-
 # %% [markdown]
 #
 # ## So what???
 #
 # <img src="img/dev-velocity.png"
 #      style="display:block;margin:auto;width:70%"/>
-
 
 # %% [markdown]
 #
@@ -74,7 +73,6 @@
 #     sind, kann man das Design durch Refactoring permanent an das aktuelle Feature-Set
 #     anpassen
 
-
 # %% [markdown]
 #
 # ## Der TDD-Zyklus
@@ -89,7 +87,6 @@
 #   - Entferne die unsauberen Konstrukte, die im vorhergehenden Schritt eingefügt wurden
 #   - Generalisiere die Implementierung, wenn zu viel Wiederholung entstanden ist
 #   - **Dieser Schritt ist nicht optional!!!**
-
 
 # %% [markdown]
 #

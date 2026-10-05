@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # (Anaconda) Powershell
@@ -18,7 +17,6 @@
 # - Im Startmenü unter `Anaconda3 (64-bit)` zu finden
 # - Verwenden Sie die Anaconda-Variante der Powershell
 #   - Nur diese Version hat Zugriff auf die von Anaconda installierten Programme
-
 
 # %% [markdown]
 #
@@ -71,4 +69,3 @@
 #
 # - Die Kommandozeile bietet viel mehr Features als wir besprochen haben
 # - Aber für das, was wir in diesem Kurs machen wollen, wissen wir genug
-

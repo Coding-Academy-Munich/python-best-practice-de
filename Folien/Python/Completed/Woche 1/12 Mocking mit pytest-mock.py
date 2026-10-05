@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Mocking-Frameworks
@@ -152,6 +151,7 @@ class InventoryService(ABC):
     @abstractmethod
     def reserve_items(self, product_id: str, quantity: int) -> bool:
         ...
+
 
 # %%
 mock_inventory = Mock(spec=InventoryService)

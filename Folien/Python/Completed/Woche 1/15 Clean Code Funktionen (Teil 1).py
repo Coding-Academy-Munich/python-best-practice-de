@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Clean Code: Funktionen
@@ -202,12 +201,12 @@ def process_order(order_id: str) -> None:  # type: ignore
     # Benachrichtige den Kunden mit den Lieferdetails
     pass
 
+
 # %% [markdown]
 #
 # ## Funktionen als "Um-Zu"-Absätze
 #
 # Wir können die "Um-Zu"-Absätze auch gleich als Funktionsaufrufe schreiben:
-
 
 # %%
 def process_user_registration(username: str, password: str, email: str) -> None:
@@ -215,6 +214,7 @@ def process_user_registration(username: str, password: str, email: str) -> None:
     user = create_new_user(username, password, email)
     send_confirmation_email(user)
     log_successful_registration(user)
+
 
 # %% [markdown]
 #
@@ -239,7 +239,6 @@ def process_user_registration(username: str, password: str, email: str) -> None:
 #
 # *Tipp:* Beginnen Sie damit, die Variablen gemäß den Kommentaren umzubenennen,
 # um den Rest der Arbeit zu vereinfachen.
-
 
 # %%
 # Name der Wochentage

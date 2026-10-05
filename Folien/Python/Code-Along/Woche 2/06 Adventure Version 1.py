@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # Wie fangen wir an?
@@ -35,6 +34,7 @@
 # Hier ist noch einmal der relevante Teil des Domänenmodells:
 
 # %% [markdown]
+#
 # <img src="img/adv-domain-03-small.svg"
 #      style="display:block;margin:auto;width:80%"/>
 
@@ -43,6 +43,7 @@
 # ## Statisches Designmodell
 
 # %% [markdown]
+#
 # <img src="img/adv-world-cd-01.svg"
 #      style="display:block;margin:auto;width:50%"/>
 
@@ -57,7 +58,6 @@ from dataclasses import dataclass
 
 # %%
 
-
 # %% [markdown]
 #
 # ### Kurzer Exkurs zu Properties
@@ -69,7 +69,6 @@ from dataclasses import dataclass
 # %%
 
 # %%
-
 
 # %% [markdown]
 #
@@ -147,4 +146,3 @@ class Location:
 # - Speicherung des initialen Ortsnamens
 
 # %%
-

@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Beispiel: Adventure-Game
@@ -35,22 +34,27 @@
 # ## Domänenmodell: Statische Struktur
 
 # %% [markdown]
+#
 # <img src="img/adv-domain-00a.svg"
 #      style="display:block;margin:auto;width:50%"/>
 
 # %% [markdown]
+#
 # <img src="img/adv-domain-00.svg"
 #      style="display:block;margin:auto;width:50%"/>
 
 # %% [markdown]
+#
 # <img src="img/adv-domain-01.svg"
 #      style="display:block;margin:auto;width:50%"/>
 
 # %% [markdown]
+#
 # <img src="img/adv-domain-02.svg"
 #      style="display:block;margin:auto;width:50%"/>
 
 # %% [markdown]
+#
 # <img src="img/adv-domain-03.svg"
 #      style="display:block;margin:auto;width:50%"/>
 

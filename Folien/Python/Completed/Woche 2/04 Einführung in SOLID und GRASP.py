@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # SOLID: Einführung
@@ -54,4 +53,3 @@
 # - Im Kontext von zwei Beispielen
 #   - Ein einfaches Adventure-Spiel (in den Videos)
 #   - Ein Bibliotheksverwaltungssystem (in den Workshops)
-

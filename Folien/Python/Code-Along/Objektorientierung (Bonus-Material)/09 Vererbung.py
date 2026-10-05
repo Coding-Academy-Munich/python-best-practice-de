@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 #  ## Vererbung
@@ -51,7 +50,6 @@ p
 p.randomize()
 p
 
-
 # %% [markdown]
 #
 # Wie können wir farbige Punkte einführen, ohne die komplette Funktionalität
@@ -63,7 +61,6 @@ p
 cp = ColorPoint(2, 3)
 assert isinstance(cp, Point)
 # cp
-
 
 # %%
 assert cp.x == 2.0
@@ -81,7 +78,6 @@ assert cp.color == "red"
 # %%
 cp.move(2, 3)
 # cp
-
 
 # %%
 assert cp.x == 4.0
@@ -153,6 +149,7 @@ cp.randomize()
 # %%
 
 # %% [markdown]
+#
 # Testen Sie die Funktionalität der `Manager` Klasse.
 
 # %%
@@ -213,12 +210,13 @@ cp.randomize()
 # %%
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Auto-Objekt und testen Sie seine Methoden.
 
 # %%
 
-
 # %% [markdown]
+#
 # Erzeugen Sie ein Fahrrad-Objekt und testen Sie seine Methoden.
 
 # %%
@@ -265,7 +263,6 @@ cp.randomize()
 # %%
 import math
 
-
 # %%
 
 # %%
@@ -273,11 +270,13 @@ import math
 # %%
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Rechteck-Objekt und testen Sie seine Methoden.
 
 # %%
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Kreis-Objekt und testen Sie seine Methoden.
 
 # %%
@@ -323,11 +322,13 @@ import math
 # %%
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Sparkonto-Objekt und testen Sie seine Methoden.
 
 # %%
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Girokonto-Objekt und testen Sie seine Methoden.
 
 # %%

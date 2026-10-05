@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Test Doubles
@@ -84,17 +83,20 @@
 # %%
 from abc import ABC, abstractmethod
 
+
 # %%
 class DataSource(ABC):
     @abstractmethod
     def get_value(self) -> int:
         ...
 
+
 # %%
 class DataSink(ABC):
     @abstractmethod
     def set_value(self, value: int) -> None:
         ...
+
 
 # %%
 class Processor:
@@ -105,6 +107,7 @@ class Processor:
     def process(self) -> None:
         value = self.source.get_value()
         self.sink.set_value(value)
+
 
 # %%
 class DataSourceStub(DataSource):
@@ -119,6 +122,7 @@ class DataSinkSpy(DataSink):
 
     def set_value(self, value: int) -> None:
         self.values.append(value)
+
 
 # %%
 def test_processor():
@@ -164,11 +168,13 @@ test_processor()
 from dataclasses import dataclass
 from enum import Enum
 
+
 # %%
 class OrderStatus(Enum):
     PENDING = "pending"
     CONFIRMED = "confirmed"
     FAILED = "failed"
+
 
 # %%
 @dataclass
@@ -181,6 +187,7 @@ class OrderItem:
     def total_price(self) -> float:
         return self.quantity * self.unit_price
 
+
 # %%
 @dataclass
 class Order:
@@ -192,11 +199,13 @@ class Order:
     def total_amount(self) -> float:
         return sum(item.total_price for item in self.items)
 
+
 # %%
 @dataclass
 class OrderResult:
     status: OrderStatus
     message: str
+
 
 # %% [markdown]
 #
@@ -212,17 +221,20 @@ class InventoryService(ABC):
     def reserve_items(self, product_id: str, quantity: int) -> bool:
         ...
 
+
 # %%
 class PaymentGateway(ABC):
     @abstractmethod
     def process_payment(self, amount: float, customer_email: str) -> bool:
         ...
 
+
 # %%
 class NotificationService(ABC):
     @abstractmethod
     def send_order_confirmation(self, order: Order, customer_email: str) -> None:
         ...
+
 
 # %% [markdown]
 #
@@ -276,6 +288,7 @@ class OrderProcessor:
 
         return OrderResult(OrderStatus.CONFIRMED, "Order processed successfully")
 
+
 # %% [markdown]
 #
 # ### Workshop-Aufgabe
@@ -308,6 +321,7 @@ class InventoryServiceStub(InventoryService):
     def reserve_items(self, product_id: str, quantity: int) -> bool:
         return self.reservation_success
 
+
 # %%
 class PaymentGatewayStub(PaymentGateway):
     def __init__(self, payment_success: bool = True):
@@ -315,6 +329,7 @@ class PaymentGatewayStub(PaymentGateway):
 
     def process_payment(self, amount: float, customer_email: str) -> bool:
         return self.payment_success
+
 
 # %%
 class NotificationServiceSpy(NotificationService):
@@ -327,6 +342,7 @@ class NotificationServiceSpy(NotificationService):
     @property
     def confirmation_count(self) -> int:
         return len(self.confirmations_sent)
+
 
 # %% [markdown]
 #
@@ -354,8 +370,10 @@ def test_process_order_success():
     assert notifications.confirmation_count == 1
     print("Test passed!")
 
+
 # %%
 test_process_order_success()
+
 
 # %% [markdown]
 #
@@ -384,8 +402,10 @@ def test_process_order_insufficient_stock():
     assert notifications.confirmation_count == 0
     print("Test passed!")
 
+
 # %%
 test_process_order_insufficient_stock()
+
 
 # %% [markdown]
 #
@@ -413,6 +433,7 @@ def test_process_order_payment_failed():
     assert "Payment failed" in result.message
     assert notifications.confirmation_count == 0
     print("Test passed!")
+
 
 # %%
 test_process_order_payment_failed()

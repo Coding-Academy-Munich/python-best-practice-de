@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Welche Form hat ein Unit Test?
@@ -20,7 +19,6 @@
 # - Assert / Then
 
 # %%
-
 
 # %% [markdown]
 #
@@ -123,6 +121,7 @@ my_stack.push(5)
 # %%
 assert my_stack._items == [5]  # noqa <- This might tell you something :)
 
+
 # %% [markdown]
 #
 # ## Teste kleine Einheiten (bei Unit-Tests)
@@ -146,7 +145,6 @@ assert my_stack._items == [5]  # noqa <- This might tell you something :)
 # - Aber: zu viele oder komplexe Test Doubles machen Tests unübersichtlich
 #   - Was wird von einem Test eigentlich getestet?
 
-
 # %% [markdown]
 #
 # ## Typischer Einsatz von Test Doubles
@@ -166,7 +164,6 @@ assert my_stack._items == [5]  # noqa <- This might tell you something :)
 #
 # Ausnahme: Testen von Protokollen
 
-
 # %% [markdown]
 #
 # ### Funktionen/Werte
@@ -175,8 +172,8 @@ assert my_stack._items == [5]  # noqa <- This might tell you something :)
 def add(x, y):
     return x + y
 
-# %%
 
+# %%
 
 # %% [markdown]
 #
@@ -198,7 +195,6 @@ class Adder:
 # %%
 
 # %%
-
 
 # %% [markdown]
 #
@@ -224,6 +220,7 @@ class AdderSpy:
         self.args = (x, y)
         return x + y
 
+
 # %%
 
 # %%
@@ -248,7 +245,6 @@ class AdderSpy:
 #   - Hohe Kohäsion
 #   - Geringe Kopplung, Management von Abhängigkeiten
 # - Etc.
-
 
 # %% [markdown]
 #
@@ -295,7 +291,6 @@ for i in range(3):
 
 # %%
 from enum import Enum
-
 
 class State(Enum):
     OFF = 0

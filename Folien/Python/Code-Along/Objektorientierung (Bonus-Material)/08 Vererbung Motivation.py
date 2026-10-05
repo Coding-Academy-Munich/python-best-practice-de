@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 #  ## Motivation für Vererbung
@@ -104,7 +103,6 @@ assert cp.color == "red"
 cp.move(2, 3)
 # cp
 
-
 # %%
 assert cp.x == 4.0
 assert cp.y == 6.0
@@ -126,7 +124,6 @@ isinstance(Point(0, 0), Point)
 
 # %%
 isinstance(ColorPoint(0, 0), Point)
-
 
 # %%
 build_rectangle(ColorPoint(0, 0), ColorPoint(1, 1))

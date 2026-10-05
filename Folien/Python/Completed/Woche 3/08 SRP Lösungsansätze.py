@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Ein Änderungsgrund?
@@ -158,7 +157,6 @@ class BookDatabaseV1:
 book_v1 = BookV1("Clean Code", "Robert C. Martin", 464)
 book_printer_v1 = BookPrinterV1()
 book_database_v1 = BookDatabaseV1()
-
 
 # %%
 book_printer_v1.print(book_v1)

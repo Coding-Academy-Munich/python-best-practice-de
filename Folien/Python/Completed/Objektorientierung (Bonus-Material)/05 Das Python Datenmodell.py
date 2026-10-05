@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %%
 class Point:
     def __init__(self, x, y):
@@ -115,7 +114,6 @@ print(str(p))
 # [Python Datenmodell](https://docs.python.org/3/reference/datamodel.html)
 # in der Dokumentation.
 
-
 # %% [markdown]
 #
 # Durch Definition der Methode `__eq__()` kann das Verhalten von Tests mit `==`
@@ -156,6 +154,7 @@ p == 123
 # %%
 123 == p
 
+
 # %% [markdown]
 #
 # # Kraftfahrzeuge (Teil 3)
@@ -173,7 +172,6 @@ p == 123
 # ```
 #
 
-
 # %% [markdown]
 #
 # Verbessern Sie die Klasse `Kfz` indem Sie
@@ -183,7 +181,6 @@ p == 123
 #   Fahrzeuge vergleicht.
 #
 # Führen Sie die Beispiele mit der verbesserten Klasse aus.
-
 
 # %%
 class Kfz:
@@ -234,4 +231,3 @@ bmw
 
 # %%
 assert bmw != bmw2
-

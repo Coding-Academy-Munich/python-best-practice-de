@@ -10,8 +10,8 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
+#
 # ## Default-Argumente
 #
 # Funktionsparameter können einen Default-Wert haben.
@@ -25,6 +25,7 @@
 # %%
 
 # %% [markdown]
+#
 # ## Vorsicht mit veränderlichen Default-Argumenten
 
 # %%

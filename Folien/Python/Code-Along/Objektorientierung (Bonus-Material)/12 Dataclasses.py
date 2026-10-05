@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # - Definition von Klassen ist in Python recht einfach
@@ -56,7 +55,6 @@ p
 
 # %%
 p == Point(1, 2)
-
 
 # %% [markdown]
 #
@@ -142,7 +140,6 @@ p2
 
 # %%
 
-
 # %%
 
 # %%
@@ -158,21 +155,17 @@ p2
 
 # %%
 
-
 # %%
 from dataclasses import dataclass, field
-
 
 # %%
 # @dataclass
 # class DefaultDemo:
 #     items: list = field(default=[])
 
-
 # %%
 
 # %%
-
 
 # %% [markdown]
 #
@@ -181,7 +174,6 @@ from dataclasses import dataclass, field
 # benutzerdefinierte Typen:
 
 # %%
-
 
 # %%
 
@@ -218,6 +210,7 @@ from dataclasses import dataclass, field
 # %%
 
 # %% [markdown]
+#
 # Erzeugen sie ein `ShoppingListItem`, das 2 Pakete Kaffee zu je Eur 6.99 repräsentiert:
 
 # %%
@@ -313,7 +306,6 @@ from dataclasses import dataclass, field
 
 # %%
 
-
 # %% [markdown]
 #
 # Evaluieren Sie die Definition von `meine_einkaufsliste` erneut und
@@ -322,7 +314,6 @@ from dataclasses import dataclass, field
 # Wie sieht die Ausgabe von `repr(meine_einkaufsliste)` aus?
 
 # %%
-
 
 # %%
 
@@ -359,7 +350,6 @@ from dataclasses import dataclass, field
 
 # %%
 
-
 # %%
 
 # %%
@@ -394,7 +384,6 @@ for item in meine_einkaufsliste:
 
 # %%
 
-
 # %% [markdown]
 #
 # Fügen Sie 2 Stück Butter (à 1.59) und 1 Laib Brot (7.49) zur Einkaufsliste
@@ -403,6 +392,7 @@ for item in meine_einkaufsliste:
 # %%
 
 # %% [markdown]
+#
 # Drucken Sie die Einkaufsliste nochmal aus.
 
 # %%
@@ -417,6 +407,7 @@ for item in meine_einkaufsliste:
 # %%
 
 # %% [markdown]
+#
 # *Diskussion:* Wie könnte das Verhalten der Klasse verbessert werden?
 
 # %%

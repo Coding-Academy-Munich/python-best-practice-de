@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # - Use Case "Spiel initialisieren"
@@ -25,6 +24,7 @@
 # ## Kandidaten
 
 # %% [markdown]
+#
 # <div style="float:left;margin:auto;padding:80px 0;width:25%">
 # <ul>
 # <li> <code>Player</code></li>
@@ -55,7 +55,6 @@
 # - `A` verwendet `B` intensiv
 # - `A` hat die initialisierenden Daten, die `B` benötigt
 
-
 # %% [markdown]
 #
 # ### Bemerkung
@@ -67,6 +66,7 @@
 # ## Creator
 
 # %% [markdown]
+#
 # <div style="float:left;margin:auto;padding:80px 0;width:25%">
 # <ul>
 # <li> <strike><code>Player</code></strike></li>
@@ -78,7 +78,6 @@
 # </div>
 # <img src="img/adv-domain-03-small.svg"
 #      style="float:right;margin:auto;width:70%"/>
-
 
 # %%
 from dataclasses import dataclass

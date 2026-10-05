@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # <img src="img/velocity-tests-03.png"
@@ -65,6 +64,7 @@ class Item:
     def set_price(self, value: float) -> None:
         self.price = abs(value)
 
+
 # %%
 class Order:
     def __init__(self, *items: Item) -> None:
@@ -79,6 +79,7 @@ class Order:
     def get_total(self) -> float:
         return sum(item.get_price() for item in self.items)
 
+
 # %%
 def test_item_name():
     unit = Item("Apple", 1.0)
@@ -89,6 +90,7 @@ def test_item_name():
 
 # %%
 test_item_name()
+
 
 # %%
 def test_order_total():
@@ -104,6 +106,7 @@ def test_order_total():
 # %%
 test_order_total()
 
+
 # %%
 def test_order_output():
     unit = Order(
@@ -114,6 +117,7 @@ def test_order_output():
     print(unit)
     assert str(unit) == "Order(Item(Apple, 1.0), Item(Banana, 2.0)), total = 3.0"
     print("Success.")
+
 
 # %%
 test_order_output()
@@ -152,6 +156,7 @@ test_order_output()
 # %%
 import random
 
+
 # %%
 def test_random_bad():
     roll = random.randint(1, 2)
@@ -171,11 +176,13 @@ def test_random_better():
     assert roll == 1
     print("Success!")
 
+
 # %%
 # test_random_better()
 
 # %%
 import time
+
 
 # %%
 def test_date_bad():
@@ -186,11 +193,13 @@ def test_date_bad():
     assert unit.tm_sec % 2 == 0
     print("Success!")
 
+
 # %%
 # test_date_bad()
 
 # %%
 import datetime
+
 
 # %%
 def test_date_better():
@@ -255,6 +264,7 @@ class VeryPrivate:
 
     def divides_secret(self, value: int) -> bool:
         return value // self.__secret == 0
+
 
 # %%
 def test_very_private():

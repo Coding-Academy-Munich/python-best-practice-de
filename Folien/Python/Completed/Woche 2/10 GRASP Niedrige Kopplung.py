@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ### Aktueller Stand des Adventure-Spiels
@@ -302,6 +301,7 @@ room1["north"]
 # </ul>
 
 # %% [markdown]
+#
 # <div style="float:left;margin:auto;padding:80px 0;width:25%">
 # <p>
 #   Im Domänenmodell ist die benötigte

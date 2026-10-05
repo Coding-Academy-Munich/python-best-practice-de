@@ -10,8 +10,8 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
+#
 # ## Properties
 #
 # Wie können wir es ermöglichen auf einen Punkt sowohl mittels der `x` und
@@ -85,6 +85,7 @@ print(p.x, p.y, p.get_radius(), p.get_angle())
 
 
 # %% [markdown]
+#
 # ## Properties mit `@property`
 #
 # Der `@property`-Dekorator erlaubt es uns, Methoden wie Attribute zu verwenden.
@@ -141,6 +142,7 @@ assert p.x == 0.0
 assert p.y == 2.0
 assert p.radius == 2.0
 assert isclose(p.angle, pi / 2)
+
 
 # %% [markdown]
 #
@@ -201,6 +203,7 @@ print(f"Internal value: {c._radius}")  # We can still access _radius (by convent
 
 
 # %% [markdown]
+#
 # ## Workshop: Buchinformation
 #
 # Erstellen Sie eine Klasse `Book`, die Informationen über ein Buch verwaltet:
@@ -233,6 +236,7 @@ class Book:
     def __repr__(self):
         return f"Book(title={self.title}, author={self.author})"
 
+
 # %%
 b = Book("1984", "George Orwell")
 
@@ -241,4 +245,5 @@ print(b)  # Book(title=1984, author=George Orwell)
 print(b.citation)  # "1984" by George Orwell
 print(b.title)  # 1984
 print(b.author)  # George Orwell
+
 # %%

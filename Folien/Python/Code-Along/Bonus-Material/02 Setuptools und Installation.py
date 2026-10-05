@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Setuptools: Distribution von Python Paketen
@@ -24,7 +23,6 @@
 #   - [uv](https://docs.astral.sh/uv/)
 # - Viele dieser Tools haben zusätzliche Features, z.B. die Verwaltung von
 #   Abhängigkeiten, die Verwaltung von virtuellen Umgebungen, etc.
-
 
 # %% [markdown]
 #
@@ -52,7 +50,6 @@
 # ```
 # cookiecutter.exe https://github.com/hoelzl/trivial_python_project
 # ```
-
 
 # %% [markdown]
 #

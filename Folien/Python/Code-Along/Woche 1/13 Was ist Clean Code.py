@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Was ist Clean Code?
@@ -84,6 +83,6 @@
 
 # %% [markdown]
 #
-# *Rewriting is the essence of writing well: it’s where the game is won or lost.*
+# *Rewriting is the essence of writing well: it's where the game is won or lost.*
 #
 # (William Zinsser. On Writing Well.)

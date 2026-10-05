@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Welche Form hat ein Unit Test?
@@ -161,7 +160,6 @@ assert my_stack.pop() == 5
 # - Aber: zu viele oder komplexe Test Doubles machen Tests unübersichtlich
 #   - Was wird von einem Test eigentlich getestet?
 
-
 # %% [markdown]
 #
 # ## Typischer Einsatz von Test Doubles
@@ -180,7 +178,6 @@ assert my_stack.pop() == 5
 # - Oft stabiler gegenüber Refactorings
 #
 # Ausnahme: Testen von Protokollen
-
 
 # %% [markdown]
 #
@@ -270,6 +267,7 @@ call_fun(adder_spy)
 assert adder_spy.was_called
 assert adder_spy.args == (2, 3)
 
+
 # %% [markdown]
 #
 # ## Wie schreibt man testbaren Code?
@@ -282,7 +280,6 @@ assert adder_spy.args == (2, 3)
 #   - Hohe Kohäsion
 #   - Geringe Kopplung, Management von Abhängigkeiten
 # - Etc.
-
 
 # %% [markdown]
 #
@@ -342,7 +339,6 @@ for i in range(3):
 
 # %%
 from enum import Enum
-
 
 class State(Enum):
     OFF = 0

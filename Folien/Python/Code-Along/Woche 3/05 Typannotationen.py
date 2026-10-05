@@ -9,7 +9,8 @@
 #
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
-
+#
+#
 
 # %% [markdown]
 #
@@ -48,7 +49,6 @@ def repeat_string(string, count):  # type: ignore
 # - Typprüfung durch externe Tools
 # - Verbesserte Code-Vervollständigung in IDEs
 
-
 # %% [markdown]
 #
 # ## Mini-Workshop: Typannotationen
@@ -67,11 +67,9 @@ def repeat_string(string, count):  # type: ignore
 # "abcabcabc"
 # ```
 
-
 # %%
 
 # %%
-
 
 # %% [markdown]
 #

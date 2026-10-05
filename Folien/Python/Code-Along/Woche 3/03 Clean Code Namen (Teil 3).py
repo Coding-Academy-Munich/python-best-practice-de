@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Disinformation und sinnvolle Unterscheidungen
@@ -18,7 +17,6 @@
 # - Namen bedeuten etwas
 # - Disinformation:
 #   - Die Bedeutung des Namens impliziert etwas anderes als der Programmcode:
-
 
 # %%
 verify_configuration = False
@@ -99,7 +97,6 @@ n_transactions = 2
 #
 # - Verwende Namen, die die Bedeutung der Konzepte so klar wie möglich ausdrücken
 
-
 # %%
 a1 = "Fluffy"
 a2 = "Garfield"
@@ -123,13 +120,11 @@ from enum import IntEnum
 
 # %%
 
-
 # %% [markdown]
 #
 # ## Sinnvolle Unterscheidungen
 #
 # - Verwende denselben Namen für dasselbe Konzept
-
 
 # %%
 from pathlib import Path

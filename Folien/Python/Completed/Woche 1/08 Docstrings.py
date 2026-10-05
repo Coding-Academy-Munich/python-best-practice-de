@@ -9,7 +9,8 @@
 #
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
-
+#
+#
 
 # %% [markdown]
 #
@@ -55,10 +56,8 @@ help(my_fun)
 # %%
 # # ?my_fun
 
-
 # %%
 # # my_fun?
-
 
 # %% [markdown]
 #

@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # # Der uv Package Manager
@@ -154,7 +153,6 @@
 #   ```bash
 #   uv add "numpy>=1.20.0" "pandas>=1.3.0,<2.0.0"
 #   ```
-
 
 # %% [markdown]
 #

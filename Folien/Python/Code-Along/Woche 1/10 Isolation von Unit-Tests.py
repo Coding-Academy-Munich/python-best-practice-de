@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Unit-Test
@@ -60,8 +59,8 @@ def test_2():
     global_time = time.time() + 1000
     assert time.time() < global_time
 
-# %%
 
+# %%
 
 # %%
 

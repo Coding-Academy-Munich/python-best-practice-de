@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # Wie fangen wir an?
@@ -35,6 +34,7 @@
 # Hier ist noch einmal der relevante Teil des Domänenmodells:
 
 # %% [markdown]
+#
 # <img src="img/adv-domain-03-small.svg"
 #      style="display:block;margin:auto;width:80%"/>
 
@@ -43,6 +43,7 @@
 # ## Statisches Designmodell
 
 # %% [markdown]
+#
 # <img src="img/adv-world-cd-01.svg"
 #      style="display:block;margin:auto;width:50%"/>
 
@@ -85,7 +86,6 @@ my_location.name
 
 # %%
 # my_location.name = "Your Location"
-
 
 # %% [markdown]
 #
@@ -187,4 +187,3 @@ MySpecialLocation.from_description(simple_locations[0])
 class World:
     locations: dict[str, Location]
     initial_location_name: str
-

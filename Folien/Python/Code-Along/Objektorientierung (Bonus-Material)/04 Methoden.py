@@ -10,8 +10,8 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
+#
 # ## Methoden
 #
 # - Klassen können Methoden enthalten.
@@ -30,6 +30,7 @@ my_object = MyClass()
 my_object.method()
 print(repr(my_object))
 
+
 # %% [markdown]
 #
 # Wir können eine Methode zum Verschieben eines Punktes zu unserer `Point`
@@ -46,10 +47,10 @@ class Point:
 def print_point(p):
     print(f"Point: x = {p.x}, y = {p.y}")
 
-# %%
 
 # %%
 
+# %%
 
 # %% [markdown]
 #
@@ -64,7 +65,6 @@ def print_point(p):
 #         self.kennzeichen = kennzeichen
 # ```
 
-
 # %% [markdown]
 #
 # Erweitern Sie diese Klasse um eine Methode
@@ -72,7 +72,6 @@ def print_point(p):
 # `melde_um(self, neues_kennzeichen)`,
 #
 # die das Kennzeichen des Fahrzeugs ändert.
-
 
 # %%
 class Kfz:

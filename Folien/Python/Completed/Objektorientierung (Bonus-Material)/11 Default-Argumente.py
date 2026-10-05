@@ -10,8 +10,8 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
+#
 # ## Default-Argumente
 #
 # Funktionsparameter können einen Default-Wert haben.
@@ -32,12 +32,14 @@ say_hi("What's up", "Jane", "?")
 
 
 # %% [markdown]
+#
 # ## Vorsicht mit veränderlichen Default-Argumenten
 
 # %%
 def append_value(value, my_list=[]):
     my_list.append(value)
     return my_list
+
 
 # %%
 my_list = []

@@ -10,8 +10,8 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
+#
 # # Umwandlung in Strings
 #
 # Python bietet zwei Funktionen an, mit denen beliebige Werte in Strings umgewandelt
@@ -29,6 +29,7 @@ text = "Hallo\nWelt!"
 # %%
 
 # %% [markdown]
+#
 # Für manche Datentypen liefern `str` und `repr` den gleichen String zurück:
 
 # %%
@@ -55,7 +56,6 @@ my_list = ["a", "b", "c"]
 # In F-Strings werden Werte mit `str()` in Strings umgewandelt. Mit dem Postfix
 # `!r` kann statt dessen `repr()` verwendet werden.
 
-
 # %%
 text = "Hi,\nthere!"
 
@@ -75,6 +75,7 @@ print(f"{text!r}")
 # Welche Funktion wurde verwendet, um die folgenden Ausgaben zu erzielen?
 
 # %% [markdown]
+#
 # ```python
 # >>> my_string = "Hello, world!"
 # >>> print(???(my_string))
@@ -87,6 +88,7 @@ my_string = "Hello, world!"
 # %%
 
 # %% [markdown]
+#
 # ```python
 # >>> print(???(my_string))
 # 'Hello, world!'

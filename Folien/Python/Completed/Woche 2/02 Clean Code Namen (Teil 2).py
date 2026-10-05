@@ -10,14 +10,12 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # ## Namensregeln für Python
 #
 # Namen entsprechen den
 # [PEP-8 Konventionen](https://peps.python.org/pep-0008/#naming-conventions)
-
 
 # %% [markdown]
 #
@@ -99,7 +97,6 @@ def compute_yearly_salary(monthly_salaries):
 # %%
 compute_yearly_salary(days_per_month)  # WHAT?!?
 
-
 # %% [markdown]
 #
 # ## Vermeide Kodierungen
@@ -109,7 +106,6 @@ compute_yearly_salary(days_per_month)  # WHAT?!?
 # %%
 i_days = 12
 i_month = 3
-
 
 # %% [markdown]
 #
@@ -246,6 +242,7 @@ your_box.x = 200
 print(your_box.__dict__)
 print(your_box.x)
 
+
 # %% [markdown]
 #
 # ## Regeln für Umfang und Länge (Scope-Length Rules)
@@ -259,7 +256,6 @@ print(your_box.x)
 #
 # **Oder:** Verwende lange Namen für lange Geltungsbereiche
 
-
 # %%
 class FixedSizeOrderedCollectionIndexedByInts:
     pass
@@ -271,6 +267,7 @@ class Array:
 
 
 # %% [markdown]
+#
 # ## Mini-Workshop: Namen
 #
 # Das folgende Programm verwendet sehr schlechte Namen. Ändern Sie die Namen

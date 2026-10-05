@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 # <img src="img/velocity-tests-03.png"
@@ -65,6 +64,7 @@ class Item:
     def set_price(self, value: float) -> None:
         self.price = abs(value)
 
+
 # %%
 class Order:
     def __init__(self, *items: Item) -> None:
@@ -79,12 +79,12 @@ class Order:
     def get_total(self) -> float:
         return sum(item.get_price() for item in self.items)
 
-# %%
 
 # %%
 
 # %%
 
+# %%
 
 # %%
 
@@ -98,6 +98,7 @@ def test_order_output():
     print(unit)
     assert str(unit) == "Order(Item(Apple, 1.0), Item(Banana, 2.0)), total = 3.0"
     print("Success.")
+
 
 # %%
 

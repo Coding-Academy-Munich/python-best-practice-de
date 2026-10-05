@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 #  ## Motivation für Vererbung
@@ -84,6 +83,7 @@ class ColorPoint:
         self.y = random.gauss(3, 0.5)
         self.color = random.choice(["black", "red", "green", "blue", "yellow", "white"])
 
+
 # %%
 cp = ColorPoint(2, 3)
 # cp
@@ -104,7 +104,6 @@ assert cp.color == "red"
 # %%
 cp.move(2, 3)
 # cp
-
 
 # %%
 assert cp.x == 4.0
@@ -127,7 +126,6 @@ isinstance(Point(0, 0), Point)
 
 # %%
 isinstance(ColorPoint(0, 0), Point)
-
 
 # %%
 build_rectangle(ColorPoint(0, 0), ColorPoint(1, 1))

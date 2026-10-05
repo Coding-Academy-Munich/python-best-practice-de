@@ -10,7 +10,6 @@
 # <div style="text-align:center;">Coding-Akademie München</div>
 # <br/>
 
-
 # %% [markdown]
 #
 #  ## Vererbung
@@ -76,7 +75,6 @@ cp = ColorPoint(2, 3)
 assert isinstance(cp, Point)
 # cp
 
-
 # %%
 assert cp.x == 2.0
 assert cp.y == 3.0
@@ -93,7 +91,6 @@ assert cp.color == "red"
 # %%
 cp.move(2, 3)
 # cp
-
 
 # %%
 assert cp.x == 4.0
@@ -206,6 +203,7 @@ print(m.gehalt())
 m
 
 # %% [markdown]
+#
 # Testen Sie die Funktionalität der `Manager` Klasse.
 
 # %%
@@ -213,6 +211,7 @@ assert m.gehalt() == 95_000.0
 
 
 # %% [markdown]
+#
 # ## Lösungsvorschlag ohne Dataclasses:
 
 # %%
@@ -265,13 +264,11 @@ a = Arbeiter("Hans", 123, 36_000, 3.5, 40)
 # %%
 assert a.gehalt() == 39_140.0
 
-
 # %%
 m = Manager("Sepp", 843, 60_000, 30_000)
 
 # %%
 assert m.gehalt() == 95_000.0
-
 
 # %% [markdown]
 #
@@ -321,7 +318,6 @@ assert m.gehalt() == 95_000.0
 # %% [markdown]
 #
 # ### Lösungsvorschlag mit Dataclasses
-
 
 # %%
 from dataclasses import dataclass, field
@@ -394,6 +390,7 @@ class Fahrrad(Fahrzeug):
 
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Auto-Objekt und testen Sie seine Methoden.
 
 # %%
@@ -408,8 +405,8 @@ print(mein_auto.details())
 mein_auto.bremse(200)  # Versucht unter 0 zu gehen
 print(mein_auto.details())
 
-
 # %% [markdown]
+#
 # Erzeugen Sie ein Fahrrad-Objekt und testen Sie seine Methoden.
 
 # %%
@@ -421,6 +418,7 @@ mein_fahrrad.klingle()
 
 
 # %% [markdown]
+#
 # ### Lösungsvorschlag ohne Dataclasses
 
 # %%
@@ -598,6 +596,7 @@ import math
 
 
 # %% [markdown]
+#
 # ### Lösungsvorschlag mit Dataclasses
 
 # %%
@@ -657,6 +656,7 @@ class Kreis(Form):
 
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Rechteck-Objekt und testen Sie seine Methoden.
 
 # %%
@@ -666,6 +666,7 @@ print(f"Fläche: {mein_rechteck.flaeche():.2f}")
 print(f"Umfang: {mein_rechteck.umfang():.2f}")
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Kreis-Objekt und testen Sie seine Methoden.
 
 # %%
@@ -676,6 +677,7 @@ print(f"Umfang: {mein_kreis.umfang():.2f}")
 
 
 # %% [markdown]
+#
 # ### Lösungsvorschlag ohne Dataclasses
 
 # %%
@@ -728,7 +730,7 @@ class KreisOhneDC(FormOhneDC):
         self.radius = radius
 
     def __repr__(self):
-        return f"KreisOhneDC(name={self.name!r}, farbe={self.farbe!r}, radius={self.radius})"
+        return f"KreisOhneDC(farbe={self.farbe!r}, radius={self.radius})"
 
     def flaeche(self) -> float:
         return math.pi * self.radius**2
@@ -747,6 +749,7 @@ print(rechteck_plain_de.beschreibung())
 assert rechteck_plain_de.flaeche() == 12.0
 print(f"Fläche: {rechteck_plain_de.flaeche()}, Umfang: {rechteck_plain_de.umfang()}")
 
+# %%
 kreis_plain_de = KreisOhneDC("Gelb", 1.0)
 print(kreis_plain_de.beschreibung())
 assert kreis_plain_de.flaeche() == math.pi
@@ -788,6 +791,7 @@ print(f"Fläche: {kreis_plain_de.flaeche():.2f}, Umfang: {kreis_plain_de.umfang(
 #   - Fügen Sie eine Methode `ziehe_monatliche_gebuehr_ab(self, gebuehr)` hinzu.
 
 # %% [markdown]
+#
 # ### Lösungsvorschlag mit Dataclasses
 
 # %%
@@ -886,6 +890,7 @@ class GiroKonto(BankKonto):
 
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Sparkonto-Objekt und testen Sie seine Methoden.
 
 # %%
@@ -899,6 +904,7 @@ print(mein_sparkonto.konto_info())
 mein_sparkonto.hebe_ab(1400.0)  # Sollte fehlschlagen
 
 # %% [markdown]
+#
 # Erzeugen Sie ein Girokonto-Objekt und testen Sie seine Methoden.
 
 # %%
@@ -914,6 +920,7 @@ print(mein_girokonto.konto_info())
 
 
 # %% [markdown]
+#
 # ### Bankkonten-Lösung ohne Dataclasses
 
 # %%
